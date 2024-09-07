@@ -6,8 +6,25 @@
 
 /* -------------------- Header  -------------------- */
 
-#links, #search-collapse {
+#links, #searchbox {
     position: absolute;
     top: 8vh;
     z-index: 1;
+}
+
+#searchbox {
+    width: 100%;
+}
+
+/* ------------------------------------------------ Desktop Styles ------------------------------------------------ */
+
+@media(min-width: 992px) {
+    #links, #searchbox {
+        position: relative;
+        top: auto
+    }
+
+    #searchbox {
+        width: 25%;
+    }
 }
