@@ -16,6 +16,21 @@
     width: 100%;
 }
 
+/* -------------------- Footer  -------------------- */
+
+footer a {
+    color: #000;
+}
+
+.footer-links {
+    list-style: none;
+    font-size: 0.75em;
+}
+
+.social-links a {
+    margin: 0 5px;
+}
+
 /* ------------------------------------------------ Desktop Styles ------------------------------------------------ */
 
 @media(min-width: 992px) {
