@@ -7,6 +7,7 @@ html {
 
 body {
     background: url("../media/background.jpg") center center/cover repeat;
+    font-family: "Cabin", sans-serif;
 }
 
 .center {
@@ -45,6 +46,14 @@ header .fixed-top {
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+
+main {
+    margin-top: 100px;
+}
+
+/* -------------------- Homepage  -------------------- */
+
+
 
 /* -------------------- Footer  -------------------- */
 
