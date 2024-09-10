@@ -24,43 +24,43 @@
 </head>
 
 <body>
-    <header class="container fixed-top">
-        <!-- Navbar customised from Bootstrap5 default navbar code snippet -->
-        <nav class="navbar navbar-expand-lg">
-            <button id="navbar-icon" class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#links" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="navbar-brand me-auto px-2" href="#">SouthRoast</a>
-            <div class="collapse navbar-collapse" id="links">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Coffee
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Single Origin</a></li>
-                            <li><a class="dropdown-item" href="#">Blends</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <div class="collapse" id="searchbox">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                </form>
-            </div>
-            <div class="ms-auto center">
-                <button id="search-icon" class="btn" data-bs-toggle="collapse" data-bs-target="#searchbox"><i
-                        class="fa-solid fa-magnifying-glass"></i></button>
-                <button id="cart-icon" class="btn"><i class="fa-solid fa-cart-shopping"></i></button>
-            </div>
-        </nav>
+    <header class="container-fluid fixed-top">
+            <!-- Navbar customised from Bootstrap5 default navbar code snippet -->
+            <nav class="navbar navbar-expand-lg">
+                <button id="navbar-icon" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#links" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand me-auto px-4" href="#">SouthRoast</a>
+                <div class="collapse navbar-collapse w-100" id="links">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Coffee
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Single Origin</a></li>
+                                <li><a class="dropdown-item" href="#">Blends</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse" id="searchbox">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    </form>
+                </div>
+                <div class="ms-auto center">
+                    <button id="search-icon" class="btn" data-bs-toggle="collapse" data-bs-target="#searchbox"><i
+                            class="fa-solid fa-magnifying-glass"></i></button>
+                    <button id="cart-icon" class="btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                </div>
+            </nav>
     </header>
 
     {% if messages %}
@@ -74,9 +74,9 @@
         {% endblock %}
     </main>
 
-    <footer class="container fixed-bottom mt-3 py-3">
+    <footer class="container-fluid fixed-bottom mt-3 py-3">
         <div class="row">
-            <div class="col">
+            <div class="col-6 d-lg-none">
                 <ul class="footer-links">
                     <li>
                         <a href="">Coffee</a>
@@ -87,6 +87,10 @@
                     <li>
                         <a href="">Community Posts</a>
                     </li>
+                </ul>
+            </div>
+            <div class="col-6 d-lg-none">
+                <ul class="footer-links">
                     <li>
                         <a href="">Coffee Club</a>
                     </li>
@@ -99,7 +103,7 @@
                 </ul>
             </div>
         </div>
-        <div class="row mt-3">
+        <div class="row">
             <div class="col center social-links">
                 <a href="facebook.com" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i><span
                         class="sr-only">Facebook</span></a>

@@ -15,6 +15,15 @@ body {
 
 /* -------------------- Header  -------------------- */
 
+header, #links {
+    background-color: rgba(108, 78, 49, .9);
+    color: #fff;
+}
+
+.navbar-brand, .fa-solid {
+    color: #fff;
+}
+
 #links, #searchbox {
     position: absolute;
     top: 8vh;
