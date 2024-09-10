@@ -20,12 +20,30 @@ header {
     color: #fff;
 }
 
-.navbar-brand, .fa-solid {
+header .fixed-top {
+    position: relative;
+}
+
+.navbar-brand {
+    font-size: 1.5em;
+}
+
+.navbar-brand, .nav-link,
+.fa-solid {
+    font-family: "Cabin Sketch", sans-serif;
     color: #fff;
+}
+
+#side-buttons {
+    position: absolute;
+    right: 0;
+    top: 12px;
 }
 
 #searchbox {
     width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 /* -------------------- Footer  -------------------- */
@@ -50,12 +68,12 @@ footer a {
 /* ------------------------------------------------ Desktop Styles ------------------------------------------------ */
 
 @media(min-width: 992px) {
-    #links, #searchbox {
-        position: relative;
-        top: auto
-    }
-
     #searchbox {
+        margin-top: .75rem;
+        margin-bottom: 0;
         width: 25%;
+        position: absolute;
+        top: 0;
+        right: 8vw;
     }
 }
