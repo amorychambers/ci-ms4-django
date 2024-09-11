@@ -41,4 +41,13 @@ class Product(models.Model):
     def __str__(self):
         return self.name
     
-    
+class Review(models.Model):
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
+    product_id = models.ForeignKey('Product', on_delete=models.CASCADE)
+    title = models.CharField(max_length=256)
+    date = models.DateField(auto_now_add=True)
+    review_rating = models.IntegerField(choices=RATING_CHOICES)
+    content = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.user} Review: Product ID {self.product_id}"
