@@ -17,7 +17,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 class ReviewAdmin(admin.ModelAdmin):
     list_display = (
-        'user',
+        'author',
         'product_id',
         'title',
         'date',

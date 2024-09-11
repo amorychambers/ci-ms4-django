@@ -1,5 +1,8 @@
 asgiref==3.8.1
 Django==5.1.1
 django-allauth==64.2.0
+django-multiselectfield==0.1.13
+pillow==10.4.0
+psycopg2==2.9.9
 pytz==2024.1
 sqlparse==0.5.1
