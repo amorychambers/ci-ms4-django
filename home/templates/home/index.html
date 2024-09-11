@@ -7,47 +7,48 @@
 
 {% block content %}
 <div class="container">
-    <div class="row">
-        <div id="homepage-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-pause="hover">
-            <div class="carousel-inner">
-              <div class="carousel-item active position-relative" data-bs-interval="5000">
-                <img src="{% static 'media/about.jpg' %}" class="d-block w-100" alt="About Us">
-                <h2 id="about-text">Fresh coffee roasted daily, in the heart of the city</h2>
-              </div>
-              <div class="carousel-item" data-bs-interval="5000">
-                <img src="{% static 'media/seasonal.jpg' %}" class="d-block w-100" alt="Seasonal Blends">
-                <h2 id="seasonal-text">Summer Seasonal Blends</h2>
-              </div>
-              <div class="carousel-item" data-bs-interval="5000">
-                <img src="{% static 'media/gift-sets.jpg' %}" class="d-block w-100" alt="Gift Sets">
-                <h2 id="ribbon">gift sets</h2>
-                <h2 id="gift-text">gift sets</h2>
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#homepage-carousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#homepage-carousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
+  <div class="row">
+    <!-- Add data-bs-ride="carousel" in production -->
+    <div id="homepage-carousel" class="carousel slide" data-bs-pause="hover">
+      <div class="carousel-inner">
+        <div class="carousel-item active position-relative" data-bs-interval="5000">
+          <img src="{{ MEDIA_URL }}/media/about.jpg" class="d-block w-100" alt="About Us">
+          <h2 id="about-text">Fresh coffee roasted daily, in the heart of the city</h2>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+          <img src="{{ MEDIA_URL }}/media/seasonal.jpg" class="d-block w-100" alt="Seasonal Blends">
+          <h2 id="seasonal-text">Summer Seasonal Blends</h2>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+          <img src="{{ MEDIA_URL }}/media/gift-sets.jpg" class="d-block w-100" alt="Gift Sets">
+          <h2 id="ribbon">gift sets</h2>
+          <h2 id="gift-text">gift sets</h2>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#homepage-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#homepage-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
+  </div>
 
-    <div class="row mt-5">
-        <figure class="col-12 position-relative">
-            <img src="{% static 'media/our-coffee.jpg' %}" alt="Our Coffee">
-            <h2>Our Coffee</h2>
-        </figure>
-        <figure class="col-12 position-relative">
-            <img src="{% static 'media/our-community.jpg' %}" alt="Our Community">
-            <h2>Our Community</h2>
-        </figure>
-        <figure class="col-12 position-relative">
-            <img src="{% static 'media/wholesale.jpg' %}" alt="Wholesale">
-            <h2>Wholesale</h2>
-        </figure>
-    </div>
+  <div class="row mt-5">
+    <figure class="col-12 position-relative">
+      <img src="{{ MEDIA_URL }}/media/our-coffee.jpg" alt="Our Coffee">
+      <h2>Our Coffee</h2>
+    </figure>
+    <figure class="col-12 position-relative">
+      <img src="{{ MEDIA_URL }}/media/our-community.jpg" alt="Our Community">
+      <h2>Our Community</h2>
+    </figure>
+    <figure class="col-12 position-relative">
+      <img src="{{ MEDIA_URL }}/media/wholesale.jpg" alt="Wholesale">
+      <h2>Wholesale</h2>
+    </figure>
+  </div>
 </div>
 {% endblock %}

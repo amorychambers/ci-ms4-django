@@ -6,7 +6,7 @@ html {
 }
 
 body {
-    background: url("../media/background.jpg") center center/cover repeat;
+    background: url("background.jpg") center center/cover repeat;
     font-family: "Cabin", sans-serif;
 }
 
