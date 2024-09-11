@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
+from multiselectfield import MultiSelectField
 
 # Create your models here.
 
@@ -27,7 +28,7 @@ class Product(models.Model):
     rating = ArrayField(models.IntegerField(choices=RATING_CHOICES), default=list())
     description = models.TextField()
     stock = models.IntegerField(default=0)
-    tags = ArrayField(models.CharField(max_length=64, choices=TAG_CHOICES), default=list())
+    tags = MultiSelectField(models.CharField(max_length=64, choices=TAG_CHOICES), default=list())
     sale = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
 
 
