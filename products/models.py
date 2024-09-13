@@ -21,6 +21,7 @@ class Product(models.Model):
         "single": "Single Origin",
         "blend": "Blend",
         "sale": "Sale",
+        "bundle": "Bundle"
     }
 
     name = models.CharField(max_length=128)
