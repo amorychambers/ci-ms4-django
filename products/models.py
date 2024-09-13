@@ -40,6 +40,12 @@ class Product(models.Model):
             return average
         else:
             return 'No Ratings'
+        
+    def get_sale_price(self):
+        if self.sale:
+            return self.price * self.sale
+        else:
+            return self.price
 
     def __str__(self):
         return self.name
