@@ -3,7 +3,20 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        
+        {% for product in products %}
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card" style="width: 18rem;">
+                <img src="/media/{{ product.image }}" class="card-img-top" alt="Product Image">
+                <div class="card-body">
+                  <h5 class="card-title">{{ product.name }}</h5>
+                  <p class="card-subtitle">£{{ product.price }} per 100g</p>
+                  <p class="card-text">{{ product.rating }}/5 Stars</p>
+                  <p class="card-text">{{ product.description }}</p>
+                  <a href="#">Go somewhere</a>
+                </div>
+              </div>
+        </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}

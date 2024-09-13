@@ -36,7 +36,7 @@ class Product(models.Model):
 
     def get_rating(self):
         if len(self.rating) > 0:
-            average = sum(self.rating)/len(self.rating)
+            average = round(sum(self.rating)/len(self.rating), 2)
             return average
         else:
             return 'No Ratings'

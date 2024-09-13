@@ -6,7 +6,7 @@ html {
 }
 
 body {
-    background: url("background.webp") center center/cover repeat;
+    background: url("background.webp") center center/contain repeat;
     font-family: "Cabin", sans-serif;
 }
 
