@@ -27,19 +27,10 @@ class Product(models.Model):
     name = models.CharField(max_length=128)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     image = models.ImageField(null=True, blank=True)
-    rating = ArrayField(models.IntegerField(choices=RATING_CHOICES), null=True, blank=True)
     description = models.TextField()
     stock = models.IntegerField(default=0)
     tags = MultiSelectField(choices=TAG_CHOICES)
     sale = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
-
-
-    def get_rating(self):
-        if len(self.rating) > 0:
-            average = round(sum(self.rating)/len(self.rating), 2)
-            return average
-        else:
-            return 'No Ratings'
         
     def get_sale_price(self):
         if self.sale:
@@ -55,7 +46,6 @@ class Review(models.Model):
     product_id = models.ForeignKey('Product', on_delete=models.CASCADE)
     title = models.CharField(max_length=256)
     date = models.DateField(auto_now_add=True)
-    review_rating = models.IntegerField(choices=RATING_CHOICES)
     content = models.TextField(null=True, blank=True)
 
     def __str__(self):

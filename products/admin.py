@@ -8,7 +8,6 @@ class ProductAdmin(admin.ModelAdmin):
         'name',
         'price',
         'image',
-        'rating',
         'description',
         'stock',
         'tags',
@@ -21,7 +20,6 @@ class ReviewAdmin(admin.ModelAdmin):
         'product_id',
         'title',
         'date',
-        'review_rating',
         'content',
     )
 

@@ -41,8 +41,7 @@
                   {% else %}
                   <p class="card-subtitle">£{{ product.price }}</p>
                   {% endif %}
-                  <p class="card-text">{{ product.get_rating }}/5 Stars</p>
-                  {% ratings product icon_height=16 icon_width=16 %}
+                  {% ratings product read_only=True icon_height=16 icon_width=16 %}
                   <p class="card-text">{{ product.description }}</p>
                   <a class="stretched-lnk" href="#"></a>
                 </div>
