@@ -18,6 +18,12 @@ def products(request):
             products = Product.objects.filter(Q(sale__gt=0))
         else:
             products = Product.objects.filter(Q(tags__contains=sort))
+        if sort == "single":
+            sort = "Single Origin"
+        if sort == "bundle":
+            sort = "Bundles"
+
+    
 
     context = {
         "products": products,

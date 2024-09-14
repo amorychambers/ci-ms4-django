@@ -12,42 +12,49 @@
 
 {% block content %}
 <div class="container">
-    <h2 class="heading my-2"> All Products</h2>
-    <div class="row my-2">
-      <div class="col-6 me-auto">
-        <button class="btn dropdown-toggle my-2 heading" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Filter
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="{% url 'products' %}?sort=coffee">Coffee</a></li>
-          <li><a class="dropdown-item" href="{% url 'products' %}?sort=equipment">Equipment</a></li>
-          <li><a class="dropdown-item" href="{% url 'products' %}?sort=single">Single Origin</a></li>
-          <li><a class="dropdown-item" href="{% url 'products' %}?sort=blend">Blend</a></li>
-          <li><a class="dropdown-item" href="{% url 'products' %}?sort=sale">Sale</a></li>
-          <li><a class="dropdown-item" href="{% url 'products' %}?sort=bundle">Bundles</a></li>
-        </ul>
-      </div>
-      </div>
+  {% if sort %}
+  <h2 class="heading my-2">{{ sort|title }} </h2>
+  {% else %}
+  <h2 class="heading my-2">All Products</h2>
+  {% endif %}
+  <div class="row my-2">
+    <div class="col-6 col-md-2 me-auto">
+      <button class="btn dropdown-toggle my-2 heading" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Filter
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="{% url 'products' %}">All Products</a></li>
+        <li><a class="dropdown-item" href="{% url 'products' %}?sort=coffee">Coffee</a></li>
+        <li><a class="dropdown-item" href="{% url 'products' %}?sort=equipment">Equipment</a></li>
+        <li><a class="dropdown-item" href="{% url 'products' %}?sort=single">Single Origin</a></li>
+        <li><a class="dropdown-item" href="{% url 'products' %}?sort=blend">Blend</a></li>
+        <li><a class="dropdown-item" href="{% url 'products' %}?sort=sale">Sale</a></li>
+        <li><a class="dropdown-item" href="{% url 'products' %}?sort=bundle">Bundles</a></li>
+      </ul>
     </div>
-    <div class="row mx-2">
-        {% for product in products %}
-        <div class="col-12 col-md-6 col-lg-3 my-2">
-            <div class="card">
-                <img src="/media/{{ product.image }}" class="card-img-top" alt="Product Image">
-                <div class="card-body">
-                  <h5 class="card-title">{{ product.name }}</h5>
-                  {% if product.sale %}
-                  <p class="card-subtitle"><strike>£{{ product.price }}</strike><span class="text-danger ps-2">£{{ product.get_sale_price }} - Sale!</span></p>
-                  {% else %}
-                  <p class="card-subtitle">£{{ product.price }}</p>
-                  {% endif %}
-                  {% ratings product read_only=True icon_height=16 icon_width=16 %}
-                  <p class="card-text">{{ product.description }}</p>
-                  <a class="stretched-lnk" href="#"></a>
-                </div>
-              </div>
-        </div>
-        {% endfor %}
-    </div>
+  </div>
 </div>
+<div class="container">
+  <div class="row mx-2">
+    {% for product in products %}
+    <div class="col-12 col-md-6 col-lg-3 my-2">
+      <div class="card">
+        <img src="/media/{{ product.image }}" class="card-img-top" alt="Product Image">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          {% if product.sale %}
+          <p class="card-subtitle"><strike>£{{ product.price }}</strike><span class="text-danger ps-2">£{{ product.get_sale_price }} - Sale!</span></p>
+          {% else %}
+          <p class="card-subtitle">£{{ product.price }}</p>
+          {% endif %}
+          {% ratings product read_only=True icon_height=16 icon_width=16 %}
+          <p class="card-text">{{ product.description }}</p>
+          <a class="stretched-link" href="#"></a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
 {% endblock %}
