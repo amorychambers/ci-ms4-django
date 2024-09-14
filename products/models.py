@@ -43,7 +43,7 @@ class Product(models.Model):
         
     def get_sale_price(self):
         if self.sale:
-            return self.price * self.sale
+            return round(self.price * self.sale, 2)
         else:
             return self.price
 

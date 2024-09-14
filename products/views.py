@@ -13,8 +13,11 @@ def products(request):
     sort = None
 
     if request.GET:
-        sort = request.GET['sort']
-        products = Product.objects.filter(Q(tags__icontains=sort))
+        sort = request.GET["sort"]
+        if sort == "sale":
+            products = Product.objects.filter(Q(sale__gt=0))
+        else:
+            products = Product.objects.filter(Q(tags__contains=sort))
 
     context = {
         "products": products,
