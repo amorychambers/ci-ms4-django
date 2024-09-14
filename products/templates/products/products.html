@@ -3,6 +3,17 @@
 {% block content %}
 <div class="container">
     <h2 class="heading my-2"> All Products</h2>
+    <div class="row my-2">
+      <div class="col-6 me-auto">
+        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Filter
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="{% url 'products' %}?sort=coffee">Coffee</a></li>
+        </ul>
+      </div>
+      </div>
+    </div>
     <div class="row">
         {% for product in products %}
         <div class="col-12 col-md-6 col-lg-3 my-2">
