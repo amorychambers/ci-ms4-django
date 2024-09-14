@@ -5,7 +5,7 @@
     <h2 class="heading my-2"> All Products</h2>
     <div class="row my-2">
       <div class="col-6 me-auto">
-        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn dropdown-toggle my-2 heading" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           Filter
         </button>
         <ul class="dropdown-menu">
@@ -14,7 +14,7 @@
           <li><a class="dropdown-item" href="{% url 'products' %}?sort=single">Single Origin</a></li>
           <li><a class="dropdown-item" href="{% url 'products' %}?sort=blend">Blend</a></li>
           <li><a class="dropdown-item" href="{% url 'products' %}?sort=sale">Sale</a></li>
-          <li><a class="dropdown-item" href="{% url 'products' %}?sort=bundle">Bundle</a></li>
+          <li><a class="dropdown-item" href="{% url 'products' %}?sort=bundle">Bundles</a></li>
         </ul>
       </div>
       </div>
@@ -33,7 +33,7 @@
                   {% endif %}
                   <p class="card-text">{{ product.get_rating }}/5 Stars</p>
                   <p class="card-text">{{ product.description }}</p>
-                  <a href="#">Go somewhere</a>
+                  <a class="stretched-link" href="#"></a>
                 </div>
               </div>
         </div>
