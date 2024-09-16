@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load ratings %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2 class="heading my-2"><a href="{% url 'products' %}">All Products</a></h2>
+  <div class="row">
+    <div class="col-12 col-md-6 my-2">
+      <img src="/media/{{ product.image }}" alt="Product Image">
+    </div>
+    <div class="col-12 col-md-6">
+      <h2>{{ product.name }}</h2>
+      {% if product.sale %}
+      <p><strike>£{{ product.price }}</strike><span class="text-danger ps-2">£{{
+          product.get_sale_price }} - Sale!</span></p>
+      {% else %}
+      <p>£{{ product.price }}</p>
+      {% endif %}
+      {% ratings product read_only=True icon_height=16 icon_width=16 %}
+      <p>{{ product.description }}</p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
