@@ -11,13 +11,13 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
-  <h2 class="heading my-2"><a href="{% url 'products' %}">All Products</a></h2>
+
+  <h2 class="heading my-2"><a href="{% url 'products' %}" class="heading">All Products</a></h2>
   <div class="row">
     <div class="col-12 col-md-6 my-2">
-      <img src="/media/{{ product.image }}" alt="Product Image">
+      <img src="/media/{{ product.image }}" class="w-100" alt="Product Image">
     </div>
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-6 background">
       <h2>{{ product.name }}</h2>
       {% if product.sale %}
       <p><strike>£{{ product.price }}</strike><span class="text-danger ps-2">£{{
@@ -29,6 +29,6 @@
       <p>{{ product.description }}</p>
     </div>
   </div>
-</div>
+
 
 {% endblock %}

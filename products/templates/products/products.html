@@ -34,7 +34,7 @@
     </div>
   </div>
 </div>
-<div class="container">
+<div class="container g-0">
   <div class="row mx-2">
     {% for product in products %}
     <div class="col-12 col-md-6 col-lg-3 my-2">
@@ -49,7 +49,7 @@
           {% endif %}
           {% ratings product read_only=True icon_height=16 icon_width=16 %}
           <p class="card-text">{{ product.description }}</p>
-          <a class="stretched-link" href="#"></a>
+          <a class="stretched-link" href="{% url 'product_details' product.id %}"></a>
         </div>
       </div>
     </div>
