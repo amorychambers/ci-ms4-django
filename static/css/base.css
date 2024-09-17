@@ -138,6 +138,13 @@ figure>h2,
     background: #000;
 }
 
+.sale-text {
+    color: rgb(255 183 190);
+}
+
+.btn:disabled {
+    border: transparent;
+}
 /* -------------------- Cart  -------------------- */
 
 #checkout-btn {

@@ -20,7 +20,7 @@
   <div class="col-12 col-md-6 background">
     <h2 class="my-2">{{ product.name }}</h2>
     {% if product.sale %}
-    <p><strike>£{{ product.price }}</strike><span class="text-danger ps-2">£{{ product.get_sale_price }} - Sale!</span>
+    <p><strike>£{{ product.price }}</strike><span class="sale-text ps-2">£{{ product.get_sale_price }} - Sale!</span>
     </p>
     {% else %}
     <p>£{{ product.price }}{% if 'coffee' in product.tags %} per 250g{% endif %}</p>
@@ -30,11 +30,30 @@
     <form action="{% url 'add_to_cart' product.id %}" method="POST">
       {% csrf_token %}
       <div class="form-row my-2">
-
         <div class="col-12">
-          <label for="id_qty_{{ product_id }}">Quantity:</label>
-          <input type="number" class="form-control" name="quantity" value="1" min="1" max="{{ max_qty }}"
-            data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+          <div class="form-group w-50">
+            <div class="input-group">
+              <label for="id_qty_{{ product_id }}" class="mt-2">Quantity:</label>
+              
+              <div class="input-group-prepend">
+                <button class="decrement-qty btn" 
+                    data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
+                        <i class="fa-solid fa-minus"></i>
+                </button>
+            </div>
+
+              <input type="number" class="form-control qty_input" name="quantity" value="1" min="1" max="{{ max_qty }}"
+                data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+
+                <div class="input-group-append">
+                  <button class="increment-qty btn"
+                      data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
+                          <i class="fa-solid fa-plus"></i>
+                  </button>
+              </div>
+
+            </div>
+          </div>
         </div>
 
         <div class="col-12 my-2">
@@ -49,4 +68,8 @@
 </div>
 
 
+{% endblock %}
+
+{% block postload_js %}
+<script type="text/javascript" src="{% static 'js/quantity-input.js' %}"></script>
 {% endblock %}

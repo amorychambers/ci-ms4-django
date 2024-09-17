@@ -32,7 +32,7 @@
                             </td>
                             <td>
                                 {% if item.product.sale %}
-                                <p><strike>£{{ item.product.price }}</strike><span class="text-danger ps-2">£{{ item.product.get_sale_price }}</span></p>
+                                <p><strike>£{{ item.product.price }}</strike><span class="sale-text ps-2">£{{ item.product.get_sale_price }}</span></p>
                                 {% else %}
                                 <p>£{{ item.product.price }}</p>
                                 {% endif %}
@@ -55,7 +55,7 @@
                         </tr>
                         <tr class="my-2">
                             <td colspan="5">
-                                <a href="" id="checkout-btn" class="btn bg-success">Secure Checkout</a>
+                                <a href="" id="checkout-btn" class="btn bg-success">Secure Checkout  <i class="fa-solid fa-lock"></i></a>
                             </td>
                         </tr>
                     </tbody>
