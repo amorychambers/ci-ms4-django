@@ -11,23 +11,32 @@ def products(request):
 
     products = Product.objects.all()
     sort = None
+    search = None
 
     if request.GET:
-        sort = request.GET["sort"]
-        if sort == "sale":
-            products = Product.objects.filter(Q(sale__gt=0))
-        else:
-            products = Product.objects.filter(Q(tags__contains=sort))
-        if sort == "single":
-            sort = "Single Origin"
-        if sort == "bundle":
-            sort = "Bundles"
+        if "sort" in request.GET:
+            sort = request.GET["sort"]
+            if sort == "sale":
+                products = Product.objects.filter(Q(sale__gt=0))
+            else:
+                products = Product.objects.filter(Q(tags__contains=sort))
+            if sort == "single":
+                sort = "Single Origin"
+            if sort == "bundle":
+                sort = "Bundles"
+
+        if "search" in request.GET:
+            search = request.GET["search"]
+            products = Product.objects.filter(
+                Q(name__icontains=search) | Q(description__icontains=search)
+                )
 
     
 
     context = {
         "products": products,
         "sort": sort,
+        "search": search,
     }
     
     return render(request, "products/products.html", context)

@@ -14,6 +14,8 @@
 <div class="container">
   {% if sort %}
   <h2 class="heading my-2">{{ sort|title }} </h2>
+  {% elif search %}
+  <h2 class="heading my-2">Results for '{{ search }}'</h2>
   {% else %}
   <h2 class="heading my-2">All Products</h2>
   {% endif %}

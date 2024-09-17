@@ -64,8 +64,8 @@
                 </ul>
             </div>
             <div class="collapse" id="searchbox">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form method="GET" action="{% url 'products' %}" class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search" minlength="1">
                 </form>
             </div>
         </nav>
