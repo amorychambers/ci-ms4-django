@@ -123,7 +123,7 @@ figure > h2,
     overflow: scroll;
 }
 
-#add-to-cart {
+.submit-button {
     font-family: "Cabin Sketch", sans-serif;
     font-size: 1.5em;
     color: #fff;
