@@ -4,18 +4,54 @@
 {% block content %}
 
 <div class="container">
-    <div class="row">
-        <div class="col-12">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
             <h5 class="heading">Shopping Cart</h5>
         </div>
-        <div class="col-12 bg-light rounded">
+        <div class="col-12 col-lg-8 bg-light rounded">
             {% if cart_products %}
-            <div class="table-responsive">
+            <div class="table-responsive table-sm">
+                <table class="table rounded">
+                    <thead>
+                        <tr>
+                            <th scope="col">Info</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Qty</th>
+                            <th scope="col">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in cart_products %}
+                        <tr>
+                            <td>
+                                <img src="/media/{{ item.product.image }}" class="img-fluid mt-2" alt="Product Image">
+                            </td>
+                            <td>
+                                <p>{{ item.product.name }}</p>
+                            </td>
+                            <td>
+                                {% if item.product.sale %}
+                                <p><strike>£{{ item.product.price }}</strike><span class="text-danger ps-2">£{{ item.product.get_sale_price }}</span></p>
+                                {% else %}
+                                <p>£{{ item.product.price }}</p>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <p>{{ item.quantity }}</p>
+                            </td>
+                            <td>
+                                <p>£{{ item.individual_cost }}</p>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
             {% else %}
             <p>Shopping Cart is empty!</p>
-            <p class="heading my-2"><a href="{% url 'products' %}">All Products</a></p>
             {% endif %}
+            <p class="heading my-2"><a href="{% url 'products' %}">Back to All Products</a></p>
         </div>
     </div>
 </div>

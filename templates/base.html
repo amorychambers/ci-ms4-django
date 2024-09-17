@@ -43,11 +43,11 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand me-auto px-4" href="#">SouthRoast</a>
+            <a class="navbar-brand me-auto px-4" href="{% url 'home' %}">SouthRoast</a>
             <div class="collapse navbar-collapse w-100" id="links">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown"
@@ -76,9 +76,11 @@
             <button id="search-icon" class="btn" data-bs-toggle="collapse" data-bs-target="#searchbox"><i
                     class="fa-solid fa-magnifying-glass"></i></button>
             <a id="cart-icon" href="{% url 'cart' %}" class="btn"><i class="fa-solid fa-cart-shopping"></i>
+                {% if product_count > 0 %}
                 <span id="current_product_count" class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger">
                     {{ product_count }}
                 </span>
+                {% endif %}
             </a>
         </div>
     </header>

@@ -135,6 +135,9 @@ figure > h2,
     background: #000;
 }
 
+/* -------------------- Cart  -------------------- */
+
+
 /* -------------------- Footer  -------------------- */
 
 #footer {
@@ -159,6 +162,13 @@ footer a {
 
 @media(min-width: 768px) {
 
+    table {
+        table-layout: fixed;
+    }
+
+    .img-fluid {
+        max-width: 70%;
+    }
 
     #searchbox {
         margin-top: .75rem;

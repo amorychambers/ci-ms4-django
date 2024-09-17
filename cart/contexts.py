@@ -17,14 +17,17 @@ def cart_contents(request):
     for product_id, quantity in cart.items():
         product = get_object_or_404(Product, pk=product_id)
         if product.sale:
-            total += (product.price * product.sale) * quantity
+            individual_cost = (product.price * product.sale) * quantity
         else:
-            total += product.price * quantity
+            individual_cost = product.price * quantity
+        total += individual_cost
+        
         product_count += quantity
 
         cart_products.append({
             "product_id": product.id,
             "quantity": quantity,
+            "individual_cost": individual_cost,
             "product": product
         })
 
