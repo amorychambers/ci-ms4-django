@@ -13,7 +13,9 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Cabin:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
     {% block extra_css %}
@@ -65,14 +67,19 @@
             </div>
             <div class="collapse" id="searchbox">
                 <form method="GET" action="{% url 'products' %}" class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search" minlength="1">
+                    <input class="form-control me-2" type="search" name="search" placeholder="Search"
+                        aria-label="Search" minlength="1">
                 </form>
             </div>
         </nav>
         <div class="ms-auto center" id="side-buttons">
             <button id="search-icon" class="btn" data-bs-toggle="collapse" data-bs-target="#searchbox"><i
                     class="fa-solid fa-magnifying-glass"></i></button>
-            <a id="cart-icon" href="{% url 'cart' %}" class="btn"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a id="cart-icon" href="{% url 'cart' %}" class="btn"><i class="fa-solid fa-cart-shopping"></i>
+                <span id="current_product_count" class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger">
+                    {{ product_count }}
+                </span>
+            </a>
         </div>
     </header>
 

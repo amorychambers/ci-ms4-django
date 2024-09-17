@@ -59,6 +59,10 @@ main {
     margin-bottom: 1rem;
 }
 
+#current_product_count {
+    left: 60% !important;
+}
+
 /* -------------------- Homepage  -------------------- */
 
 @font-face { 
