@@ -15,6 +15,7 @@
   {% if sort %}
   <h2 class="heading my-2">{{ sort|title }} </h2>
   {% elif search %}
+  <h2 class="heading my-2"><a href="{% url 'products' %}" class="heading">All Products</a></h2>
   <h2 class="heading my-2">Results for '{{ search }}'</h2>
   {% else %}
   <h2 class="heading my-2">All Products</h2>
@@ -37,25 +38,29 @@
   </div>
 </div>
 <div class="container g-0">
-  <div class="row mx-2">
-    {% for product in products %}
-    <div class="col-12 col-md-6 col-lg-3 my-2">
-      <div class="card">
-        <img src="/media/{{ product.image }}" class="card-img-top" alt="Product Image">
-        <div class="card-body">
-          <h5 class="card-title">{{ product.name }}</h5>
-          {% if product.sale %}
-          <p class="card-subtitle"><strike>£{{ product.price }}</strike><span class="text-danger ps-2">£{{ product.get_sale_price }} - Sale!</span></p>
-          {% else %}
-          <p class="card-subtitle">£{{ product.price }}</p>
-          {% endif %}
-          {% ratings product read_only=True icon_height=16 icon_width=16 %}
-          <p class="card-text">{{ product.description }}</p>
-          <a class="stretched-link" href="{% url 'product_details' product.id %}"></a>
+  <div class="row mx-2 justify-content-center">
+    {% if products|length == 0 %}
+    <h4 class="heading w-50">No products found!</h4>
+    {% else %}
+      {% for product in products %}
+      <div class="col-12 col-md-6 col-lg-3 my-2">
+        <div class="card">
+          <img src="/media/{{ product.image }}" class="card-img-top" alt="Product Image">
+          <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            {% if product.sale %}
+            <p class="card-subtitle"><strike>£{{ product.price }}</strike><span class="text-danger ps-2">£{{ product.get_sale_price }} - Sale!</span></p>
+            {% else %}
+            <p class="card-subtitle">£{{ product.price }}</p>
+            {% endif %}
+            {% ratings product read_only=True icon_height=16 icon_width=16 %}
+            <p class="card-text">{{ product.description }}</p>
+            <a class="stretched-link" href="{% url 'product_details' product.id %}"></a>
+          </div>
         </div>
       </div>
-    </div>
     {% endfor %}
+    {% endif %}
   </div>
 </div>
 

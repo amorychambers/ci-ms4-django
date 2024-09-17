@@ -87,7 +87,7 @@
         {% endblock %}
     </main>
 
-    <footer class="container-fluid mt-3 py-3">
+    <footer id="footer" class="container-fluid py-3 invisible">
         <div class="row">
             <div class="col-6 d-lg-none">
                 <ul class="footer-links">
@@ -134,6 +134,7 @@
 
     {% block postload_js %}
     <script src="{% static 'js/header-toggle.js' %}"></script>
+    <script src="{% static 'js/flushed-footer.js' %}"></script>
     {% endblock %}
 </body>
 
