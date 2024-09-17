@@ -14,7 +14,7 @@ body {
     text-align: center;
 }
 
-.heading {
+.heading, .heading > a {
     font-family: "Cabin Sketch", sans-serif;
     text-align: center;
     color: #fff;
