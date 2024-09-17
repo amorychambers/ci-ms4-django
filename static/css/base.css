@@ -14,7 +14,8 @@ body {
     text-align: center;
 }
 
-.heading, .heading > a {
+.heading,
+.heading>a {
     font-family: "Cabin Sketch", sans-serif;
     text-align: center;
     color: #fff;
@@ -27,7 +28,8 @@ body {
     color: #fff;
 }
 
-.no-bg, .no-bg > a {
+.no-bg,
+.no-bg>a {
     background: unset;
 }
 
@@ -41,7 +43,8 @@ main {
     font-size: 1.5em;
 }
 
-.navbar-brand, .nav-link,
+.navbar-brand,
+.nav-link,
 .fa-solid {
     font-family: "Cabin Sketch", sans-serif;
     color: #fff;
@@ -65,18 +68,18 @@ main {
 
 /* -------------------- Homepage  -------------------- */
 
-@font-face { 
+@font-face {
     font-family: 'Summer Vibes';
     src: url('summer-vibes.otf');
-} 
+}
 
-figure > img {
+figure>img {
     width: 100%;
     height: 100%;
 }
 
-figure > h2,
-.carousel-item > h2 {
+figure>h2,
+.carousel-item>h2 {
     font-family: "Cabin Sketch", sans-serif;
     color: #fff;
     background-color: #000;
@@ -98,7 +101,7 @@ figure > h2,
 }
 
 #gift-text {
-    width:100%;
+    width: 100%;
     background-color: #95DDD7;
     color: #F615AC;
     font-family: "Happy Monkey", sans-serif;
@@ -127,7 +130,7 @@ figure > h2,
     overflow: scroll;
 }
 
-.submit-button {
+.submit-btn {
     font-family: "Cabin Sketch", sans-serif;
     font-size: 1.5em;
     color: #fff;
@@ -137,6 +140,11 @@ figure > h2,
 
 /* -------------------- Cart  -------------------- */
 
+#checkout-btn {
+    font-family: "Cabin Sketch", sans-serif;
+    color: #fff;
+    width: 100%;
+}
 
 /* -------------------- Footer  -------------------- */
 
@@ -182,6 +190,4 @@ footer a {
 
 /* ------------------------------------------------ Desktop Styles ------------------------------------------------ */
 
-@media(min-width: 992px) {
-
-}
+@media(min-width: 992px) {}
