@@ -154,7 +154,13 @@ figure>h2,
 }
 
 #cart-quantity {
-    min-width: 30vw;
+    min-width: 40vw;
+}
+
+.update-link, .remove-item {
+    font-size: .75em;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* -------------------- Footer  -------------------- */
