@@ -153,6 +153,10 @@ figure>h2,
     width: 100%;
 }
 
+#cart-quantity {
+    min-width: 30vw;
+}
+
 /* -------------------- Footer  -------------------- */
 
 #footer {

@@ -71,5 +71,6 @@
 {% endblock %}
 
 {% block postload_js %}
+{{ block.super }}
 <script type="text/javascript" src="{% static 'js/quantity-input.js' %}"></script>
 {% endblock %}
