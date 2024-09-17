@@ -5,12 +5,14 @@
 
 <div class="container">
     <div class="row">
-        <div class="col">
+        <div class="col-12">
             <h5 class="heading">Shopping Cart</h5>
         </div>
-        <div class="col bg-light rounded">
-            {% if cart_items %}
-            <div class="table-responsive"></div>
+        <div class="col-12 bg-light rounded">
+            {% if cart_products %}
+            <div class="table-responsive">
+                {{ cart_products }}
+            </div>
             {% else %}
             <p>Shopping Cart is empty!</p>
             <p class="heading my-2"><a href="{% url 'products' %}">All Products</a></p>
