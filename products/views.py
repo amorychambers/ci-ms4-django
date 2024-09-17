@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
 from .models import Product
+import math
 
 # Create your views here.
 
@@ -48,9 +49,15 @@ def product_details(request, product_id):
     """
 
     product = get_object_or_404(Product, pk=product_id)
+    
+    if "coffee" in product.tags:
+        max_qty = math.floor(product.stock/250)
+    else:
+        max_qty = product.stock
 
     context = {
         "product": product,
+        "max_qty": max_qty,
     }
 
     return render(request, "products/product_details.html", context)

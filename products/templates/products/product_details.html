@@ -22,11 +22,26 @@
       {% if product.sale %}
       <p><strike>£{{ product.price }}</strike><span class="text-danger ps-2">£{{ product.get_sale_price }} - Sale!</span></p>
       {% else %}
-      <p>£{{ product.price }}{% if 'coffee' in product.tags %} per 250g{% endif%}</p>
+      <p>£{{ product.price }}{% if 'coffee' in product.tags %} per 250g{% endif %}</p>
       {% endif %}
       {% ratings product read_only=True icon_height=16 icon_width=16 %}
       <p>{{ product.description }}</p>
-      <form action="">
+      <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-row my-2">
+
+          <div class="col">
+            <label for="quantity">Quantity:</label>
+            <input type="number" class="form-control" name="quantity" value="1" min="1" max="{{ max_qty }}" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+          </div>
+
+          <div class="col my-2">
+            <input type="submit" class="btn my-2" value="Add to Cart" id="add-to-cart">
+            <h5 class="heading my-4 no-bg"><a href="{% url 'products' %}">Back to All Products</a></h5>
+          </div>
+
+          <input type="hidden" name="redirect_url" value="{{ request.path }}">
+        </div>
       </form>
     </div>
   </div>
