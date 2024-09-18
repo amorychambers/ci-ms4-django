@@ -38,14 +38,16 @@ def update_cart(request, product_id):
     """
     View to update quantities of products from the shopping cart page
     """
-
+    product = get_object_or_404(Product, pk=product_id)
     quantity = int(request.POST.get("quantity"))
     cart = request.session.get("cart")
 
     if quantity > 0:
         cart[product_id] = quantity
+        messages.success(request, f"Updated {product.name} quantity to {quantity}")
     else:
         cart.pop(product_id)
+        messages.success(request, f"{product.name} removed from cart")
 
     request.session["cart"] = cart
 
@@ -56,13 +58,17 @@ def remove_from_cart(request, product_id):
     """
     View to remove an item from the shopping cart
     """
+    product = get_object_or_404(Product, pk=product_id)
+
     try:
         cart = request.session.get("cart")
 
         cart.pop(product_id)
 
         request.session["cart"] = cart
+        messages.success(request, f"{product.name} removed from cart")
         return HttpResponse(status=200)
     
     except Exception as e:
+        messages.error(request, f"Error removing item: {e}")
         return HttpResponse(status=500)
