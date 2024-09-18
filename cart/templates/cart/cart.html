@@ -38,7 +38,7 @@
                                 {% endif %}
                             </td>
                             <td id="cart-quantity">
-                                <form class="form update-form" method="POST" action="{% url 'update_cart' item.product.id %}">
+                                <form class="form update-form" id="update-form-{{ item.product.id }}"method="POST" action="{% url 'update_cart' item.product.id %}">
                                     {% csrf_token %}
                                     <div class="form-group">
                                         <div class="input-group">
@@ -64,8 +64,8 @@
                                         </div>
                                     </div>
                                 </form>
-                                <a href="" class="mt-1 float-start update-link"><small>Update</small></a>
-                                <a href="" class="mt-1 float-end remove-item text-danger" id="remove_{{ item.product.id }}"><small>Remove</small></a>
+                                <a href="" class="mt-1 float-start update-link" id="update-link-{{ item.product.id }}"><small>Update</small></a>
+                                <a href="" class="mt-1 float-end remove-item text-danger" id="remove-{{ item.product.id }}"><small>Remove</small></a>
                             </td>
                             <td>
                                 <p>£{{ item.individual_cost }}</p>
@@ -104,14 +104,16 @@
 <script type="text/javascript">
     // Update quantity on click
 $('.update-link').click(function (e) {
-    var form = $(this).prev('.update-form');
+    e.preventDefault()
+    let productId = $(this).attr("id").split("update-link-")[1]
+    let form = $(`#update-form-${productId}`)
     form.submit();
 })
 
 // Remove item and reload on click
 $('.remove-item').click(function (e) {
     var csrfToken = "{{ csrf_token }}";
-    var itemId = $(this).attr('id').split('remove_')[1];
+    var itemId = $(this).attr('id').split('remove-')[1];
     var url = `/cart/remove/${itemId}`;
     var data = { 'csrfmiddlewaretoken': csrfToken };
 

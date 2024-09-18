@@ -35,7 +35,6 @@ def update_cart(request, product_id):
     """
 
     quantity = int(request.POST.get("quantity"))
-    print(quantity)
     cart = request.session.get("cart")
 
     if quantity > 0:
