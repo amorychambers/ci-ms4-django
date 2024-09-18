@@ -87,9 +87,13 @@
 
     {% if messages %}
     <section class="message-container">
-
+        {% for message in messages %}
+            {% include 'includes/toasts/toast_success.html' %}
+        {% endfor %}
     </section>
     {% endif %}
+    
+
 
     <main class="container">
         {% block content %}
@@ -144,6 +148,9 @@
     {% block postload_js %}
     <script src="{% static 'js/header-toggle.js' %}"></script>
     <script src="{% static 'js/flushed-footer.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {$(".toast").toast('show');});
+    </script>
     {% endblock %}
 </body>
 

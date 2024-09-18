@@ -33,6 +33,14 @@ body {
     background: unset;
 }
 
+.message-container {
+    position: fixed;
+    top: 65px;
+    right: 10px;
+    z-index: 999999999;
+}
+
+
 /* -------------------- Header  -------------------- */
 
 main {
