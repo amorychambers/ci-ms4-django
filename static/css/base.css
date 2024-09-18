@@ -36,7 +36,7 @@ body {
 .message-container {
     position: fixed;
     top: 65px;
-    right: 10px;
+    right: 12px;
     z-index: 999999999;
 }
 
