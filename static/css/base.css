@@ -155,7 +155,7 @@ figure>h2,
 }
 /* -------------------- Cart  -------------------- */
 
-#checkout-btn {
+#checkout-btn, #view-cart-btn {
     font-family: "Cabin Sketch", sans-serif;
     color: #fff;
     width: 100%;
