@@ -116,4 +116,9 @@
         </div>
     </div>
 
-    {% endblock %}
+{% endblock %}
+
+{% block postload_js %}
+{{ block.super }}
+<script src="{% static 'js/popovers.js' %}"></script>
+{% endblock %}
