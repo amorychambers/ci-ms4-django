@@ -10,12 +10,12 @@
 <div class="container mb-4">
     <div class="row">
         <div class="col-12">
-            <h5 class="heading">Checkout</h5>
+            <h2 class="heading">Checkout</h2>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-12 col-lg-6 order-lg-last">
+    <div class="row bg-light rounded">
+        <div class="col-12 col-lg-6 my-2 order-lg-last">
             <p class="text-muted">Order Summary ({{ product_count }})</p>
             <div class="row">
                 <div class="col-7 offset-2">
@@ -37,25 +37,21 @@
                     <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                 </div>
                 <div class="col-3 text-right">
-                    <p class="my-0 small text-muted">${{ item.individual_cost }}</p>
+                    <p class="my-0 small text-muted">£{{ item.individual_cost }}</p>
                 </div>
             </div>
             {% endfor %}
-            <hr class="my-0">
+            <hr class="my-1">
             <div class="row text-right">
                 <div class="col-7 offset-2">
                     <p class="my-0">Order Total:</p>
-                    <p class="my-0">Delivery:</p>
-                    <p class="my-0">Grand Total:</p>
                 </div>
                 <div class="col-3">
-                    <p class="my-0">${{ order_total }}</p>
-                    <p class="my-0">${{ delivery_cost }}</p>
-                    <p class="my-0"><strong>${{ grand_total }}</strong></p>
+                    <p class="my-0">£{{ total }}</p>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row my-2">
             <div class="col-12">
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
@@ -102,7 +98,7 @@
                             </span>
                             <span class="font-weight-bold">Back to Shopping Cart</span>
                         </a>
-                        <button class="btn checkout-btn bg-success">
+                        <button class="btn checkout-btn bg-success my-2">
                             <span class="font-weight-bold">Complete Order</span>
                             <span class="icon">
                                 <i class="fas fa-lock"></i>
@@ -112,7 +108,7 @@
                             <span class="icon">
                                 <i class="fas fa-exclamation-circle"></i>
                             </span>
-                            <span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
+                            <span>Your card will be charged <strong>£{{ grand_total }}</strong></span>
                         </p>
                     </div>
                 </form>
