@@ -139,6 +139,7 @@
                             {% endif %}
                         </p>
                     </div>
+                    <input type="hidden" name="order_type" value="{% if order_for_delivery %}delivery{% else %}collection{% endif %}">
                 </form>
             </div>
         </div>
