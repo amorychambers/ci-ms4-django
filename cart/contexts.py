@@ -12,6 +12,7 @@ def cart_contents(request):
 
     cart_products = []
     total = 0
+    delivery = round(Decimal(settings.DELIVERY_COST/100), 2)
     product_count = 0
 
     cart = request.session.get("cart", {})
@@ -38,11 +39,15 @@ def cart_contents(request):
             "product": product,
             "max_qty": max_qty
         })
+    
+    total_delivered = total + delivery
 
     context = {
         "cart_products": cart_products,
         "total": total,
-        "product_count": product_count
+        "delivery": delivery,
+        "total_delivered": total_delivered,
+        "product_count": product_count,
     }
 
     return context

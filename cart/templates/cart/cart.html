@@ -78,14 +78,25 @@
                         {% endfor %}
                         <tr>
                             <td colspan="2">
-
+                                <div class="form-check">
+                                    <label for="delivery-select" class="form-check-label">
+                                        Delivery
+                                    </label>
+                                    <input type="radio" name="collection" class="form-check-input"
+                                    id="delivery-select" checked>
+                                </div>
                             </td>
                             <td colspan="2">
-                                <label for="collection-select" class="form-check-label">
-                                    Collection
-                                </label>
-                                <input type="checkbox" name="collection" class="checkboxinput form-check-input"
+                                <div class="form-check">
+                                    <label for="collection-select" class="form-check-label">
+                                        Collection
+                                    </label>
+                                    <input type="radio" name="collection" class="form-check-input"
                                     id="collection-select">
+                                </div>
+                            </td>
+                            <td>
+                                <p id="delivery-collection-cost">£{{ delivery }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -93,12 +104,12 @@
                                 <p><strong>Total:</strong></p>
                             </td>
                             <td>
-                                <p><strong>£{{ total }}</strong></p>
+                                <p><strong>£{{ total_delivered }}</strong></p>
                             </td>
                         </tr>
                         <tr class="mt-2">
                             <td colspan="5">
-                                <a href="{% url 'checkout' %}" class="btn bg-success checkout-btn">Secure Checkout <i
+                                <a href="{% url 'checkout' %}?delivery" id="checkout-btn" class="btn bg-success checkout-btn">Secure Checkout <i
                                         class="fa-solid fa-lock"></i></a>
                             </td>
                         </tr>

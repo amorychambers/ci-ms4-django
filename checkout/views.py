@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.conf import settings
 from .forms import OrderForm
 from cart.contexts import cart_contents
+from decimal import Decimal
 
 import stripe
 
@@ -19,7 +20,11 @@ def checkout(request):
         return redirect(reverse("products"))
     
     current_cart = cart_contents(request)
-    total = current_cart['total']
+
+    if 'delivery' in request.GET:
+        total = current_cart['total']
+    else:
+        total = current_cart['total']
     stripe_total = round(total * 100)
     stripe.api_key = stripe_secret_key
     intent = stripe.PaymentIntent.create(
