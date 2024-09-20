@@ -6,11 +6,18 @@ const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstra
 
 let checkoutLink = $('#checkout-btn').attr('href').split('?')[0];
 
-$('#collection-select').on('click', function(e) {
+$('#collection-select').one('click', selectCollection);
+
+function selectCollection() {
     $('#checkout-btn').attr('href', checkoutLink + '?collection');
-    $('#delivery-collection-cost').text('£0.00')
-});
-$('#delivery-select').on('click', function(e) {
+    $('.delivery-cost').toggle();
+    $('.collection-cost').toggle();
+    $('#delivery-select').one('click', selectDelivery)
+};
+
+function selectDelivery() {
     $('#checkout-btn').attr('href', checkoutLink + '?delivery');
-    $('#delivery-collection-cost').text('£5.99')
-});
+    $('.collection-cost').toggle();
+    $('.delivery-cost').toggle();
+    $('#collection-select').one('click', selectCollection)
+}

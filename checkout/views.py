@@ -22,9 +22,11 @@ def checkout(request):
     current_cart = cart_contents(request)
 
     if 'delivery' in request.GET:
-        total = current_cart['total']
+        total = current_cart['total_delivered']
+        order_for_delivery = True
     else:
         total = current_cart['total']
+        order_for_delivery = False
     stripe_total = round(total * 100)
     stripe.api_key = stripe_secret_key
     intent = stripe.PaymentIntent.create(
@@ -38,6 +40,7 @@ def checkout(request):
     order_form = OrderForm()
     context = {
         "order_form": order_form,
+        "order_for_delivery": order_for_delivery,
         "stripe_public_key": stripe_public_key,
         "client_secret": intent.client_secret,
     }

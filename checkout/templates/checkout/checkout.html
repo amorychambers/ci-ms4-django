@@ -41,13 +41,27 @@
                 </div>
             </div>
             {% endfor %}
+            {% if order_for_delivery %}
+            <div class="row">
+                <div class="col-7 offset-2">
+                    <p class="my-0"><strong>Delivery</strong></p>
+                </div>
+                <div class="col-3 text-right">
+                    <p class="my-0 small text-muted">£{{ delivery }}</p>
+                </div>
+            </div>
+            {% endif %}
             <hr class="my-1">
             <div class="row text-right">
                 <div class="col-7 offset-2">
                     <p class="my-0">Order Total:</p>
                 </div>
                 <div class="col-3">
+                    {% if order_for_delivery %}
+                    <p class="my-0">£{{ total_delivered }}</p>
+                    {% else %}
                     <p class="my-0">£{{ total }}</p>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -59,8 +73,8 @@
                         <legend class="fieldset-label">Personal Details</legend>
                         {{ order_form.full_name | as_crispy_field }}
                         {{ order_form.email | as_crispy_field }}
-                        {{ order_form.collection | as_crispy_field }}
                     </fieldset>
+                    {% if order_for_delivery %}
                     <fieldset id="delivery-fieldset">
                         <legend class="fieldset-label">Delivery</legend>
                         {{ order_form.phone_number | as_crispy_field }}
@@ -82,6 +96,16 @@
                             {% endif %}
                         </div>
                     </fieldset>
+                    {% else %}
+                    <fieldset>
+                        <legend class="fieldset-label">Order for Collection</legend>
+                        <h5>Our Address</h5>
+                        <address>
+                            455 Corner Street<br>Cardiff<br>CF10 2ZZ
+                        </address>
+                        <p>Your order will be ready for pickup 24 hours from time of purchase!</p>
+                    </fieldset>
+                    {% endif %}
                     <fieldset id="payment-fieldset">
                         <legend class="fieldset-label">Payment Information</legend>
                         <!-- Section to house Stripe Card element -->
@@ -108,7 +132,11 @@
                             <span class="icon">
                                 <i class="fas fa-exclamation-circle"></i>
                             </span>
-                            <span>Your card will be charged <strong>£{{ grand_total }}</strong></span>
+                            {% if order_for_delivery %}
+                            <span>Your card will be charged <strong>£{{ total_delivered }}</strong></span>
+                            {% else %}
+                            <span>Your card will be charged <strong>£{{ total }}</strong></span>
+                            {% endif %}
                         </p>
                     </div>
                 </form>
