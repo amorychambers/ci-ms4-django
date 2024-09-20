@@ -179,5 +179,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+#Star Ratings
+
 STAR_RATINGS_RERATE = True
 STAR_RATINGS_RERATE_SAME_DELETE = True
+
+# Stripe
+
+STRIPE_CURRENCY = 'gbp'
+STRIPE_PUBLIC_KEY = env('STRIPE_PUBLIC_KEY')
+STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')
