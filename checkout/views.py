@@ -1,8 +1,8 @@
-from django.shortcuts import render, reverse, redirect
+from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
 from products.models import Product
-from .models import OrderLineItem
+from .models import Order, OrderLineItem
 from .forms import OrderForm
 from cart.contexts import cart_contents
 from decimal import Decimal
@@ -34,7 +34,7 @@ def checkout(request):
             order = order_form.save()
             for product_id, product_data in cart.items():
                 try:
-                    product = Product.objects.get(id=product_id)
+                    product = get_object_or_404(Product, id=product_id)
                     order_line_item = OrderLineItem(
                             order=order,
                             product=product,
@@ -87,3 +87,23 @@ def checkout(request):
         }
 
     return render(request, 'checkout/checkout.html', context)
+
+
+def checkout_success(request, order_number):
+    """
+    View to communication successful purchase to customer
+    """
+    safe_info = request.session.get('save_info')
+    order = get_object_or_404(Order, order_number=order_number)
+    messages.success(request, f'Order successful!\
+                     Your order number is {order_number}.\
+                        A confirmation email will be sent to {order.email}')
+    
+    if 'cart' in request.session:
+        del request.session['cart']
+
+    context = {
+        'order': order, 
+    }
+
+    return render(request, "checkout/checkout_success.html", context)
