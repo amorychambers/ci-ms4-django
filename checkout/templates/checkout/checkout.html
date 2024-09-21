@@ -140,6 +140,7 @@
                         </p>
                     </div>
                     <input type="hidden" name="order_type" value="{% if order_for_delivery %}delivery{% else %}collection{% endif %}">
+                    <input type="hidden" name="client_secret" value="{{ client_secret }}">
                 </form>
             </div>
         </div>

@@ -35,6 +35,7 @@ card.mount('#card-element');
 
 // Realtime error handler for payment element
 card.addEventListener('change', function (event) {
+    let errorDiv = document.getElementById('card-errors');
     if (event.error) {
         let html = `
             <span class="icon" role="alert">
@@ -59,7 +60,7 @@ form.addEventListener('submit', function (ev) {
     $('#loading-overlay').fadeToggle(100);
 
     let saveInfo = Boolean($('#id-save-info').attr('checked'));
-    let csrfToken = $('input[name="csrfmiddlewaretoken"');
+    let csrfToken = $('input[name="csrfmiddlewaretoken"').val();
     let postData = {
         'csrfmiddlewaretoken': csrfToken,
         'client_secret': clientSecret,
@@ -74,17 +75,17 @@ form.addEventListener('submit', function (ev) {
                 billing_details: {
                     name: $.trim(form.full_name.value),
                     email: $.trim(form.email.value),
-                },
-                shipping: {
-                    name: $.trim(form.full_name.value),
-                    address: {
-                        line1: $.trim(form.street_address1.value),
-                        line2: $.trim(form.street_address2.value),
-                        city: $.trim(form.town_or_city.value),
-                        postal_code: $.trim(form.postcode.value),
-                        state: $.trim(form.county.value),
-                    }
-                },
+                }
+            },
+            shipping: {
+                name: $.trim(form.full_name.value),
+                address: {
+                    line1: $.trim(form.street_address1.value),
+                    line2: $.trim(form.street_address2.value),
+                    city: $.trim(form.town_or_city.value),
+                    postal_code: $.trim(form.postcode.value),
+                    state: $.trim(form.county.value),
+                }
             }
         }).then(function (result) {
             if (result.error) {
