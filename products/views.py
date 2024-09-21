@@ -50,7 +50,7 @@ def product_details(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     
-    if "coffee" in product.tags:
+    if "coffee" in product.tags and "bundle" not in product.tags:
         max_qty = math.floor(product.stock/250)
     else:
         max_qty = product.stock

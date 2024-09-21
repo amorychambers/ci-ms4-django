@@ -116,12 +116,6 @@
                     </fieldset>
 
                     <div class="view-cart-btn">
-                        <a href="{% url 'cart' %}" class="btn">
-                            <span class="icon">
-                                <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="font-weight-bold">Back to Shopping Cart</span>
-                        </a>
                         <button id="submit-button" class="btn checkout-btn bg-success my-2">
                             <span class="font-weight-bold">Complete Order</span>
                             <span class="icon">
@@ -138,6 +132,12 @@
                             <span>Your card will be charged <strong>£{{ total }}</strong></span>
                             {% endif %}
                         </p>
+                        <a href="{% url 'cart' %}" class="btn mt-2">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="font-weight-bold">Back to Shopping Cart</span>
+                        </a>
                     </div>
                     <input type="hidden" name="order_type" value="{% if order_for_delivery %}delivery{% else %}collection{% endif %}">
                     <input type="hidden" name="client_secret" value="{{ client_secret }}">
