@@ -80,11 +80,11 @@ form.addEventListener('submit', function (ev) {
             shipping: {
                 name: $.trim(form.full_name.value),
                 address: {
-                    line1: $.trim(form.street_address1.value),
-                    line2: $.trim(form.street_address2.value),
-                    city: $.trim(form.town_or_city.value),
-                    postal_code: $.trim(form.postcode.value),
-                    state: $.trim(form.county.value),
+                    line1: $.trim(form.street_address1.value) ?? 'N/A',
+                    line2: $.trim(form.street_address2.value) ?? 'N/A',
+                    city: $.trim(form.town_or_city.value) ?? 'N/A',
+                    postal_code: $.trim(form.postcode.value) ?? 'N/A',
+                    state: $.trim(form.county.value) ?? 'N/A',
                 }
             }
         }).then(function (result) {
