@@ -13,6 +13,7 @@
         {% endelement %}
         {% url 'account_email' as email_url %}
         {% element form form=form action=email_url method="post" tags="email,list" %}
+        {{ form|crispy }}
             {% slot body %}
                 {% csrf_token %}
                 {% for radio in emailaddress_radios %}
@@ -60,6 +61,7 @@
         {% endelement %}
         {% url 'account_email' as action_url %}
         {% element form form=form method="post" action=action_url tags="email,add" %}
+        {{ form|crispy }}
             {% slot body %}
                 {% csrf_token %}
                 {% element fields form=form %}

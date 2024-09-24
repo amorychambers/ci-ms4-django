@@ -17,6 +17,7 @@
             {% endelement %}
             {% url 'account_confirm_email' confirmation.key as action_url %}
             {% element form method="post" action=action_url %}
+            {{ form|crispy }}
                 {% slot actions %}
                     {% csrf_token %}
                     {{ redirect_field }}

@@ -13,6 +13,7 @@
     {% endif %}
     {% url 'account_email' as action_url %}
     {% element form method="post" action=action_url %}
+    {{ form|crispy }}
         {% slot body %}
             {% csrf_token %}
             {% if current_emailaddress %}

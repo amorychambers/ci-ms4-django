@@ -12,6 +12,7 @@
     {% endelement %}
     {% url 'account_logout' as action_url %}
     {% element form method="post" action=action_url no_visible_fields=True %}
+    {{ form|crispy }}
         {% slot body %}
             {% csrf_token %}
             {{ redirect_field }}
