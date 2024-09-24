@@ -19,7 +19,54 @@
         </div>
         <div class="col-12 col-lg-6 my-2">
             <h5 class="heading">Order History</h5>
-            {{ orders }}
+            <div class="table-responsive" id="order-history">
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Order Number</th>
+                            <th>Date</th>
+                            <th>Products</th>
+                            <th>Total</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'order_history' order.order_number %}">
+                                    {{ order.order_number|truncatechars:6 }}
+                                </a>
+                            </td>
+                            <td>
+                                {{ order.date }}
+                            </td>
+                            <td>
+                                <ul class="list-unstyled">
+                                    {% for product in order.lineitems.all %}
+                                    <li class="small">
+                                        {{ product.product.name }} x {{ product.quantity }}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                            <td>
+                                £{{ order.order_total }}
+                            </td>
+                            {% if order.collection %}
+                            <td>
+                                Collection
+                            </td>
+                            {% else %}
+                            <td>
+                                Delivery
+                            </td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 

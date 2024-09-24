@@ -177,6 +177,11 @@ figure>h2,
     margin: 1em 0;
 }
 
+#order-history {
+    max-height: 60vh;
+    overflow: auto;
+}
+
 /* -------------------- Products  -------------------- */
 
 #filter {
