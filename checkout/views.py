@@ -111,7 +111,24 @@ def checkout(request):
             messages.warning(request, 'Stripe public key is missing. \
                 Did you forget to set it in your environment?')
         
-        order_form = OrderForm()
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                order_form = OrderForm(initial={
+                    'full_name': profile.user.get_full_name(),
+                    'email': profile.user.email,
+                    'phone_number': profile.default_phone_number,
+                    'street_address1': profile.default_street_address1,
+                    'street_address2': profile.default_street_address2,
+                    'town_or_city': profile.default_town_or_city,
+                    'county': profile.default_county,
+                    'postcode': profile.default_postcode,
+                })
+            except UserProfile.DoesNotExist:
+                order_form = OrderForm()
+        else:
+            order_form = OrderForm()
+
         context = {
             "order_form": order_form,
             "order_for_delivery": order_for_delivery,
@@ -133,7 +150,7 @@ def checkout_success(request, order_number):
        user_profile = get_object_or_404(UserProfile, user=request.user)
        order.user_profile = user_profile
        order.save()
-       
+
        if save_info:
             delivery_info = {
                 'default_phone_number': order.phone_number,

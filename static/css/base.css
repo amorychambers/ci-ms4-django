@@ -213,7 +213,7 @@ figure>h2,
 .checkout-btn, .view-cart-btn, .homepage-btn {
     font-family: "Cabin Sketch", sans-serif;
     color: #fff;
-    width: 100%;
+    width: auto;
 }
 
 #cart-quantity {
