@@ -1,0 +1,12 @@
+Hello, {{ order.full_name }}!
+
+Thank you for your order. We'll get that wrapped up for you as soon as possible!
+
+Your order number is {{ order.order_number }}.
+
+Order Total: £{{ order.order_total }}
+
+Any questions or further requests, please get in touch with us via email, or send us a message through the contact form on our website.
+
+Thanks again!
+SouthRoast
