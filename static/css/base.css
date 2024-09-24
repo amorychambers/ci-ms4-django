@@ -171,6 +171,12 @@ figure>h2,
 }
 
 
+/* -------------------- Profile  -------------------- */
+
+#update-profile-form > .form-group {
+    margin: 1em 0;
+}
+
 /* -------------------- Products  -------------------- */
 
 #filter {
