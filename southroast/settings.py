@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'star_ratings',
     'cart',
     'checkout',
+    'profiles',
 
     # External
 
