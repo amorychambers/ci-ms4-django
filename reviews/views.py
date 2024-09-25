@@ -22,10 +22,6 @@ def review(request, product_id):
         )
         form = ReviewForm(instance=review)
     except Review.DoesNotExist:
-        review = Review.objects.create(
-            user=user,
-            review_product=product
-        )
         form = ReviewForm()
 
     if request.method == "POST":

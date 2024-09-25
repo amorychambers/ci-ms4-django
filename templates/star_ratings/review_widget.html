@@ -1,0 +1,29 @@
+{% extends "star_ratings/widget_base.html" %}
+
+{% block review_ratings %}
+    {% if user_rating %}
+        <ul class="star-ratings-rating-foreground" style="width: {{ user_rating.score|floatformat }}%">
+    {% else %}
+        <ul class="star-ratings-rating-foreground" style="width: 0">
+    {% endif %}
+    <p>{{ user_rating.score}} </p>
+        {% for star in stars %}
+            <li>
+                {% if editable %}
+                <form action="{% url 'ratings:rate' rating.content_type_id rating.object_id %}"
+                    class="star-ratings-rate-action" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" value="{{ star }}" name="score">
+                    <input type="hidden" value="{{ request.path }}" name="next">
+                    <button type="submit" class="star-ratings-rating-full" data-score="{{ star }}"></button>
+                </form>
+                {% else %}
+                <span class="star-ratings-rating-full" title="Log in to rate"></span>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block rating_detail %}
+{% endblock rating_detail %}
