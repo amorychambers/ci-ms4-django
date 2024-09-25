@@ -40,7 +40,8 @@ def review(request, product_id):
         else:
             messages.error(request, 'Something went wrong! Please check \
                            that you completed both parts of the review.')
-            return redirect(reverse('review', kwargs={'product_id':product_id}))
+            return redirect(reverse('review',
+                                     kwargs={'product_id':product_id}))
 
     context = {
         'user': user,
@@ -48,9 +49,3 @@ def review(request, product_id):
         'form': form,
     }
     return render(request, 'reviews/review.html', context)
-
-
-    # else:
-    #     messages.error(request, "Sorry! You can only review \
-    #                    products while signed in.")
-    #     return redirect(reverse('product_details', kwargs={'product_id':product_id}))

@@ -201,8 +201,8 @@ figure>h2,
     background: #000;
 }
 
-.sale-text {
-    color: rgb(255 183 190);
+.contrast-text {
+    color: #F9C0C0;
 }
 
 .btn:disabled {

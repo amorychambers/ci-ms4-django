@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
 from .models import Product
+from reviews.models import Review
 import math
 
 # Create your views here.
@@ -49,6 +50,7 @@ def product_details(request, product_id):
     """
 
     product = get_object_or_404(Product, pk=product_id)
+    reviews = Review.objects.filter(Q(review_product=product.id))
     
     if "coffee" in product.tags and "bundle" not in product.tags:
         max_qty = math.floor(product.stock/250)
@@ -58,6 +60,7 @@ def product_details(request, product_id):
     context = {
         "product": product,
         "max_qty": max_qty,
+        "reviews": reviews
     }
 
     return render(request, "products/product_details.html", context)
