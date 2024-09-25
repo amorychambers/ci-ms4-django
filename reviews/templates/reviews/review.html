@@ -21,6 +21,8 @@
     <form method="POST" action="{% url 'review' product.id %}" class="my-2" id="review-form">
       {% csrf_token %}
       {{ form|crispy }}
+      <input type="hidden" name="review_product" value="{{ product.id }}">
+      <input type="hidden" name="user" value="{{ user.id }}">
       <button class="btn btn-success w-25 float-end">Submit</button>
     </form>
   </div>
