@@ -36,3 +36,13 @@
 
 
 {% endblock %}
+
+{% block postload_js %}
+{{ block.super }}
+<script type="text/javascript">
+  $(document).ready(function() {
+    let firstCounter = $('.review-counter')[0];
+    $(firstCounter).hide();
+  })
+</script>
+{% endblock %}
