@@ -8,11 +8,10 @@ class Review(models.Model):
     """
     A model to store user reviews of products on the site
     """
-
-    review_product = models.ForeignKey(Product, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    review_product = models.ForeignKey(Product, on_delete=models.CASCADE)
     title = models.CharField(max_length=128, null=False, blank=False)
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.DateField(auto_now_add=True)
     content = models.TextField(null=False, blank=False, default='')
 
     def __str__(self):
