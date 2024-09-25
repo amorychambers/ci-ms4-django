@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import messages
 from products.models import Product
+from .forms import ReviewForm
 
 # Create your views here.
 
@@ -12,10 +13,13 @@ def review(request, product_id):
     if request.user.is_authenticated:
         user = get_object_or_404(User, username=request.user)
         product = get_object_or_404(Product, id=product_id)
+        form = ReviewForm()
 
         context = {
             'user': user,
-            'product': product
+            'product': product,
+            'form': form,
+            'review': True
         }
         return render(request, 'reviews/review.html', context)
     else:

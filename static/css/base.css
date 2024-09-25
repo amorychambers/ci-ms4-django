@@ -208,6 +208,14 @@ figure>h2,
 .btn:disabled {
     border: transparent;
 }
+
+/* -------------------- Reviews  -------------------- */
+
+#review-form > .form-group {
+    margin: 1em 0;
+}
+
+
 /* -------------------- Cart  -------------------- */
 
 .checkout-btn, .view-cart-btn, .homepage-btn {

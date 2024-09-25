@@ -58,6 +58,7 @@ def product_details(request, product_id):
     context = {
         "product": product,
         "max_qty": max_qty,
+        "details": True,
     }
 
     return render(request, "products/product_details.html", context)

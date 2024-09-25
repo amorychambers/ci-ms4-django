@@ -13,10 +13,17 @@
 {% block content %}
 
 <h2 class="heading my-2">Leave a Review</h2>
-<div class="col-12 col-md-6">
-
-</div>
 <div class="row my-md-5 mx-lg-4">
+  <div class="col-12 col-md-6 mb-2">
+    <div class="form-control center pb-0">
+      {% ratings product icon_height=24 icon_width=24 %}
+    </div>
+    <form method="POST" action="{% url 'review' product.id %}" class="my-2" id="review-form">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <button class="btn btn-success w-25 float-end">Submit</button>
+    </form>
+  </div>
   <div class="col-12 col-md-6 my-2 order-lg-first">
     <img src="/media/{{ product.image }}" class=" mb-4 w-100" alt="Product Image">
     <div class="bg-white rounded p-2">
