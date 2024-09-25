@@ -1,10 +1,10 @@
 from django import forms
-from .models import UserProfile
+from .models import Review
 
-class UserProfileForm(forms.ModelForm):
+class ReviewForm(forms.ModelForm):
     class Meta:
-        model = UserProfile
-        exclude = ('user',)
+        model = Review
+        fields = ('title', 'content')
         
     def __init__(self, *args, **kwargs):
         """
@@ -13,15 +13,11 @@ class UserProfileForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         placeholders = {
-            'default_phone_number': 'Phone Number',
-            'default_street_address1': 'Street Address 1',
-            'default_street_address2': 'Street Address 2',
-            'default_town_or_city': 'Town or City',
-            'default_county': 'County',
-            'default_postcode': 'Postal Code',
+            'title': 'Title',
+            'content': 'Review'
         }
 
-        self.fields['default_phone_number'].widget.attrs['autofocus'] = True
+        self.fields['title'].widget.attrs['autofocus'] = True
         for field in self.fields:
             if self.fields[field].required:
                 placeholder = f'{placeholders[field]} *'

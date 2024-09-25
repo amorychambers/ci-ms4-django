@@ -9,10 +9,15 @@ def review(request, product_id):
     """
     View to create new reviews
     """
-    if user.is_authenticated:
+    if request.user.is_authenticated:
         user = get_object_or_404(User, username=request.user)
         product = get_object_or_404(Product, id=product_id)
-        return render(request, 'reviews/review.html')
+
+        context = {
+            'user': user,
+            'product': product
+        }
+        return render(request, 'reviews/review.html', context)
     else:
         messages.error(request, "Sorry! You can only review \
                        products while signed in.")
