@@ -13,12 +13,14 @@
         </div>
         <div class="carousel-item" data-bs-interval="5000">
           <img src="{{ MEDIA_URL }}/media/seasonal.webp" class="d-block w-100" alt="Seasonal Blends">
-          <h2 id="seasonal-text">Summer Seasonal Blends</h2>
+          <h2 id="seasonal-text">Seasonal Blends</h2>
+          <a href="{% url 'products' %}?sort=seasonal" class="stretched-link"></a>
         </div>
         <div class="carousel-item" data-bs-interval="5000">
           <img src="{{ MEDIA_URL }}/media/gift-sets.webp" class="d-block w-100" alt="Gift Sets">
           <h2 id="ribbon">gift sets</h2>
           <h2 id="gift-text">Gift Sets</h2>
+          <a href="{% url 'products' %}?sort=bundle" class="stretched-link"></a>
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#homepage-carousel" data-bs-slide="prev">
@@ -36,6 +38,7 @@
     <figure class="col-12 col-lg-4 position-relative">
       <img src="{{ MEDIA_URL }}/media/our-coffee.webp" alt="Our Coffee">
       <h2>Our Coffee</h2>
+      <a href="{% url 'products' %}?sort=coffee" class="stretched-link"></a>
     </figure>
     <figure class="col-12 col-lg-4 position-relative">
       <img src="{{ MEDIA_URL }}/media/our-community.webp" alt="Our Community">

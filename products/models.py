@@ -20,8 +20,9 @@ class Product(models.Model):
         "equipment": "Equipment",
         "single": "Single Origin",
         "blend": "Blend",
+        "seasonal": "Seasonal",
         "sale": "Sale",
-        "bundle": "Bundle"
+        "bundle": "Bundles"
     }
 
     name = models.CharField(max_length=128)
