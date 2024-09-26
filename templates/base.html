@@ -56,6 +56,7 @@
                             Coffee
                         </a>
                         <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'products' %}?sort=coffee">All Coffee</a></li>
                             <li><a class="dropdown-item" href="{% url 'products' %}?sort=single">Single Origin</a></li>
                             <li><a class="dropdown-item" href="{% url 'products' %}?sort=blend">Blends</a></li>
                             <li><a class="dropdown-item" href="{% url 'products' %}?sort=sale">Sale</a></li>
@@ -78,6 +79,9 @@
                             <li><a class="dropdown-item" href="{% url 'account_login' %}">Sign In</a></li>
                             {% endif %}
                         </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Meet/Contact Us</a>
                     </li>
                 </ul>
             </div>

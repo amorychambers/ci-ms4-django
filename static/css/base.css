@@ -109,10 +109,11 @@ figure>h2,
 }
 
 #gift-text {
+    font-family: "Cabin Sketch", sans-serif;
     width: 100%;
     background-color: #95DDD7;
     color: #F615AC;
-    font-family: "Happy Monkey", sans-serif;
+    text-align: center;
 }
 
 #ribbon {
