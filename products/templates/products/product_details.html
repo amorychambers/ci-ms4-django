@@ -68,10 +68,10 @@
 </div>
 
 <div class="row mx-lg-4 my-2 background">
-  <h2 class="my-2">Reviews</h2>
-  <p><a href="{% url 'review' product.id %}" class="contrast-text">Write a Review!</a></p>
+    <h2 class="my-2">Reviews</h2>
+    <p><a href="{% url 'review' product.id %}" class="contrast-text">Write a Review!</a></p>
   {% for review in reviews %}
-  <div class="col m-2 p-2 bg-white rounded">
+  <div class="col-12 col-md-6 m-2 p-2 bg-white rounded">
     <h4 class="m-0 text-black">{{ review.title }}</h4>
     <p class="m-0 text-muted">{{ review.user }} on {{ review.date }}</p>
     {% ratings product icon_height=20 icon_width=20 template_name='review_widget.html' %}

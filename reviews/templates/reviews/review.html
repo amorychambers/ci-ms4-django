@@ -16,7 +16,7 @@
 <div class="row my-md-5 mx-lg-4">
   <div class="col-12 col-md-6 mb-2">
     <div class="form-control center pb-0">
-      {% ratings product icon_height=24 icon_width=24 template_name=review_widget.html %}
+      {% ratings product icon_height=24 icon_width=24 template_name='review_widget.html' %}
     </div>
     <form method="POST" action="{% url 'review' product.id %}" class="my-2" id="review-form">
       {% csrf_token %}

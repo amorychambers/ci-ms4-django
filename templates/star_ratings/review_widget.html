@@ -1,12 +1,8 @@
 {% extends "star_ratings/widget_base.html" %}
+{% load user_rating %}
 
 {% block review_ratings %}
-    {% if user_rating %}
-        <ul class="star-ratings-rating-foreground" style="width: {{ user_rating.score|floatformat }}%">
-    {% else %}
-        <ul class="star-ratings-rating-foreground" style="width: 0">
-    {% endif %}
-    <p>{{ user_rating.score}} </p>
+    <ul class="star-ratings-rating-foreground" style="width: {{ user_rating.score|multiply }}%">
         {% for star in stars %}
             <li>
                 {% if editable %}
