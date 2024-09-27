@@ -8,7 +8,7 @@
   </div>
 
   <div class="row">
-    <form method="POST" action="" class="my-2" id="post-form">
+    <form method="POST" action="{% url 'create_post' %}" class="my-2" id="post-form" enctype="multipart/form-data">
       {% csrf_token %}
       {{ form|crispy }}
     </form>

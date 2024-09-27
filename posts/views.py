@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .forms import PostForm
+from products.models import Product
 
 # Create your views here.
 
@@ -16,6 +17,8 @@ def create_post(request):
     """
 
     form = PostForm()
+    form.fields['product'].queryset = Product.objects.filter(
+        tags__contains="coffee")
 
     context = {
         "form": form,
