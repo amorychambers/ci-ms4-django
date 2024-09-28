@@ -227,6 +227,17 @@ figure>h2,
     padding: 0 10px;
 }
 
+.post-title {
+    font-family: "Cabin Sketch", sans-serif;
+    color: #fff;
+    background-color: rgba(108, 78, 49, .9);
+    width: 100%;
+}
+
+.single-post > * {
+    padding: 0 5px;
+}
+
 /* -------------------- Cart  -------------------- */
 
 .checkout-btn, .view-cart-btn, .homepage-btn {
