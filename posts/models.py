@@ -14,7 +14,7 @@ class Post(models.Model):
                                 null=True, blank=True)
     title = models.CharField(max_length=256, null=False, blank=False)
     date = models.DateField(auto_now_add=True)
-    content = models.TextField(null=False, blank=False, default='')
+    content = models.TextField(max_length=800, null=False, blank=False, default='')
     image = models.ImageField(null=True, blank=True)
 
     def __str__(self):

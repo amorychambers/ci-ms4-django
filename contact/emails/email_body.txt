@@ -1,0 +1,6 @@
+New message received from {{ name }}!
+
+Reply at: {{ email }}
+
+Message Contents:
+{{ content }}

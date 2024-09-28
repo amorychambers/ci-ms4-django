@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'profiles',
     'reviews',
     'posts',
+    'contact',
 
     # External
 
