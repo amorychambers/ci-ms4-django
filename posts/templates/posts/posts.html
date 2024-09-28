@@ -8,4 +8,29 @@
   </div>
 </div>
 
+<div class="container community-posts">
+  {% for post in page_obj %}
+  {{ post.title }}
+  {% endfor %}
+</div>
+
+<!-- Pagination template taken from django documentation -->
+<div class="pagination">
+  <span class="step-links">
+      {% if page_obj.has_previous %}
+          <a href="{% url 'posts' %}?page=1">&laquo; First</a>
+          <a href="{% url 'posts' %}?page={{ page_obj.previous_page_number }}">Previous</a>
+      {% endif %}
+
+      <span class="current">
+          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+      </span>
+
+      {% if page_obj.has_next %}
+          <a href="{% url 'posts' %}?page={{ page_obj.next_page_number }}">Next</a>
+          <a href="{% url 'posts' %}?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+      {% endif %}
+  </span>
+</div>
+
 {% endblock %}
