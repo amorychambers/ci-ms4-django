@@ -4,7 +4,7 @@
  * It only enables the button that deletes the user's account and data from the database once they have checked a confirmation box.
  */
 let confirmDelete = document.getElementById("confirm-delete");
-let deleteButton = document.getElementById("deleteButton");
+let deleteButton = document.getElementById("delete-button");
 
 confirmDelete.addEventListener("click", function () {
     if (deleteButton.classList.contains("disabled")) {
