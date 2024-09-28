@@ -69,6 +69,42 @@
             </div>
         </div>
     </div>
+    <div class="row my-4">
+        <div class="col-12 col-md-8 offset-md-2">
+            <button class="btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#delete-account">Delete Account</button>
+        </div>
+    </div>
+</div>
 
+<!-- This modal with confirmation checkbox is a modular code snippet from my previous project, ci-ms3-backend -->
+<!-- Confirmation modal to ensure user does not delete account by mistake. This also makes use of a checkbox with a custom JS function to be absolutely certain -->
+<div class="modal fade" id="delete-account" tabindex="-1" aria-labelledby="delete-account-label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" data-bs-theme="dark">
+          <h5 class="modal-title fs-5" id="delete-account-label">Delete Account</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>Caution!</strong><br>If you delete your account, your reviews, posts, and order history will be permanently deleted. This is irreversible. If you would like to delete your account,
+            please check the box confirming you accept this.</p>
+          <div class="form-inline">
+            <label class="form-check-label required" for="confirm-delete">Confirm Deletion</label>
+            <input class="form-check-input p-0" type="checkbox" value="" id="confirm-delete">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <a id="delete-button" href="{% url 'delete_account' %}" class="btn btn-danger m-2 disabled"
+            role="button">Delete My Account</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
+{% endblock %}
+
+{% block postload_js %}
+{{ block.super }}
+<script src="{% static 'js/delete-account.js' %}"></script>
 {% endblock %}
