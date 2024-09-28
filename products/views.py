@@ -50,7 +50,8 @@ def product_details(request, product_id):
     """
 
     product = get_object_or_404(Product, pk=product_id)
-    reviews = Review.objects.filter(Q(review_product=product.id))
+    reviews = Review.objects.filter(
+        Q(review_product=product.id)).order_by('-date')
     
     if "coffee" in product.tags and "bundle" not in product.tags:
         max_qty = math.floor(product.stock/250)

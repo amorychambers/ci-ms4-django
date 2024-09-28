@@ -50,6 +50,7 @@ def review(request, product_id):
     }
     return render(request, 'reviews/review.html', context)
 
+
 @login_required
 def delete_review(request, review_id):
     """
@@ -57,11 +58,11 @@ def delete_review(request, review_id):
     """
 
     review = get_object_or_404(Review, pk=review_id)
-    product = review.review_product.id
+    product_id = review.review_product.id
 
     if request.user == review.user:
         review.delete()
         messages.success(request, 'Review deleted!')
     else:
         messages.error(request, 'Sorry, only the review owner can do that.')
-    return redirect(reverse('product_details', kwargs={"product_id":product}))
+    return redirect(reverse('product_details', kwargs={"product_id":product_id}))
