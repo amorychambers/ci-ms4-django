@@ -8,13 +8,12 @@ class PostForm(forms.ModelForm):
         fields = ('title', 'product', 'content',
                   'image')
     
+    image = forms.ImageField(label='Image', required=False,)
+    product = forms.ModelChoiceField(
+        queryset=Product.objects.all(), 
+        required=False, blank=True, to_field_name="name")
+
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, *kwargs)
-
-        image = forms.ImageField(label='Image', required=False,)
-
-        product = forms.ModelChoiceField(
-        queryset=Product.objects.all(),
-        blank=True, to_field_name="name")
-
-        self.fields['product'].label = "SouthRoast"
+        super().__init__(*args, **kwargs)
+        
+        self.fields['product'].label = "SouthRoast Coffee"

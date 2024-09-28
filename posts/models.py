@@ -9,7 +9,7 @@ class Post(models.Model):
     """
     A model for community submitted posts
     """
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.SET_NULL,
                                 null=True, blank=True)
     title = models.CharField(max_length=256, null=False, blank=False)

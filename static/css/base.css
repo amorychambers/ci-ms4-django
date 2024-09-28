@@ -216,6 +216,16 @@ figure>h2,
     margin: 1em 0;
 }
 
+/* -------------------- Posts  -------------------- */
+
+#post-form > .form-group > label {
+    font-family: "Cabin Sketch", sans-serif;
+    width: 100%;
+    color: #fff;
+    margin: 10px 0;
+    background: rgba(108, 78, 49, .9);
+    padding: 0 10px;
+}
 
 /* -------------------- Cart  -------------------- */
 
