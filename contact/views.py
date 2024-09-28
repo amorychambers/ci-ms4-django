@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.conf import settings
+from django.contrib import messages
 from .forms import ContactForm
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
@@ -19,23 +21,27 @@ def contact(request):
 
         name = request.POST.get('name')
         email = request.POST.get('email')
-        subject = request.POST.get('subject')
+        message_subject = request.POST.get('subject')
         content = request.POST.get('content')
 
         subject = render_to_string(
-            'checkout/emails/email_subject.txt',
-            {'order': order}
+            'contact/emails/email_subject.txt',
+            {'subject': message_subject}
         )
         body = render_to_string(
-            'checkout/emails/email_body.txt',
-            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL}
+            'contact/emails/email_body.txt',
+            {'name': name, 'email': email,
+             'content': content}
         )
         send_mail(
             subject,
             body,
             settings.DEFAULT_FROM_EMAIL,
-            [customer_email]
+            ['contact@southroast.co.uk']
         )
+        messages.success(request, "Thanks for getting in touch!\
+                         We'll get back to you as soon as possible.")
+        return redirect('contact')
 
     context = {
         "form": form,
