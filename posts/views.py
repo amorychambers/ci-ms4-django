@@ -18,7 +18,7 @@ def posts(request):
     """
 
     # Paginator code snippet taken from django documentation
-    posts = Post.objects.all()
+    posts = Post.objects.all().order_by('date')
     paginator = Paginator(posts, 3)
 
     page_number = request.GET.get("page")
@@ -63,3 +63,19 @@ def create_post(request):
     }
 
     return render(request, 'posts/create_post.html', context)
+
+
+@login_required
+def delete_post(request, post_id):
+    """
+    View to delete community posts
+    """
+
+    post = get_object_or_404(Post, pk=post_id)
+
+    if request.user == post.user:
+        post.delete()
+        messages.success(request, 'Post deleted!')
+    else:
+        messages.error(request, 'Sorry, only the post owner can do that.')
+    return redirect(reverse('posts'))

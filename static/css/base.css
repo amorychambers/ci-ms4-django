@@ -288,6 +288,10 @@ footer a {
         max-width: 70%;
     }
 
+    .post-image > .img-fluid {
+        max-width: 100%;
+    }
+
     #searchbox {
         margin-top: .75rem;
         margin-bottom: 0;
