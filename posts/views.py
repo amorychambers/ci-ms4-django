@@ -18,7 +18,7 @@ def posts(request):
     """
 
     # Paginator code snippet taken from django documentation
-    posts = Post.objects.all().order_by('date')
+    posts = Post.objects.all().order_by('id').reverse()
     paginator = Paginator(posts, 3)
 
     page_number = request.GET.get("page")

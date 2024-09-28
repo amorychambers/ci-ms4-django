@@ -236,6 +236,12 @@ figure>h2,
 
 .single-post > * {
     padding: 0 5px;
+    hyphens: auto;
+    word-wrap: break-word;
+}
+
+.step-links > a {
+    color: #F9C0C0;
 }
 
 /* -------------------- Cart  -------------------- */
@@ -304,4 +310,10 @@ footer a {
 
 /* ------------------------------------------------ Desktop Styles ------------------------------------------------ */
 
-@media(min-width: 992px) {}
+@media(min-width: 992px) {
+
+    .post-image > .img-fluid {
+        max-width: 70%;
+    }
+
+}
