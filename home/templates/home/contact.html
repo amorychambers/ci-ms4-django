@@ -3,17 +3,20 @@
 
 {% block content %}
 <div class="row">
-  <div class="col-12 col-lg-6 order-lg-last">
-    <form action="">
-
+  <div class="col-12 col-lg-5 order-lg-last">
+    <h4 class="heading">Contact Us</h4>
+    <form action="" method="POST" id="contact-form">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <button class="btn btn-success w-25 float-end mt-2">Send</button>
     </form>
   </div>
-  <div class="col-12">
+  <div class="col-12 col-lg-5 offset-lg-1">
     <h4 class="heading">About Us</h4>
-    <p></p>
+    <p class="bg-white rounded p-2">We're a small scale coffee roasters in South Wales, providing local cafes and customers with fine quality coffee fresh on their doorstep. We believe in fair standards for our farmers, fair prices for our customers, and good coffee. Feel free to pop in and visit us! We're a friendly bunch, and there's nothing like the smell of good coffee roasting away!</p>
     <hr class="my-2">
     <h4 class="heading">Wholesale</h4>
-    <p></p>
+    <p class="bg-white rounded p-2">We source good quality coffee and roast it local on demand for a variety of local cafes and restaurants. If you'd like to serve your own customers some delicious SouthRoast coffee, please get in touch using the contact form here and we will get back to you as soon as we can! We are happy to accomodate a variety of needs and quantities, and we've delivered once a week every week to our wholesale partners for the last four years.</p>
   </div>
 </div>
 {% endblock %}
