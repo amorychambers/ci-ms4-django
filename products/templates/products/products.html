@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block extra_js %}
-<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+<script src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -49,7 +49,7 @@
           <div class="card-body">
             <h5 class="card-title">{{ product.name }}</h5>
             {% if product.sale %}
-            <p class="card-subtitle"><strike>£{{ product.price }}</strike><span class="contrast-text ps-2">£{{ product.get_sale_price }} - Sale!</span></p>
+            <p class="card-subtitle"><span class="strike">£{{ product.price }}</span><span class="contrast-text ps-2">£{{ product.get_sale_price }} - Sale!</span></p>
             {% else %}
             <p class="card-subtitle">£{{ product.price }}</p>
             {% endif %}

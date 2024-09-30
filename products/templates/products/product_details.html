@@ -20,7 +20,7 @@
   <div class="col-12 col-md-6 background">
     <h2 class="my-2">{{ product.name }}</h2>
     {% if product.sale %}
-    <p><strike>£{{ product.price }}</strike><span class="contrast-text ps-2">£{{ product.get_sale_price }} - Sale!</span>
+    <p><span class="strike">£{{ product.price }}</span><span class="contrast-text ps-2">£{{ product.get_sale_price }} - Sale!</span>
     </p>
     {% else %}
     <p>£{{ product.price }}{% if 'coffee' in product.tags %} per 250g{% endif %}</p>

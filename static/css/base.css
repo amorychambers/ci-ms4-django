@@ -193,6 +193,10 @@ figure>h2,
     overflow: scroll;
 }
 
+.strike {
+    text-decoration: line-through;
+}
+
 .submit-btn {
     font-family: "Cabin Sketch", sans-serif;
     font-size: 1.5em;
@@ -245,7 +249,8 @@ figure>h2,
 
 /* -------------------- Cart  -------------------- */
 
-.checkout-btn, .view-cart-btn, .homepage-btn {
+.checkout-btn, .view-cart-btn, .homepage-btn,
+.post-btn {
     font-family: "Cabin Sketch", sans-serif;
     color: #fff;
     width: auto;

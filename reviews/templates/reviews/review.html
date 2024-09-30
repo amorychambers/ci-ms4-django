@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block extra_js %}
-<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+<script src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -41,7 +41,7 @@
 
 {% block postload_js %}
 {{ block.super }}
-<script type="text/javascript">
+<script>
   $(document).ready(function() {
     let firstCounter = $('.review-counter')[0];
     $(firstCounter).hide();
