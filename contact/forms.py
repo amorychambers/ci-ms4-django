@@ -1,12 +1,12 @@
 from django import forms
 
-class ContactForm(forms.Form):
 
+class ContactForm(forms.Form):
     name = forms.CharField(max_length=32, required=True)
     email = forms.EmailField(required=True)
     subject = forms.CharField(max_length=64, required=True)
     content = forms.CharField(widget=forms.Textarea, required=True)
-        
+
     def __init__(self, *args, **kwargs):
         """
         Add placeholders and remove auto-generated

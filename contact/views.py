@@ -7,6 +7,7 @@ from django.template.loader import render_to_string
 
 # Create your views here.
 
+
 def contact(request):
     """
     View to return and handle contact form,

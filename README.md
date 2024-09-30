@@ -287,8 +287,12 @@ cart/contexts.py - No errors listed
 cart/views.py - No errors listed
 
 checkout/views.py - No errors listed
+checkout/webhook_handler.py - One error listed: lines 82 and 83 are 80 characters long. As these are over PEP8 guidelines by only one character and are due to longer variable names, I have decided that any changes might decrease readability.
+checkout/webhooks.py - One error listed: line 44 is over 80 characters long. Left unchanged for similar readability reasons as this is due to a long variable name taken from Stripe
 
+contact/views.py - No errors listed
 
+posts/views.py No errors listed
 ### Accessibility
 
 Validated with the WAVE Web Accessibility Evaluation Tools

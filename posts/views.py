@@ -12,6 +12,7 @@ from products.models import Product
 
 # Create your views here.
 
+
 def posts(request):
     """
     View to render all community posts
@@ -30,6 +31,7 @@ def posts(request):
 
     return render(request, 'posts/posts.html', context)
 
+
 @login_required
 def create_post(request):
     """
@@ -41,8 +43,7 @@ def create_post(request):
     form = PostForm()
     form.fields['product'].queryset = Product.objects.filter(
         tags__contains="coffee")
-    
-    
+
     if request.method == "POST":
         post = Post.objects.create(
             user=user)
