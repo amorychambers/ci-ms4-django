@@ -8,7 +8,7 @@ django-crispy-forms==1.14.0
 django-environ==0.11.2
 django-model-utils==5.0.0
 django-multiselectfield==0.1.13
-django-star-ratings @ git+https://github.com/amorychambers/django-star-ratings.git@b5ea355ff78a4745e03accb9cc8244d402b471dd
+django-star-ratings @ git+https://github.com/amorychambers/django-star-ratings.git@459a5e61441881985b0a3d21969969a1e8a360fa
 idna==3.10
 pillow==10.4.0
 psycopg2==2.9.9

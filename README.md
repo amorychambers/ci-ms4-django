@@ -130,6 +130,8 @@ The site uses a persistent navigation bar to navigate between the main pages, wi
 
 9. Sign In/Register - Pages for a new user to register an account or for an existing user to log back in to their account, built with django-allauth
 
+10. 404 - Custom 404 page to redirect users to the homepage if they run into any errors on the site
+
 ### Wireframes
 ### Enttity Relationship Diagram
 
@@ -147,6 +149,13 @@ Python
 
 ### Frameworks and Tools
 
+[django](https://www.djangoproject.com/)
+
+[django-allauth](https://docs.allauth.org/en/latest/)
+
+[django-star-ratings](https://pypi.org/project/django-star-ratings/)
+
+[jquery](https://jquery.com/)
 
 [Bootstrap](https://getbootstrap.com/)
 
@@ -180,6 +189,47 @@ Python
 
 
 ## Features
+
+### Header and Navigation
+
+- The navigation bar is present at the top of every page to allow intuitive and easy navigation
+- The navbar collapses into a convenient hamburger menu on smaller screen sizes, and displays different options for logged in users and guests
+- Search Bar for filtering products by search terms
+- Cart button that updates in real time to show how many items the user has in their cart and links to the cart view page
+
+### Sign In and Registration
+
+- Sign In and Registration pages use django-allauth forms to allow users to create a new account entry in the database and to access an account they have already created
+- Form validation built in with django-allauth, along with additional options for forgotten passwords
+
+### Products
+
+- Complete list of products available that can be easily updated with new or deleted products in the admin panel
+- Filtering options for products with different tags
+- User created product reviews that can be posted and updated by authorised users from the details page
+
+### Star Ratings
+
+- Up-to-date average star ratings from user ratings on all products
+
+### Checkout
+
+- Stripe payments for easy and convenient payment processing on all orders
+- Default delivery info option for registered users
+- Webhooks to ensure orders can be processed and saved in the event of any errors
+
+### User Profile
+
+- Complete user order history that can be viewed in detail
+- Default delivery information form that can be updated by the user
+
+### Community Posts
+
+- Community engagement page allowing for text and image posts for registered users
+
+### Contact Form 
+
+- Easy method to contact site owners for queries via email
 
 ## Testing
 
