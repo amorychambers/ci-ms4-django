@@ -286,21 +286,34 @@ Validated with Code Institute's CI Python Linter
 cart/contexts.py - No errors listed
 cart/views.py - No errors listed
 
+checkout/forms.py - No errors listed
+checkout/models.py - No errors listed
+checkout/signals.py - No errors listed
 checkout/views.py - No errors listed
 checkout/webhook_handler.py - One error listed: lines 82 and 83 are 80 characters long. As these are over PEP8 guidelines by only one character and are due to longer variable names, I have decided that any changes might decrease readability.
 checkout/webhooks.py - One error listed: line 44 is over 80 characters long. Left unchanged for similar readability reasons as this is due to a long variable name taken from Stripe
 
 contact/views.py - No errors listed
+contact/forms.py - No errors listed
 
+home/views.py - No errors listed
+
+posts/forms.py - No errors listed
+posts/models.py - No errors listed
 posts/views.py - No errors listed
 
 products/models.py - No errors listed
 products/views.py - No errors listed
 
+profiles/forms.py - No errors listed
 profiles/models.py - No errors listed
 profiles/views.py - No errors listed
 
+reviews/forms.py - No errors listed
+reviews/models.py - No errors listed
 reviews/views.py - No errors listed
+
+settings.py - One error listed. Password validator settings contain variables longer than can fit in 79 characters.
 
 ### Accessibility
 
