@@ -255,9 +255,30 @@ Validated with the W3C Markup Validation Service
 
 Validated with the W3C CSS Validation Service
 
+![base.css](docs/validation/css-validation.png)
+
+No errors listed
+
+![checkout.css](docs/validation/css-validation.png)
+
+No errors listed
+
+
 ### JavaScript Validation
 
 Validated with JSHint
+
+cart-collection.js - No errors listed
+
+delete-account.js - No errors listed
+
+flushed-footer.js - No errors listed
+
+header-toggle.js - No errors listed
+
+quantity-input.js - No errors listed
+
+stripe-elements.js - 
 
 ### Python Validation
 

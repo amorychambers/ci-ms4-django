@@ -123,8 +123,7 @@ figure>h2,
     position: absolute;
     top: 100%;
     left: 0%;
-    rotate: 90deg;
-    transform: translate(-50%, -50%);
+    transform: rotate(90deg) translate(-50%, -50%);
 }
 
 /* -------------------- Aullauth Pages  -------------------- */

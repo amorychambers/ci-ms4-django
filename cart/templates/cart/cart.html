@@ -135,11 +135,11 @@
 <script type="text/javascript">
     // Update quantity on click
     $('.update-link').click(function (e) {
-        e.preventDefault()
-        let productId = $(this).attr("id").split("update-link-")[1]
-        let form = $(`#update-form-${productId}`)
+        e.preventDefault();
+        let productId = $(this).attr("id").split("update-link-")[1];
+        let form = $(`#update-form-${productId}`);
         form.submit();
-    })
+    });
 
     // Remove item and reload on click
     $('.remove-item').click(function (e) {
@@ -152,6 +152,6 @@
             .done(function () {
                 location.reload();
             });
-    })
+    });
 </script>
 {% endblock %}

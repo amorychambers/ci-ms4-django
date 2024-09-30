@@ -6,12 +6,12 @@ let searchBox = document.getElementById("searchbox");
 
 $(searchButton).click(function() {
     if ($(links).hasClass("show")) {
-        $(navButton).click()
-    };
+        $(navButton).click();
+    }
 });
 
 $(navButton).click(function() {
     if ($(searchBox).hasClass("show")) {
-        $(searchButton).click()
-    };
+        $(searchButton).click();
+    }
 });
