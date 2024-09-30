@@ -132,7 +132,11 @@ The site uses a persistent navigation bar to navigate between the main pages, wi
 10. 404 - Custom 404 page to redirect users to the homepage if they run into any errors on the site
 
 ### Wireframes
-### Enttity Relationship Diagram
+### Entity Relationship Diagram
+
+Entity Relationship Diagram generated with [LucidChart](http://lucidchart.com/)
+
+![ERD Diagram](docs/entity-relationship-diagram.png)
 
 ## Technologies
 
