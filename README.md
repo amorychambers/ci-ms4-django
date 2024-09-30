@@ -97,9 +97,39 @@ The target audiences for the website are new customers who are interested in the
 ## Design 
 
 ### Design Choices
+
+I have opted for a simple and consistent design across the site. Using bootstrap and custom classes, I have aimed at creating a cohesive style for the site that matches the tone of the business, as a small local coffee roasters. 
+
 ### Colours
+
+In keeping with the coffee theme, I have chosen a dark brown background colour for headings and distinct sections, that stands out and complements the lighter brown coffee themed background. I chose to make this darker colour slightly transparent, so that it integrates a little better with the background image and with the soft aesthetic.
+
 ### Fonts
+
+To maintain the professional consistency and cohesive aesthetic, I have used two fonts from the same family across the site. For the majority of the informative text, I used a simple and attractive font called [Cabin](https://fonts.google.com/specimen/Cabin). For display fonts in headings and logos, I used the friendly display variant, [Cabin Sketch](https://fonts.google.com/specimen/Cabin+Sketch).
+
 ### Structure
+
+The site uses a persistent navigation bar to navigate between the main pages, with several more focused and detailed pages accessed from within the main pages.
+
+1. Homepage - A landing page that demonstrates what the business is offering and establishes the site and user goals
+
+2. Products - A complete list view of all products available. This can be filtered by a variety of categories to make finding the desired product easier. Additionally, in the navigation bar there is a search box by which the user can directly filter all products on the site with a search term.
+
+3. Product Details - This page is accessed by selecting a product on the main Products page. It gives further information about the product offered, with reviews that are created by authorised users, and gives the option to add the product to the shopping cart for purchase.
+
+4. Cart - Displays all products and quantities currently added to the user's cart, which is stored in the session. From here the user can update quantities or remove products.
+
+5. Checkout - The checkout form for the site takes user details for completeing an order, and uses a Stripe card element to process payments securely, ensuring that orders can be completed and accessed even in the case of user or site error. 
+
+6. Community Posts - This is a community focused page where users can post thoughts and images, engaging with the business and other customers. 
+
+7. Account - Here the user can view their previous order history, update their default delivery info for easier checkouts, and delete their account if wished.
+
+8. About/Contact - Simple breakdown of what the site offers both to regular and wholesale customers. Contains the contact form by which users can contact the business via email.
+
+9. Sign In/Register - Pages for a new user to register an account or for an existing user to log back in to their account, built with django-allauth
+
 ### Wireframes
 ### Enttity Relationship Diagram
 
