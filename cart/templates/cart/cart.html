@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<div class="container mb-4">
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-8">
             <h5 class="heading">Shopping Cart</h5>
@@ -132,7 +132,7 @@
 {{ block.super }}
 <script src="{% static 'js/quantity-input.js' %}"></script>
 <script src="{% static 'js/cart-collection.js' %}"></script>
-<script type="text/javascript">
+<script>
     // Update quantity on click
     $('.update-link').click(function (e) {
         e.preventDefault();

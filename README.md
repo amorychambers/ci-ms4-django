@@ -157,6 +157,8 @@ Python
 [django-allauth](https://docs.allauth.org/en/latest/)
 
 [django-star-ratings](https://pypi.org/project/django-star-ratings/)
+For this project, I decided to fork and customise a version of the django-star-ratings package that focuses more on individual user ratings and reflects that in the accompanying front-end JavaScript.
+[forked-django-star-ratings](https://github.com/amorychambers/django-star-ratings)
 
 [jquery](https://jquery.com/)
 
@@ -253,6 +255,16 @@ User Stories: 7
 ### HTML Validation
 
 Validated with the W3C Markup Validation Service
+
+As I have used templating and jinja2 code in the HTML file, it was not possible to validate them by file upload. In order to validate these pages, I have opened the page whilst logged in to the site, copied the fully loaded page's source code, and pasted it into the HTML validator.
+
+cart/cart.html - No errors listed
+
+checkout/checkout.html - One error listed for a label that does not match a form check input when the user is not logged in. This is created by the crispy-forms package, which dynamically renders the form check input for logged in users and links to the login page for guest users, leaving the label untouched. 
+
+checkout/checkout_success.html - No errors listed
+
+contact/contact.html - No errors listed
 
 ### CSS Validation
 

@@ -5,7 +5,7 @@
 <div class="row">
   <div class="col-12 col-lg-5 order-lg-last">
     <h4 class="heading">Contact Us</h4>
-    <form action="" method="POST" id="contact-form">
+    <form action="{% url 'contact' %}" method="POST" id="contact-form">
       {% csrf_token %}
       {{ form|crispy }}
       <button class="btn btn-success w-25 float-end mt-2">Send</button>
