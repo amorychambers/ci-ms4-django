@@ -192,15 +192,19 @@ Python
 
 ### Header and Navigation
 
-- The navigation bar is present at the top of every page to allow intuitive and easy navigation
-- The navbar collapses into a convenient hamburger menu on smaller screen sizes, and displays different options for logged in users and guests
+- Navigation bar present at the top of every page to allow intuitive and easy navigation
+- Navbar collapses into a convenient hamburger menu on smaller screen sizes, and displays different options for logged in users and guests
 - Search Bar for filtering products by search terms
 - Cart button that updates in real time to show how many items the user has in their cart and links to the cart view page
+
+User Stories: 2, 3
 
 ### Sign In and Registration
 
 - Sign In and Registration pages use django-allauth forms to allow users to create a new account entry in the database and to access an account they have already created
 - Form validation built in with django-allauth, along with additional options for forgotten passwords
+
+User Stories: 6, 8
 
 ### Products
 
@@ -208,9 +212,11 @@ Python
 - Filtering options for products with different tags
 - User created product reviews that can be posted and updated by authorised users from the details page
 
+User Stories: 1, 3, 4, 9, 15, 16
+
 ### Star Ratings
 
-- Up-to-date average star ratings from user ratings on all products
+- Up-to-date average star ratings from user ratings on all products, with specific user ratings associated with user reviews and profiles
 
 ### Checkout
 
@@ -218,18 +224,26 @@ Python
 - Default delivery info option for registered users
 - Webhooks to ensure orders can be processed and saved in the event of any errors
 
+User Stories: 4, 5, 13
+
 ### User Profile
 
 - Complete user order history that can be viewed in detail
 - Default delivery information form that can be updated by the user
 
+User Stories: 11, 12, 14
+
 ### Community Posts
 
-- Community engagement page allowing for text and image posts for registered users
+- Community engagement page allowing for text and image posts from registered users
+
+User Stories: 2, 10, 16
 
 ### Contact Form 
 
 - Easy method to contact site owners for queries via email
+
+User Stories: 7
 
 ## Testing
 
@@ -262,12 +276,54 @@ Performance testing by Google Lighthouse in Google Chrome Developer Tools
 ### Testing User Input
 ### Automated Tests 
 
-## Bugs
-
 ## Credits
 
 ### Media
+
+Background Image by [Cindynihart](https://pixabay.com/illustrations/coffee-beans-drink-cup-caffeine-5635765/)
+
+'Our Coffee' Photo by [Igor Haritanovich](https://www.pexels.com/photo/coffee-beans-1695052/)
+
+'Our Community' Photo by [On Shot](https://www.pexels.com/photo/people-in-cafe-2788792/)
+
+'Seasonal Blends' Photo by Jessica Lewis @ [thepaintedsquare](https://www.pexels.com/photo/coffee-beans-on-top-of-the-wooden-surface-699373/)
+
+'About' Photo by [Juan Pablo Serrano](https://www.pexels.com/photo/shallow-focus-photo-of-coffee-beans-894695/)
+
+'Wholesale' Photo by [Toni Cuenca](https://www.pexels.com/photo/coffee-mug-surrounded-with-coffee-beans-585753/)
+
+'Gift Sets' Photo by [Michael Burrows](https://www.pexels.com/photo/wooden-table-with-equipment-for-making-coffee-7125768/)
+
+[Summer Vibes font](https://www.dafont.com/summer-vibes.font)
+
+'Product 1' Photo by [Polina Tankilevitch](https://www.pexels.com/photo/brown-coffee-beans-in-close-up-photography-4109748/)
+
+'Product 2' Photo by [Igor Haritanovich](https://www.pexels.com/photo/coffee-beans-1695052/)
+
+'Product 3' Photo by [Pixabay](https://www.pexels.com/photo/pile-of-coffee-bean-164622/)
+
+'Product 4' Photo by [Pixabay](https://www.pexels.com/photo/coffee-bean-lot-209443/)
+
+'Product 5' Photo by [Roman Bengaiev](https://www.pexels.com/photo/coffee-beans-in-close-up-photography-3914189/)
+
+'Product 6' Photo by [Elle Hughes](https://www.pexels.com/photo/brown-cup-beside-a-coffee-maker-4424674/)
+
+'Product 7' Photo by [Juan Gomez](https://www.pexels.com/photo/black-coffee-press-on-wooden-table-3993825/)
+
+'Product 8' Photo by [Hannoversche Kaffeemanufaktur](https://www.pexels.com/photo/close-up-shot-of-coffee-grinder-9623568/)
+
+'Product 9' Photo by [onetoforseeforall](https://www.pexels.com/photo/close-up-of-person-making-filter-coffee-8469495/)
+
+'Product 10' Photo by [interwebly io](https://www.pexels.com/photo/person-making-drip-coffee-11281128/)
+
 ### External Code
+
+[Django Postgres Tutorial](https://stackpython.medium.com/how-to-start-django-project-with-a-database-postgresql-aaa1d74659d8)
+
+Flushed Footer JS script from [Cory on StackOverflow](https://stackoverflow.com/a/36385654)
+
+Filtering queryset for ModelChoiceField from [furins on StackOverflow](https://stackoverflow.com/questions/15608784/django-filter-the-queryset-of-modelchoicefield)
+
 
 ## Deployment
 
