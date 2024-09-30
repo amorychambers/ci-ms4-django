@@ -32,10 +32,9 @@ Developed by Benedict Amory Chambers
     7. [Testing user stories](#testing-user-stories)
     8. [Testing user input](#testing-user-input)
     9. [Automated test](#automated-tests)
-7. [Bugs](#bugs)
-8. [Credits](#credits)
-9. [Deployment](#deployment)
-10. [Acknowledgements](#acknowledgements)
+7. [Credits](#credits)
+8. [Deployment](#deployment)
+9. [Acknowledgements](#acknowledgements)
 
 ## Project Goals 
 
@@ -278,11 +277,17 @@ header-toggle.js - No errors listed
 
 quantity-input.js - No errors listed
 
-stripe-elements.js - 
+stripe-elements.js - No errors listed
 
 ### Python Validation
 
 Validated with Code Institute's CI Python Linter
+
+cart/contexts.py - No errors listed
+cart/views.py - No errors listed
+
+checkout/views.py - No errors listed
+
 
 ### Accessibility
 

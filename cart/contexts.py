@@ -20,11 +20,12 @@ def cart_contents(request):
     for product_id, quantity in cart.items():
         product = get_object_or_404(Product, pk=product_id)
         if product.sale:
-            individual_cost = round(Decimal((product.price * product.sale) * quantity), 2)
+            individual_cost = round(Decimal(
+                (product.price * product.sale) * quantity), 2)
         else:
             individual_cost = round(Decimal(product.price * quantity), 2)
         total += individual_cost
-        
+
         if "coffee" in product.tags:
             max_qty = math.floor(product.stock/250)
         else:
@@ -39,7 +40,7 @@ def cart_contents(request):
             "product": product,
             "max_qty": max_qty
         })
-    
+
     total_delivered = total + delivery
 
     context = {

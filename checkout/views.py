@@ -15,6 +15,7 @@ import json
 
 # Create your views here.
 
+
 # Code snippet for this view from Code Institute Boutique Ado project
 @require_POST
 def cache_checkout_data(request):
@@ -35,7 +36,7 @@ def cache_checkout_data(request):
 
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
-    stripe_secret_key = settings.STRIPE_SECRET_KEY 
+    stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == "POST":
         cart = request.session.get("cart", {})
@@ -76,14 +77,16 @@ def checkout(request):
                     order_line_item.save()
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your bag wasn't found in our database. "
-                        "Please call us for assistance!")
+                        "One of the products in your bag \
+                            wasn't found in our database. \
+                                Please call us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
-                
+
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse('checkout_success',
+                                    args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your order. \
                            Please double check your information.')
@@ -92,7 +95,7 @@ def checkout(request):
         if not cart:
             messages.error(request, "There's nothing in the shopping cart")
             return redirect(reverse("products"))
-        
+
         current_cart = cart_contents(request)
 
         if 'delivery' in request.GET:
@@ -110,7 +113,7 @@ def checkout(request):
         if not stripe_public_key:
             messages.warning(request, 'Stripe public key is missing. \
                 Did you forget to set it in your environment?')
-        
+
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
@@ -155,11 +158,11 @@ def checkout_success(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
 
     if request.user.is_authenticated:
-       user_profile = get_object_or_404(UserProfile, user=request.user)
-       order.user_profile = user_profile
-       order.save()
+        user_profile = get_object_or_404(UserProfile, user=request.user)
+        order.user_profile = user_profile
+        order.save()
 
-       if save_info:
+        if save_info:
             delivery_info = {
                 'default_phone_number': order.phone_number,
                 'default_street_address1': order.street_address1,
@@ -168,20 +171,20 @@ def checkout_success(request, order_number):
                 'default_county': order.county,
                 'default_postcode': order.postcode,
             }
-            user_profile_form = UserProfileForm(delivery_info, instance=user_profile)
+            user_profile_form = UserProfileForm(
+                delivery_info, instance=user_profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
     messages.success(request, f'Order successful!\
                      Your order number is {order_number}.\
                         A confirmation email will be sent to {order.email}')
-    
+
     if 'cart' in request.session:
         del request.session['cart']
 
     context = {
-        'order': order, 
+        'order': order,
     }
-    
 
     return render(request, "checkout/checkout_success.html", context)
