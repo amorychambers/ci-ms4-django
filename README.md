@@ -62,10 +62,37 @@ This is an e-commerce website for a fictional local coffee roasters that offers 
 ## User Experience
 
 ### Target Audience
+
+The target audiences for the website are new customers who are interested in the products offered, repeat customers who would like to further explore the products on offer and who would benefit from engaging with the business and its community more personally, and other local businesses who may be interested in establishing a beneficial wholesale relationship.
+
 ### User Stories
 #### First Time User
+
+1. Find out what the site has to offer and who it is for
+2. Easily navigate around the site; access the Register, Community, About/Contact and Product pages
+3. Search for products on the site
+4. Add products to the shopping cart and easily update or remove them 
+5. Checkout as a guest user 
+6. Register for an account
+7. Contact the business for a customer or wholesale query
+
+
 #### Returning User
+
+8. Log in to my account
+9. Leave a review for a product
+10. Post to the community tab
+11. Review my previous orders
+12. Update my default delivery info
+13. Checkout more easily with my default delivery info
+14. Delete my account
+
 #### Site Owner:
+
+15. Showcase all the products the business offers, sorted into categories
+16. Allow for community engagement and feedback from customers
+17. Easily add or remove products sitewide using the admin page
+18. Ensure all orders are saved and completed properly
 
 ## Design 
 
