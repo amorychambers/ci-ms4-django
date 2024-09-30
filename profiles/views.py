@@ -9,6 +9,7 @@ from checkout.models import Order
 
 # Create your views here.
 
+
 @login_required
 def profile(request):
     """
@@ -32,6 +33,7 @@ def profile(request):
     }
     return render(request, 'profiles/profile.html', context)
 
+
 @login_required
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
@@ -49,7 +51,7 @@ def order_history(request, order_number):
                        order should be associated with your profile, \
                        please contact us.')
         return redirect(reverse('home'))
-    
+
 
 @login_required
 def delete_account(request):
@@ -61,4 +63,3 @@ def delete_account(request):
     user.delete()
     messages.info(request, 'Account deleted. Goodnight and good luck!')
     return redirect('home')
-

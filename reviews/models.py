@@ -4,6 +4,7 @@ from products.models import Product
 
 # Create your models here.
 
+
 class Review(models.Model):
     """
     A model to store user reviews of products on the site

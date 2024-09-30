@@ -6,6 +6,7 @@ import math
 
 # Create your views here.
 
+
 def products(request):
     """
     View to display and sort all products
@@ -33,14 +34,12 @@ def products(request):
                 Q(name__icontains=search) | Q(description__icontains=search)
                 )
 
-    
-
     context = {
         "products": products,
         "sort": sort,
         "search": search,
     }
-    
+
     return render(request, "products/products.html", context)
 
 
@@ -52,7 +51,7 @@ def product_details(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(
         Q(review_product=product.id)).order_by('-date')
-    
+
     if "coffee" in product.tags and "bundle" not in product.tags:
         max_qty = math.floor(product.stock/250)
     else:

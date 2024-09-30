@@ -8,6 +8,7 @@ from .forms import ReviewForm
 
 # Create your views here.
 
+
 @login_required
 def review(request, product_id):
     """
@@ -17,8 +18,8 @@ def review(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     try:
         review = Review.objects.get(
-            user = user,
-            review_product = product
+            user=user,
+            review_product=product
         )
         form = ReviewForm(instance=review)
     except Review.DoesNotExist:
@@ -31,17 +32,17 @@ def review(request, product_id):
     if request.method == "POST":
         form = ReviewForm(request.POST, instance=review)
         if form.is_valid() and int(
-            request.POST.get('user')) == request.user.id:
+             request.POST.get('user')) == request.user.id:
             form.save()
             messages.success(request, 'Thanks for leaving a review! \
                               We appreciate all feedback.')
-            return redirect(reverse('product_details',
-                                     kwargs={'product_id':product_id}))
+            return redirect(reverse(
+                'product_details', kwargs={'product_id': product_id}))
         else:
             messages.error(request, 'Something went wrong! Please check \
                            that you completed both parts of the review.')
-            return redirect(reverse('review',
-                                     kwargs={'product_id':product_id}))
+            return redirect(reverse(
+                'review', kwargs={'product_id': product_id}))
 
     context = {
         'user': user,
@@ -65,4 +66,5 @@ def delete_review(request, review_id):
         messages.success(request, 'Review deleted!')
     else:
         messages.error(request, 'Sorry, only the review owner can do that.')
-    return redirect(reverse('product_details', kwargs={"product_id":product_id}))
+    return redirect(reverse(
+        'product_details', kwargs={"product_id": product_id}))

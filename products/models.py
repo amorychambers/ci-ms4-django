@@ -5,6 +5,7 @@ from multiselectfield import MultiSelectField
 
 # Create your models here.
 
+
 RATING_CHOICES = {
     0: "Zero",
     1: "One",
@@ -13,6 +14,7 @@ RATING_CHOICES = {
     4: "Four",
     5: "Five"
 }
+
 
 class Product(models.Model):
     TAG_CHOICES = {
@@ -31,8 +33,9 @@ class Product(models.Model):
     description = models.TextField()
     stock = models.IntegerField(default=0)
     tags = MultiSelectField(choices=TAG_CHOICES)
-    sale = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
-        
+    sale = models.DecimalField(max_digits=4, decimal_places=2,
+                               null=True, blank=True)
+
     def get_sale_price(self):
         if self.sale:
             return round(self.price * self.sale, 2)

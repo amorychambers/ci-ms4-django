@@ -128,10 +128,10 @@ LOGIN_REDIRECT_URL = '/'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'southroast', 
+        'NAME': 'southroast',
         'USER': env('DB_NAME'),
         'PASSWORD': env('DB_PASSWORD'),
-        'HOST': '127.0.0.1', 
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
@@ -184,7 +184,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#Star Ratings
+# Star Ratings
 
 STAR_RATINGS_RERATE = True
 STAR_RATINGS_RERATE_SAME_DELETE = True
