@@ -10,6 +10,9 @@
       {{ form|crispy }}
       <button class="btn btn-success w-25 float-end mt-2">Send</button>
     </form>
+    {% if sent %}
+    <p class="bg-white rounded mt-4">Thanks for getting in touch! We will reply to your email as soon as possible.</p>
+    {% endif %}
   </div>
   <div class="col-12 col-lg-5 offset-lg-1">
     <h4 class="heading">About Us</h4>

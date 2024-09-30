@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.conf import settings
 from django.contrib import messages
 from .forms import ContactForm
@@ -41,7 +41,7 @@ def contact(request):
         )
         messages.success(request, "Thanks for getting in touch!\
                          We'll get back to you as soon as possible.")
-        return redirect('contact')
+        return redirect(reverse('home'))
 
     context = {
         "form": form,

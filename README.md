@@ -39,9 +39,25 @@ Developed by Benedict Amory Chambers
 
 ## Project Goals 
 
+This is an e-commerce website for a fictional local coffee roasters that offers a variety of products and services, and encourages user interaction and repeat business by including social features and other benefits to registering for an account with the site. It focuses on making use of the Django framework to develop a full-stack website with a solid and user-friendly frontend, complete and facile backend integration, and that delivers a good experience for the user and site owner that meets the goals of both. 
+
 ### User Goals 
+
+- Easy browsing of the products the user may be interested in purchasing
+- A simple and easy checkout process to allow for easy purchases
+- A way to view, update, and delete their data; both for previous orders and for community focused user-created content
+
 ### Site Goals
+
+- Encourage browsing and repeat purchases by providing a pleasant and attractive user experience
+- Build a relationship and familarity between the business and its customers 
+- Allow for management of an online business presence to increase custom and make connections
+
 ### Developer Goals
+
+- Create an accessible, responsive website that provides the full intended experience to a range of users
+- Integrate a functional and sensible backend data model that serves the customer goals and the site owner needs
+- Make good use of Django to build a complete, secure, full-stack website as a solo developer
 
 ## User Experience
 
