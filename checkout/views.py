@@ -157,6 +157,14 @@ def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
+    for item in order.lineitems.all():
+        product = get_object_or_404(Product, pk=item.product.id)
+        if 'coffee' in product.tags:
+            product.stock -= (item.quantity * 250)
+        else:
+            product.stock -= item.quantity
+        product.save()
+
     if request.user.is_authenticated:
         user_profile = get_object_or_404(UserProfile, user=request.user)
         order.user_profile = user_profile
