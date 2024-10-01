@@ -218,9 +218,10 @@ User Stories: 6, 8
 
 User Stories: 1, 3, 4, 9, 15, 16
 
-### Star Ratings
+### Reviews & Star Ratings
 
 - Up-to-date average star ratings from user ratings on all products, with specific user ratings associated with user reviews and profiles
+- User created reviews on all product pages with dates and ratings
 
 ### Cart & Checkout
 
@@ -447,7 +448,7 @@ As a first-time user, I want to:
 <img src="docs/user-stories/user-story-six.gif">
 </details>
 
-7.Contact the business for a customer or wholesale query
+7. Contact the business for a customer or wholesale query
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 | ---- | ---- | ---- | ---- |
@@ -456,6 +457,85 @@ As a first-time user, I want to:
 
 <details><summary>Screen Capture</summary>
 <img src="docs/user-stories/user-story-seven.gif">
+</details>
+
+#### Returning User
+
+8. Log in to my account
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Sign In & Registration | Enter my user details | Log into site and access my data | Works as expected |
+
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/user-story-eight.gif">
+</details>
+
+9. Leave a review for a product
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Reviews & Star Ratings | Submit a new review using the review form | Review appears on product page with average star rating updated | Works as expected |
+
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/user-story-nine.gif">
+</details>
+
+10. Post to the community tab
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Community Posts | Submit a new post using the post form | Post appears on community page | Works as expected |
+
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/user-story-ten.gif">
+</details>
+
+11. Review my previous orders
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| User Profile | Access order history from the My Account page | Returns complete list of orders with more detailed pages linked | Works as expected |
+
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/user-story-eleven.gif">
+</details>
+
+12. Update my default delivery info
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| User Profile | Submit delivery info form with new details | Default address is saved in database | Works as expected |
+
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/user-story-twelve.gif">
+</details>
+
+13. Checkout more easily with my default delivery info
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Cart & Checkout | Open checkout page when signed in and with a default address saved in user profile | Default address info is already filled in from database | Works as expected |
+
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/user-story-thirteen.gif">
+</details>
+
+14. Delete my account
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| User Profile | Select and confirm the Delete Account option from user profile page | User profile and associated reviews, posts and data is deleted from database | Works as expected |
+
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/user-story-fourteen.gif">
 </details>
 
 ### Automated Tests 
