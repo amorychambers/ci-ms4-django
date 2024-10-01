@@ -26,11 +26,11 @@ Developed by Benedict Amory Chambers
     2. [CSS Validation](#CSS-validation)
     3. [JavaScript Validation](#javascript-validation)
     4. [Python Validation](#python-validation)
-    4. [Accessibility](#accessibility)
-    5. [Performance](#performance)
-    6. [Compatibility](#compatibility)
-    7. [Testing user stories](#testing-user-stories)
-    8. [Automated tests](#automated-tests)
+    5. [Accessibility](#accessibility)
+    6. [Performance](#performance)
+    7. [Compatibility](#compatibility)
+    8. [Testing user stories](#testing-user-stories)
+    9. [Automated tests](#automated-tests)
 7. [Credits](#credits)
 8. [Deployment](#deployment)
 9. [Acknowledgements](#acknowledgements)
@@ -131,6 +131,88 @@ The site uses a persistent navigation bar to navigate between the main pages, wi
 10. 404 - Custom 404 page to redirect users to the homepage if they run into any errors on the site
 
 ### Wireframes
+
+Wireframes created in Balsamiq
+
+<details><summary>homepage</summary>
+<img src="docs/wireframes/mobile-homepage.png">
+<img src="docs/wireframes/tablet-homepage.png">
+<img src="docs/wireframes/desktop-homepage.png">
+</details>
+
+<details><summary>products</summary>
+<img src="docs/wireframes/mobile-products.png">
+<img src="docs/wireframes/tablet-products.png">
+<img src="docs/wireframes/desktop-products.png">
+</details>
+
+<details><summary>contact</summary>
+<img src="docs/wireframes/mobile-contact.png">
+<img src="docs/wireframes/tablet-contact.png">
+<img src="docs/wireframes/desktop-contact.png">
+</details>
+
+<details><summary>post</summary>
+<img src="docs/wireframes/mobile-post.png">
+<img src="docs/wireframes/tablet-post.png">
+<img src="docs/wireframes/desktop-post.png">
+</details>
+
+<details><summary>review</summary>
+<img src="docs/wireframes/mobile-review.png">
+<img src="docs/wireframes/tablet-review.png">
+<img src="docs/wireframes/desktop-review.png">
+</details>
+
+<details><summary>signin</summary>
+<img src="docs/wireframes/mobile-signin.png">
+<img src="docs/wireframes/tablet-signin.png">
+<img src="docs/wireframes/desktop-signin.png">
+</details>
+
+<details><summary>register</summary>
+<img src="docs/wireframes/mobile-register.png">
+<img src="docs/wireframes/tablet-register.png">
+<img src="docs/wireframes/desktop-register.png">
+</details>
+
+<details><summary>cart</summary>
+<img src="docs/wireframes/mobile-cart.png">
+<img src="docs/wireframes/tablet-cart.png">
+<img src="docs/wireframes/desktop-cart.png">
+</details>
+
+<details><summary>checkout</summary>
+<img src="docs/wireframes/mobile-checkout.png">
+<img src="docs/wireframes/tablet-checkout.png">
+<img src="docs/wireframes/desktop-checkout.png">
+</details>
+
+<details><summary>checkout success</summary>
+<img src="docs/wireframes/mobile-checkout-success.png">
+<img src="docs/wireframes/tablet-checkout-success.png">
+<img src="docs/wireframes/desktop-checkout-success.png">
+</details>
+
+<details><summary>user profile</summary>
+<img src="docs/wireframes/mobile-user-profile.png">
+<img src="docs/wireframes/tablet-user-profile.png">
+<img src="docs/wireframes/desktop-user-profile.png">
+</details>
+
+<details><summary>product details</summary>
+<img src="docs/wireframes/mobile-product-details.png">
+<img src="docs/wireframes/tablet-product-details.png">
+<img src="docs/wireframes/desktop-product-details.png">
+</details>
+
+<details><summary>community</summary>
+<img src="docs/wireframes/mobile-community.png">
+<img src="docs/wireframes/tablet-community.png">
+<img src="docs/wireframes/desktop-community.png">
+</details>
+
+
 ### Entity Relationship Diagram
 
 Entity Relationship Diagram generated with [LucidChart](http://lucidchart.com/)
