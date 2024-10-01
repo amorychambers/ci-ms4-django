@@ -30,8 +30,7 @@ Developed by Benedict Amory Chambers
     5. [Performance](#performance)
     6. [Compatibility](#compatibility)
     7. [Testing user stories](#testing-user-stories)
-    8. [Testing user input](#testing-user-input)
-    9. [Automated test](#automated-tests)
+    8. [Automated tests](#automated-tests)
 7. [Credits](#credits)
 8. [Deployment](#deployment)
 9. [Acknowledgements](#acknowledgements)
@@ -223,8 +222,9 @@ User Stories: 1, 3, 4, 9, 15, 16
 
 - Up-to-date average star ratings from user ratings on all products, with specific user ratings associated with user reviews and profiles
 
-### Checkout
+### Cart & Checkout
 
+- Dynamically updating subtotals with easy quantity selectors and item removal option 
 - Stripe payments for easy and convenient payment processing on all orders
 - Default delivery info option for registered users
 - Webhooks to ensure orders can be processed and saved in the event of any errors
@@ -377,7 +377,87 @@ Performance testing by Google Lighthouse in Google Chrome Developer Tools
 
 ### Compatibility
 ### Testing User Stories
-### Testing User Input
+
+#### First-Time User
+
+As a first-time user, I want to:
+
+1. Find out what the site has to offer and who it is for
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| About | Navigate to About Page | Presented with information about the site | Works as expected |
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/user-story-one.gif">
+</details>
+
+2. Easily navigate around the site; access the Register, Community, About/Contact and Product pages
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Header and Navigation | Select pages from navbar | All links direct to the correct page | Works as expected |
+
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/user-story-two.gif">
+</details>
+
+3. Search for products on the site
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Header and Navigation | Enter search term | Site returns products with names and descriptions containing search term | Works as expected |
+
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/user-story-three.gif">
+</details>
+
+4. Add products to the shopping cart and easily update or remove them
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Cart & Checkout | Enter search term | Site returns products with names and descriptions containing search term | Works as expected |
+
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/user-story-four.gif">
+</details>
+
+5. Checkout as a guest user
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Cart & Checkout | Enter individual checkout details | Order is processed with single instance details provided | Works as expected |
+
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/user-story-five.gif">
+</details>
+
+6. Register for an account
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Sign In & Registration | Register with a new username and password | New user model is created in the database | Works as expected |
+
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/user-story-six.gif">
+</details>
+
+7.Contact the business for a customer or wholesale query
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Contact Form | Submit a question via the form | Email sent to requested address with message contents | Works as expected |
+
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/user-story-seven.gif">
+</details>
+
 ### Automated Tests 
 
 ## Credits
