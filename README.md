@@ -538,6 +538,31 @@ As a first-time user, I want to:
 <img src="docs/user-stories/user-story-fourteen.gif">
 </details>
 
+#### Site Owner
+
+15. Showcase all the products the business offers, sorted into categories
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Products | Select different filtering options | Returns products with matching category tags | Works as expected |
+
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/user-story-fifteen.gif">
+</details>
+
+16. Allow for community engagement and feedback from customers
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Reviews & Star Ratings | Allow registered users to leave reviews on site products | Reviews appears on product page with average of star ratings from users | Works as expected |
+| Community Posts | Allow registered users to make posts to the site with text and images | Posts appears on community page, paginated for readability and performance | Works as expected |
+
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/user-story-sixteen.gif">
+</details>
+
 ### Automated Tests 
 
 ## Credits
@@ -586,7 +611,7 @@ Background Image by [Cindynihart](https://pixabay.com/illustrations/coffee-beans
 
 Flushed Footer JS script from [Cory on StackOverflow](https://stackoverflow.com/a/36385654)
 
-Filtering queryset for ModelChoiceField from [furins on StackOverflow](https://stackoverflow.com/questions/15608784/django-filter-the-queryset-of-modelchoicefield)
+Queryset filtering for ModelChoiceField from [furins on StackOverflow](https://stackoverflow.com/questions/15608784/django-filter-the-queryset-of-modelchoicefield)
 
 
 ## Deployment
