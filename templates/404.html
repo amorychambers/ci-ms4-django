@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row">
+  <h2 class="heading">404 Error - Page Not Found</h2>
+  <div class="col-12 col-lg-6 offset-lg-3 mt-2 background rounded">
+    <span><i class="fa-solid fa-fill-drip fa-xl" style="color: #ffffff;"></i></span>
+    <p class="text-white">Click here to head back to the homepage!</p>
+  </div>
+  <div class="col-12 center">
+    <a href="{% url 'home' %}" class="btn background homepage-btn">
+      <span class="heading no-bg">Home</span>
+  </a>
+  </div>
+</div>
+{% endblock %}

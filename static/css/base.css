@@ -100,11 +100,11 @@ figure>h2,
 }
 
 #about-text {
-    background-color: unset;
+    background-color: #000;
 }
 
 #seasonal-text {
-    background-color: unset;
+    background-color: #000;
     font-family: "Summer Vibes", sans-serif;
 }
 
