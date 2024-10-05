@@ -7,8 +7,8 @@
         <div class="row">
             <div class="col">
                 {{ message }}
-                {% if cart_products|length > 0 %}
-                <a href="{% url 'cart' %}" class="btn bg-success view-cart-btn my-2">View Cart</a>
+                {% if 'view-cart' in message.extra_tags %}
+                <a href="{% url 'cart' %}" class="btn bg-success w-100 view-cart-btn my-2">View Cart</a>
                 {% endif %}
             </div>
         </div>
