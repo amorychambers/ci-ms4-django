@@ -59,12 +59,18 @@
           </div>
         </div>
 
+        {% if product.stock > 0 %}
         <div class="col-12 my-2">
           <input type="submit" class="btn submit-btn my-2" value="Add to Cart">
           <h5 class="heading my-4 no-bg"><a href="{% url 'products' %}">Back to All Products</a></h5>
         </div>
-
         <input type="hidden" name="redirect_url" value="{{ request.path }}">
+        {% else %}
+        <div class="col-12 my-2">
+          <button type="button" class="btn submit-btn my-2 disabled">Out of Stock</button>
+          <h5 class="heading my-4 no-bg"><a href="{% url 'products' %}">Back to All Products</a></h5>
+        </div>
+        {% endif %}
       </div>
     </form>
   </div>
