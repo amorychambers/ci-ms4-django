@@ -1,19 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import User
-from django.contrib.postgres.fields import ArrayField
 from multiselectfield import MultiSelectField
 
 # Create your models here.
-
-
-RATING_CHOICES = {
-    0: "Zero",
-    1: "One",
-    2: "Two",
-    3: "Three",
-    4: "Four",
-    5: "Five"
-}
 
 
 class Product(models.Model):
