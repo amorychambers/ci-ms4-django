@@ -20,6 +20,13 @@
   {% else %}
   <h2 class="heading my-2">All Products</h2>
   {% endif %}
+  {% if request.user.is_superuser %}
+  <row class="my-2">
+    <div class="col-12">
+      <a href="{% url 'add_product' %}" class="btn btn-success w-25 float-end">Add Product</a>
+    </div>
+  </row>
+  {% endif %}
   <div class="row my-2">
     <div class="col-6 col-md-2 me-auto">
       <button class="btn dropdown-toggle my-2 heading" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -64,6 +71,33 @@
       {% endfor %}
     {% endif %}
   </div>
+  {% if request.user.is_superuser %}
+  <div class="row mx-2 justify-content-center">
+    <h2 class="heading">Out of Stock</h2>
+    <div class="col-12">
+      {% for product in products %}
+        {% if product.stock == 0 %}
+          <div class="col-12 col-md-6 col-lg-3 my-2">
+            <div class="card">
+              <img src="/media/{{ product.image }}" class="card-img-top" alt="Product Image">
+              <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                {% if product.sale %}
+                <p class="card-subtitle"><span class="strike">£{{ product.price }}</span><span class="text-danger ps-2">£{{ product.get_sale_price }} - Sale!</span></p>
+                {% else %}
+                <p class="card-subtitle">£{{ product.price }}</p>
+                {% endif %}
+                {% ratings product read_only=True icon_height=16 icon_width=16 %}
+                <p class="card-text">{{ product.description }}</p>
+                <a class="stretched-link" href="{% url 'product_details' product.id %}"></a>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </row>
+  {% endif %}
 </div>
 
 {% endblock %}

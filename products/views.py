@@ -104,6 +104,10 @@ def update_product(request, product_id):
     """
     View to update products
     """
+    if not request.user.is_superuser:
+        messages.error(request, 'You must be logged in to a store owner \
+                       account to do this.')
+        return redirect(reverse('home'))
 
     product = get_object_or_404(Product, id=product_id)
     form = ProductForm(instance=product)

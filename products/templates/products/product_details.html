@@ -16,6 +16,9 @@
 <div class="row my-md-5 mx-lg-4">
   <div class="col-12 col-md-6 my-2">
     <img src="/media/{{ product.image }}" class="w-100" alt="Product Image">
+    {% if request.user.is_superuser %}
+        <a href="{% url 'update_product' product.id %}" class="btn btn-success w-100 my-2">Update Product</a>
+    {% endif %}
   </div>
   <div class="col-12 col-md-6 background">
     <h2 class="my-2">{{ product.name }}</h2>
