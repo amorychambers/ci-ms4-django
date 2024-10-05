@@ -79,7 +79,7 @@ def add_product(request):
         messages.error(request, 'You must be logged in to a store owner \
                        account to do this.')
         return redirect(reverse('home'))
-    
+
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
@@ -91,9 +91,36 @@ def add_product(request):
                            Please ensure the form is valid.')
     else:
         form = ProductForm()
-        
+
     context = {
         'form': form,
     }
 
     return render(request, 'products/add_product.html', context)
+
+
+@login_required
+def update_product(request, product_id):
+    """
+    View to update products
+    """
+
+    product = get_object_or_404(Product, id=product_id)
+    form = ProductForm(instance=product)
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            product = form.save()
+            messages.success(request, 'Product updated!')
+            return redirect(reverse('product_details', args=[product.id]))
+        else:
+            messages.error(request, 'Failed to update product. \
+                           Please ensure the form is valid.')
+
+    context = {
+        "product": product,
+        "form": form,
+    }
+
+    return render(request, 'products/update_product.html', context)

@@ -76,7 +76,7 @@ def remove_from_cart(request, product_id):
         cart.pop(product_id)
 
         request.session["cart"] = cart
-        messages.success(request, f"{product.name} removed from cart", 
+        messages.success(request, f"{product.name} removed from cart",
                          extra_tags="view_cart")
         return HttpResponse(status=200)
     except Exception as e:

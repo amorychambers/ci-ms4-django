@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<h2 class="heading my-2">Update Product</h2>
+<div class="row mt-md-5 mx-lg-4">
+  <div class="col-12 col-md-6">
+    <form method="POST" action="{% url 'update_product' product.id %}" class="background text-white rounded p-2" id="update-product-form" 
+    enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <button class="btn btn-success w-25 my-4 float-end">Update</button>
+    </form>
+  </div>
+  <div class="col-12 col-md-6 my-4 my-md-0 order-lg-first">
+    <img src="/media/{{ product.image }}" class=" mb-4 w-100" alt="Product Image">
+    <div class="bg-white rounded p-2">
+      <h2 class="my-2">{{ product.name }}</h2>
+      <p>{{ product.description }}</p>
+      <p>Price: £{{ product.price }}</p>
+      <p>Stock: {{ product.stock }}g</p>
+      <p>Tags: {{ product.tags }}</p>
+      <p>Sale Amount: {{ product.sale }}</p>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
