@@ -37,7 +37,7 @@ Developed by Benedict Amory Chambers
 
 ## Project Goals 
 
-This is an e-commerce website for a fictional local coffee roasters that offers a variety of products and services, and encourages user interaction and repeat business by including social features and other benefits to registering for an account with the site. It focuses on making use of the Django framework to develop a full-stack website with a solid and user-friendly frontend, complete and facile backend integration, and that delivers a good experience for the user and site owner that meets the goals of both. 
+This is an e-commerce website for a fictional local coffee roasters that offers a variety of products and services, and encourages user interaction and repeat business by including social features and other benefits to registering for an account with the site. It focuses on making use of the Django framework to develop a full-stack website that has a solid and user-friendly frontend, complete and facile backend integration, and that delivers a good experience for the user and site owner which meets the goals of both. 
 
 ### User Goals 
 
@@ -54,7 +54,7 @@ This is an e-commerce website for a fictional local coffee roasters that offers 
 ### Developer Goals
 
 - Create an accessible, responsive website that provides the full intended experience to a range of users
-- Integrate a functional and sensible backend data model that serves the customer goals and the site owner needs
+- Integrate a functional and sensible backend data model that serves the customer's goals and the site owner's needs
 - Make good use of Django to build a complete, secure, full-stack website as a solo developer
 
 ## User Experience
@@ -96,11 +96,11 @@ The target audiences for the website are new customers who are interested in the
 
 ### Design Choices
 
-I have opted for a simple and consistent design across the site. Using bootstrap and custom classes, I have aimed at creating a cohesive style for the site that matches the tone of the business, as a small local coffee roasters. 
+I have opted for a simple and consistent design across the site. Using bootstrap and custom classes, I have aimed at creating a cohesive style for the site that matches the tone of the business, as a small local coffee roaster. 
 
 ### Colours
 
-In keeping with the coffee theme, I have chosen a dark brown background colour for headings and distinct sections, that stands out and complements the lighter brown coffee themed background. I chose to make this darker colour slightly transparent, so that it integrates a little better with the background image and with the soft aesthetic.
+In keeping with the coffee theme, I have chosen a dark brown background colour for headings and distinct sections that stands out and complements the lighter brown coffee themed background. I chose to make this darker colour slightly transparent, so that it integrates a little better with the background image and with the soft aesthetic.
 
 ### Fonts
 
@@ -238,7 +238,7 @@ Python
 [django-allauth](https://docs.allauth.org/en/latest/)
 
 [django-star-ratings](https://pypi.org/project/django-star-ratings/)
-For this project, I decided to fork and customise a version of the django-star-ratings package that focuses more on individual user ratings and reflects that in the accompanying front-end JavaScript.
+For this project, I decided to fork and customise a version of the django-star-ratings package that focuses more on individual user ratings and reflects that in the accompanying frontend JavaScript.
 [forked-django-star-ratings](https://github.com/amorychambers/django-star-ratings)
 
 [jquery](https://jquery.com/)
@@ -340,7 +340,7 @@ User Stories: 7
 Validated with the W3C Markup Validation Service
 
 
-As I have used templating and jinja2 code in the HTML file, it was not possible to validate them by file upload. In order to validate these pages, I have opened the page whilst logged in to the site, copied the fully loaded page's source code, and pasted it into the HTML validator.
+As I have used templating and jinja2 code in the HTML files, it was not possible to validate them by file upload. In order to validate these pages, I have opened the page, copied the fully loaded page's source code, and pasted it into the HTML validator.
 
 
 cart/cart.html - No errors listed
@@ -406,8 +406,8 @@ checkout/forms.py - No errors listed
 checkout/models.py - No errors listed
 checkout/signals.py - No errors listed
 checkout/views.py - No errors listed
-checkout/webhook_handler.py - One error listed: lines 82 and 83 are 80 characters long. As these are over PEP8 guidelines by only one character and are due to longer variable names, I have decided that any changes might decrease readability.
-checkout/webhooks.py - One error listed: line 44 is over 80 characters long. Left unchanged for similar readability reasons as this is due to a long variable name taken from Stripe
+checkout/webhook_handler.py - One error listed: lines 82 and 83 are 80 characters long. As these are over PEP8 guidelines by only one character and are due to longer variable names, I have decided that any changes might only decrease readability.
+checkout/webhooks.py - One error listed: line 44 is over 80 characters long. Left unchanged for similar readability reasons as this is due to a long variable name used by Stripe
 
 contact/views.py - No errors listed
 contact/forms.py - No errors listed
@@ -465,6 +465,7 @@ reviews/review.html - 2 errors listed on the page for input elements without lab
 Performance testing by Google Lighthouse in Google Chrome Developer Tools
 
 ### Compatibility
+
 ### Testing User Stories
 
 #### First-Time User
@@ -653,7 +654,7 @@ As a first-time user, I want to:
 
 ### Backend Testing
 
-In order to test the backend code functionality for this project, I chose to implement full manual testing. This was for two reasons. Firstly, as the database interactions performed on the site are largely user centric - both for the registered customers accessing their account's additional features, and for the owner who manages the site and the related data - I wanted to be able to test the database interactions from a frontend perspective especially. This includes testing the security of the features that require a user to be logged in, and particularly testing the feedback displayed on the frontend from data operations. The second reason I opted for manual testing is to make use of the django admin panel, which I consider one of the framework's most powerful and efficient tools. The django admin panel allows a registered superuser to view and manipulate the site's database; this allows an admin user to view any changes made to the database, to check the effect of database interactions, and to change data easily and quickly using frontend forms. I think this is a powerful tool for testing as well as for site management, as it makes it immediately and efficiently apparent what features are working, how they are working, if there are any errors with database interactions, and if the relationship between frontend and backend interactions is functioning as expected.
+In order to test the backend code functionality for this project, I chose to implement full manual testing. This was for two reasons. Firstly, as the database interactions performed on the site are largely user centric - both for the registered customers accessing their account's additional features, and for the owner who manages the site and the related data - I wanted to be able to test the database interactions from a frontend user perspective especially. This includes testing the security of the features that require a user to be logged in, and particularly testing the feedback displayed on the frontend from data operations. The second reason I opted for manual testing is to make use of the django admin panel, which I consider one of the framework's most powerful and efficient tools. The django admin panel allows a registered superuser to view and manipulate the site's database; this allows an admin user to view any changes made to the database, to check the effect of database interactions, and to change data easily and quickly using frontend forms. I think this is a powerful tool for testing as well as for site management, as it makes it immediately and efficiently apparent what features are working, how they are working, if there are any errors with database interactions, and if the relationship between frontend and backend interactions is functioning as expected.
 
 For the manual testing, I arranged my desktop as below, with the admin panel on one side of the screen and the site running on the other. This was an effective and efficient way to check that all database interactions were working as expected; by this I mean that all create functionality correctly created model instances with the proper data in the database, that no data was entered when unauthorised and no invalid data was created, that all updates to data were processed fully and did not allow for submission of invalid data, and that delete requests deleted only the requested data from the data base.
 
@@ -666,11 +667,9 @@ To test and ensure that all functionality on the site is working as expected and
 - CRUD functionality for Posts
 - CRUD functionality for Reviews
 
-I have confirmed that the Order model is properly created uponb checkout and can be accessed after purchase. This is supported by backend code in the checkout app, and additionally by Stripe webhooks, which add an additional layer of security and reliability by creating the Order model even in the event of errors/issues during checkout. This is important for the Orders model as this relates directly to payment and the fulfilment of purchases.
+I have confirmed that the Order model is properly created upon checkout and can be accessed after purchase. This is supported by backend code in the checkout app, and additionally by Stripe webhooks, which add an additional layer of security and reliability by creating the Order model even in the event of errors/issues during checkout. This is important for the Orders model as this relates directly to payment and the fulfilment of purchases.
 
 I have tested and confirmed that site owners/admin users are capable of creating, updating, and deleting products when logged in, and that this is not possible for guest users, or users registered with normal customer accounts. This is performed on the frontend, in admin-exclusive product pages for CRUD functionality. 
-
-I have confirmed create, read, and delete functionality for Post models. I decided against implementing update functionality for this model, as I feel the community posts aspect of the site is crucially chronological and time-stamped. 
 
 As I chose to fork and write a customised version of the django-star-ratings package, I have manually tested this as well. My version is more focused on individual user ratings than it is on overall average ratings, and so I have confirmed that a signed-in user is capable of creating and updating their star rating model for a product. In the forked version this is linked more specifically to the user model. These ratings are anonymous and aggregate, so there is not an option to clear and delete the rating from the frontend, though the individual user rating is deleted from the aggregate upon deletion of the user profile. 
 
