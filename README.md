@@ -656,6 +656,7 @@ For the manual testing, I arranged my desktop as below, with the admin panel on 
 To test and ensure that all functionality on the site is working as expected and is secure, I have manually tested and confirmed working Create, Read, Update and Delete functionality (henceforth CRUD functionality) for the following models;
 
 - CRUD functionality for Users
+- CRUD functionality for Posts
 - CRUD functionality for Reviews
 
 I have confirmed that the Order model is properly created uponb checkout and can be accessed after purchase. This is supported by backend code in the checkout app, and additionally by Stripe webhooks, which add an additional layer of security and reliability by creating the Order model even in the event of errors/issues during checkout. This is important for the Orders model as this relates directly to payment and the fulfilment of purchases.

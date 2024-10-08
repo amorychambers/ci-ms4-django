@@ -67,6 +67,43 @@ def create_post(request):
 
 
 @login_required
+def update_post(request, post_id):
+    """
+    View to update posts
+    """
+
+    user = get_object_or_404(User, username=request.user)
+    post = get_object_or_404(Post, pk=post_id)
+
+    form = PostForm(instance=post)
+
+    if request.method == "POST":
+        if post.user == user:
+            form = PostForm(request.POST, request.FILES,
+                            instance=post)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Check out your post in \
+                                the community tab!')
+                return redirect(reverse('posts'))
+            else:
+                messages.error(request, 'Something went wrong! Please check \
+                            that you included a title and content.')
+                return redirect(reverse('create_post'))
+        else:
+            messages.error(request, 'Sorry, only the original poster\
+                        can make changes to the post.')
+            return redirect(reverse('posts'))
+
+    context = {
+        "post": post,
+        "form": form,
+    }
+
+    return render(request, 'posts/update_post.html', context)
+
+
+@login_required
 def delete_post(request, post_id):
     """
     View to delete community posts
