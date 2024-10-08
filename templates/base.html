@@ -51,10 +51,10 @@
                         <a class="nav-link" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Coffee
-                        </a>
+                        </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{% url 'products' %}?sort=coffee">All Coffee</a></li>
                             <li><a class="dropdown-item" href="{% url 'products' %}?sort=single">Single Origin</a></li>
@@ -69,10 +69,10 @@
                         <a class="nav-link" href="{% url 'posts' %}">Community Posts</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Account
-                        </a>
+                        </button>
                         <ul class="dropdown-menu">
                             {% if user.is_authenticated %}
                             <li><a class="dropdown-item" href="{% url 'profile' %}">My Profile</a></li>
