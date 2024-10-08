@@ -30,7 +30,7 @@ Developed by Benedict Amory Chambers
     6. [Performance](#performance)
     7. [Compatibility](#compatibility)
     8. [Testing user stories](#testing-user-stories)
-    9. [Automated tests](#automated-tests)
+    9. [Backend Testing](#backend-testing)
 7. [Credits](#credits)
 8. [Deployment](#deployment)
 9. [Acknowledgements](#acknowledgements)
@@ -645,7 +645,27 @@ As a first-time user, I want to:
 <img src="docs/user-stories/user-story-sixteen.gif">
 </details>
 
-### Automated Tests 
+### Backend Testing
+
+In order to test the backend code functionality for this project, I chose to implement full manual testing. This was for two reasons. Firstly, as the database interactions performed on the site are largely user centric - both for the registered customers accessing their account's additional features, and for the owner who manages the site and the related data - I wanted to be able to test the database interactions from a frontend perspective especially. This includes testing the security of the features that require a user to be logged in, and particularly testing the feedback displayed on the frontend from data operations. The second reason I opted for manual testing is to make use of the django admin panel, which I consider one of the framework's most powerful and efficient tools. The django admin panel allows a registered superuser to view and manipulate the site's database; this allows an admin user to view any changes made to the database, to check the effect of database interactions, and to change data easily and quickly using frontend forms. I think this is a powerful tool for testing as well as for site management, as it makes it immediately and efficiently apparent what features are working, how they are working, if there are any errors with database interactions, and if the relationship between frontend and backend interactions is functioning as expected.
+
+For the manual testing, I arranged my desktop as below, with the admin panel on one side of the screen and the site running on the other. This was an effective and efficient way to check that all database interactions were working as expected; by this I mean that all create functionality correctly created model instances with the proper data in the database, that no data was entered when unauthorised and no invalid data was created, that all updates to data were processed fully and did not allow for submission of invalid data, and that delete requests deleted only the requested data from the data base.
+
+![Manual Testing](docs/manual-testing.jpg)
+
+To test and ensure that all functionality on the site is working as expected and is secure, I have manually tested and confirmed working Create, Read, Update and Delete functionality (henceforth CRUD functionality) for the following models;
+
+- CRUD functionality for Users
+- CRUD functionality for Reviews
+
+I have confirmed that the Order model is properly created uponb checkout and can be accessed after purchase. This is supported by backend code in the checkout app, and additionally by Stripe webhooks, which add an additional layer of security and reliability by creating the Order model even in the event of errors/issues during checkout. This is important for the Orders model as this relates directly to payment and the fulfilment of purchases.
+
+I have tested and confirmed that site owners/admin users are capable of creating, updating, and deleting products when logged in, and that this is not possible for guest users, or users registered with normal customer accounts. This is performed on the frontend, in admin-exclusive product pages for CRUD functionality. 
+
+I have confirmed create, read, and delete functionality for Post models. I decided against implementing update functionality for this model, as I feel the community posts aspect of the site is crucially chronological and time-stamped. 
+
+As I had to fork and write a customised version of the django-star-ratings package, I have manually tested this as well. My version is more focused on individual user ratings than it is on average user ratings, and so I have confirmed that a signed-in user is capable of creating and updating their star rating model for a product. In the forked version this is linked more specifically to the user model. These ratings are anonymous and aggregate, so there is not an option to clear and delete the rating from the frontend, though the individual user rating is deleted from the aggregate upon deletion of the user profile. 
+
 
 ## Credits
 
