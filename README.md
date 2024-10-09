@@ -876,4 +876,5 @@ heroku config:set DISABLE_COLLECTSTATIC=1 -a your-app-name
 24. In the Config Vars of your Heroku app, add the AWS_ACCESS_KEY_ID and the AWS_SECRET_ACCESS_KEY from your IAM user, and set USE_AWS to True
 
 25. Remove the DISABLE_COLLECTSTATIC variable from Config Vars as now upon deployment the app should collect static files from the S3 bucket
+
 ## Acknowledgements
