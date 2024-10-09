@@ -790,7 +790,72 @@ Flushed Footer JS script from [Cory on StackOverflow](https://stackoverflow.com/
 
 Queryset filtering for ModelChoiceField from [furins on StackOverflow](https://stackoverflow.com/questions/15608784/django-filter-the-queryset-of-modelchoicefield)
 
-
 ## Deployment
+
+1. Create a PostgreSQL database whereever you would like to host your site's data
+
+2. Log into your Heroku account and select 'Create New App'
+![Create App](docs/deployment/deploy-2.png)
+
+3. Select the correct region and create a unique name for the app
+![Name app](docs/deployment/deploy-3.png)
+
+4. Navigate to the settings tab in Heroku for your new app and click 'Reveal Config Vars'
+![Reveal config vars](docs/deployment/deploy-4.png)
+
+5. Add a DATABASE_URL config var and enter the URL for your postgres database
+![Add database link](docs/deployment/deploy-5.png)
+
+6. Fork and clone into the repository in Github 
+![Fork repository](docs/deployment/deploy-6.png)
+
+7. Comment out the database variable from settings.py and enter the following code, subsituting your own database URL:
+
+```
+DATABASES = {
+    'default': dj_database_url.parse('your-url-here')
+}
+```
+
+8. In the terminal, navigate to the directory of your forked repo and run the command:
+
+```
+python3 manage.py showmigrations
+```
+
+The 'no migrations' status confirms you are connected to your database.
+
+9. Migrate the database models to your database by entering the migrate command:
+
+```
+python3 manage.my migrate
+```
+
+10. If you would like to load the product data used by the site, you can load the data from the products folder by entering:
+
+```
+python3 manage.py loaddata products
+```
+
+11. Create a superuser for accessing the database by entering:
+
+```
+python3 manage.py createsuperuser
+```
+
+12. Delete the database URL from settings.py before committing any changes and exposing a security risk, and uncomment the original DATABASES conditional
+
+13. Login to the Heroku CLI in the terminal
+
+14. Enter the following command to prevent Heroku attempting to collect static files
+
+```
+heroku config:set DISABLE_COLLECTSTATIC=1 -a your-app-name
+```
+
+15. In the Domains section of the Settings tab in your Heroku app, take the domain name and copy it into the ALLOWED_HOSTS variable in settings.py
+
+16. 
+
 
 ## Acknowledgements
