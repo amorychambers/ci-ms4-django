@@ -259,6 +259,8 @@ For this project, I decided to fork and customise a version of the django-star-r
 
 [Font Awesome](https://fontawesome.com/)
 
+[ImageOptim](https://imageoptim.com/)
+
 [Favicon](https://favicon.io/)
 
 [W3C Markup Validation Service](https://validator.w3.org/)

@@ -190,7 +190,7 @@ figure>h2,
 
 .card {
     max-height: 50vh;
-    overflow: scroll;
+    overflow: hidden;
 }
 
 .strike {
