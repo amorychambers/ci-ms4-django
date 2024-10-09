@@ -40,6 +40,10 @@ body {
     z-index: 999999999;
 }
 
+.clearablefileinput {
+    max-width: 80%;
+}
+
 
 /* -------------------- Header  -------------------- */
 

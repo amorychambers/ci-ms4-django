@@ -450,12 +450,17 @@ contact/contact.html - 4 errors listed on the page for input elements without la
 index.html - 5 errors for empty links. These elements make use of the Bootstrap stretched-links feature, which stretches the link to encompass the parent div, in this case, the figure elements. As these links are not empty, I have left these errors unaddressed. To address the two contrast errors, I have changed the heading texts on the carousel slides to use a black background, which resolves the contrast issue for the white text headings.
 
 posts/posts.html - No errors listed
+
 posts/create_post.html - No errors listed
+
 posts/update_post.html - No errors listed
 
 products/products.html - Each product listed generates an empty link error for the same reason as the homepage's stretched links. As these links are functional and not empty, I have chosen to disregard this error type.
+
 products/product_details.html - Two errors created by the use of icons inside buttons for the quantity selector, which are not picked up as inner content to the anchor element. 
+
 products/add_product.html - No errors listed
+
 products/update_product.html - No errors listed
 
 profile/profile.html - 6 errors listed on the page for input elements without labels. These elements use placeholder text in line with sitewide form styling, so I have not included additional labels copying over the placeholder text.
@@ -465,6 +470,63 @@ reviews/review.html - 2 errors listed on the page for input elements without lab
 ### Performance
 
 Performance testing by Google Lighthouse in Google Chrome Developer Tools
+
+<details><summary>cart.html</summary>
+<img src="docs/performance/cart-performance.png">
+</details>
+
+<details><summary>checkout.html</summary>
+<img src="docs/performance/checkout-performance.png">
+</details>
+
+<details><summary>checkout_success.html</summary>
+<img src="docs/performance/checkout_success-performance.png">
+</details>
+
+<details><summary>contact.html</summary>
+<img src="docs/performance/contact-performance.png">
+</details>
+
+
+<details><summary>index.html</summary>
+<img src="docs/performance/index-performance.png">
+</details>
+
+<details><summary>posts.html</summary>
+<img src="docs/performance/posts-performance.png">
+</details>
+
+<details><summary>create_post.html</summary>
+<img src="docs/performance/create_post-performance.png">
+</details>
+
+<details><summary>update_post.html</summary>
+<img src="docs/performance/update_post-performance.png">
+</details>
+
+<details><summary>products.html</summary>
+<img src="docs/performance/products-performance.png">
+</details>
+
+<details><summary>add_product.html</summary>
+<img src="docs/performance/products-performance.png">
+</details>
+
+<details><summary>update_product.html</summary>
+<img src="docs/performance/update_product-performance.png">
+</details>
+
+<details><summary>product_details.html</summary>
+<img src="docs/performance/product_details-performance.png">
+</details>
+
+<details><summary>profile.html</summary>
+<img src="docs/performance/profile-performance.png">
+</details>
+
+<details><summary>review.html</summary>
+<img src="docs/performance/review-performance.png">
+</details>
 
 ### Compatibility
 
