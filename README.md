@@ -509,7 +509,7 @@ Performance testing by Google Lighthouse in Google Chrome Developer Tools
 </details>
 
 <details><summary>add_product.html</summary>
-<img src="docs/performance/products-performance.png">
+<img src="docs/performance/add_product-performance.png">
 </details>
 
 <details><summary>update_product.html</summary>
@@ -779,6 +779,8 @@ Background Image by [Cindynihart](https://pixabay.com/illustrations/coffee-beans
 'Product 9' Photo by [onetoforseeforall](https://www.pexels.com/photo/close-up-of-person-making-filter-coffee-8469495/)
 
 'Product 10' Photo by [interwebly io](https://www.pexels.com/photo/person-making-drip-coffee-11281128/)
+
+Coffee Icon from [uxwing](https://uxwing.com/coffee-bean-icon/)
 
 ### External Code
 
