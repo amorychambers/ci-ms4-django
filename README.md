@@ -863,6 +863,17 @@ heroku config:set DISABLE_COLLECTSTATIC=1 -a your-app-name
 18. Ensure that the main branch is selected, and then either select Deploy Branch for manual deployment or Enable Automatic Deploys to re-deploy site with any push to the main branch
 ![Select deploy](docs/deployment/deploy-18.png)
 
-19. Generate and save a SECRET_KEY variable in the Config Vars of your Heroku app
+19. Generate and save a SECRET_KEY variable in the Config Vars of your Heroku app. Add your STRIPE_PUBLIC_KEY, STRIPE_SECRET_KEY, and STRIPE_WH_SECRET variables from your Stripe account as well.
 
+20. Create an AWS account in order to use S3 for hosting static files
+
+21. Create and setup a new AWS S3 bucket for the app
+
+22. Create and setup an accompanying user group, policy and user in AWS IAM
+
+23. In settings.py, under the conditional for 'USE_AWS' in the environment, customise the settings to match the name of your S3 bucket
+
+24. In the Config Vars of your Heroku app, add the AWS_ACCESS_KEY_ID and the AWS_SECRET_ACCESS_KEY from your IAM user, and set USE_AWS to True
+
+25. Remove the DISABLE_COLLECTSTATIC variable from Config Vars as now upon deployment the app should collect static files from the S3 bucket
 ## Acknowledgements
