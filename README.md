@@ -863,5 +863,6 @@ heroku config:set DISABLE_COLLECTSTATIC=1 -a your-app-name
 18. Ensure that the main branch is selected, and then either select Deploy Branch for manual deployment or Enable Automatic Deploys to re-deploy site with any push to the main branch
 ![Select deploy](docs/deployment/deploy-18.png)
 
+19. Generate and save a SECRET_KEY variable in the Config Vars of your Heroku app
 
 ## Acknowledgements
