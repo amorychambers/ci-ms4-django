@@ -31,7 +31,7 @@ environ.Env.read_env()
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT' in os.environ
+DEBUG = env('DEVELOPMENT')
 
 ALLOWED_HOSTS = ['localhost', 'southroast-614a5422facc.herokuapp.com']
 
