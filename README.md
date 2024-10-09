@@ -855,7 +855,13 @@ heroku config:set DISABLE_COLLECTSTATIC=1 -a your-app-name
 
 15. In the Domains section of the Settings tab in your Heroku app, take the domain name and copy it into the ALLOWED_HOSTS variable in settings.py
 
-16. 
+16. Navigate to the Deploy tab of your Heroku app and select the Connect to Github option
+![Connect to Github](docs/deployment/deploy-16.png)
+
+17. Search for your forked repo and click Connect
+
+18. Ensure that the main branch is selected, and then either select Deploy Branch for manual deployment or Enable Automatic Deploys to re-deploy site with any push to the main branch
+![Select deploy](docs/deployment/deploy-18.png)
 
 
 ## Acknowledgements
