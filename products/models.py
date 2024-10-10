@@ -5,15 +5,13 @@ from multiselectfield import MultiSelectField
 
 
 class Product(models.Model):
-    TAG_CHOICES = {
-        "coffee": "Coffee",
-        "equipment": "Equipment",
-        "single": "Single Origin",
-        "blend": "Blend",
-        "seasonal": "Seasonal",
-        "sale": "Sale",
-        "bundle": "Bundles"
-    }
+    TAG_CHOICES = (("coffee", "Coffee"),
+                   ("equipment", "Equipment"),
+                   ("single", "Single Origin"),
+                   ("blend", "Blend"),
+                   ("seasonal", "Seasonal"),
+                   ("sale", "Sale"),
+                   ("bundle", "Bundles"))
 
     name = models.CharField(max_length=128)
     price = models.DecimalField(max_digits=6, decimal_places=2)
