@@ -27,7 +27,7 @@
     </form>
   </div>
   <div class="col-12 col-md-6 my-4 my-md-0 order-lg-first">
-    <img src="/media/{{ product.image }}" class=" mb-4 w-100" alt="Product Image">
+    <img src="{{ MEDIA_URL }}{{ product.image }}" class=" mb-4 w-100" alt="Product Image">
     <div class="bg-white rounded p-2">
       <h2 class="my-2">{{ product.name }}</h2>
       {% ratings product read_only=True icon_height=16 icon_width=16 %}
@@ -42,7 +42,7 @@
 {% block postload_js %}
 {{ block.super }}
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
     let firstCounter = $('.review-counter')[0];
     $(firstCounter).hide();
   });

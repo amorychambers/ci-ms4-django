@@ -877,4 +877,6 @@ heroku config:set DISABLE_COLLECTSTATIC=1 -a your-app-name
 
 25. Remove the DISABLE_COLLECTSTATIC variable from Config Vars as now upon deployment the app should collect static files from the S3 bucket
 
+26. Create a new folder in your S3 bucket called 'media'. In this folder, upload all of the files from the media folder; remember to click permissions and add public read access before uploading
+
 ## Acknowledgements

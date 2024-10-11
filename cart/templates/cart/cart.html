@@ -25,7 +25,8 @@
                         {% for item in cart_products %}
                         <tr>
                             <td>
-                                <img src="/media/{{ item.product.image }}" class="img-fluid mt-2" alt="Product Image">
+                                <img src="{{ MEDIA_URL }}{{ item.product.image }}" class="img-fluid mt-2"
+                                    alt="Product Image">
                             </td>
                             <td>
                                 <p>{{ item.product.name }}</p>
@@ -82,8 +83,8 @@
                                     <label for="delivery-select" class="form-check-label">
                                         Delivery
                                     </label>
-                                    <input type="radio" name="collection" class="form-check-input"
-                                    id="delivery-select" checked>
+                                    <input type="radio" name="collection" class="form-check-input" id="delivery-select"
+                                        checked>
                                 </div>
                             </td>
                             <td colspan="2">
@@ -92,7 +93,7 @@
                                         Collection
                                     </label>
                                     <input type="radio" name="collection" class="form-check-input"
-                                    id="collection-select">
+                                        id="collection-select">
                                 </div>
                             </td>
                             <td>
@@ -111,7 +112,8 @@
                         </tr>
                         <tr class="mt-2">
                             <td colspan="5">
-                                <a href="{% url 'checkout' %}?delivery" id="checkout-btn" class="btn bg-success checkout-btn">Secure Checkout <i
+                                <a href="{% url 'checkout' %}?delivery" id="checkout-btn"
+                                    class="btn bg-success checkout-btn">Secure Checkout <i
                                         class="fa-solid fa-lock"></i></a>
                             </td>
                         </tr>

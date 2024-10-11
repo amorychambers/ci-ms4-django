@@ -8,16 +8,16 @@
     <div id="homepage-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-pause="hover">
       <div class="carousel-inner">
         <div class="carousel-item active position-relative" data-bs-interval="5000">
-          <img src="{{ MEDIA_URL }}/media/about.webp" class="d-block w-100" alt="About Us">
+          <img src="{{ MEDIA_URL }}about.webp" class="d-block w-100" alt="About Us">
           <h2 id="about-text">Fresh coffee roasted daily, in the heart of the city</h2>
         </div>
         <div class="carousel-item" data-bs-interval="5000">
-          <img src="{{ MEDIA_URL }}/media/seasonal.webp" class="d-block w-100" alt="Seasonal Blends">
+          <img src="{{ MEDIA_URL }}seasonal.webp" class="d-block w-100" alt="Seasonal Blends">
           <h2 id="seasonal-text">Seasonal Blends</h2>
           <a href="{% url 'products' %}?sort=seasonal" class="stretched-link"></a>
         </div>
         <div class="carousel-item" data-bs-interval="5000">
-          <img src="{{ MEDIA_URL }}/media/gift-sets.webp" class="d-block w-100" alt="Gift Sets">
+          <img src="{{ MEDIA_URL }}gift-sets.webp" class="d-block w-100" alt="Gift Sets">
           <h2 id="ribbon">gift sets</h2>
           <h2 id="gift-text">Gift Sets</h2>
           <a href="{% url 'products' %}?sort=bundle" class="stretched-link"></a>
@@ -36,17 +36,17 @@
 </div>
   <div class="row mt-5">
     <figure class="col-12 col-lg-4 position-relative">
-      <img src="{{ MEDIA_URL }}/media/our-coffee.webp" alt="Our Coffee">
+      <img src="{{ MEDIA_URL }}our-coffee.webp" alt="Our Coffee">
       <h2>Our Coffee</h2>
       <a href="{% url 'products' %}?sort=coffee" class="stretched-link"></a>
     </figure>
     <figure class="col-12 col-lg-4 position-relative">
-      <img src="{{ MEDIA_URL }}/media/our-community.webp" alt="Our Community">
+      <img src="{{ MEDIA_URL }}our-community.webp" alt="Our Community">
       <h2>Our Community</h2>
       <a href="{% url 'posts' %}" class="stretched-link"></a>
     </figure>
     <figure class="col-12 col-lg-4 position-relative">
-      <img src="{{ MEDIA_URL }}/media/wholesale.webp" alt="Wholesale">
+      <img src="{{ MEDIA_URL }}wholesale.webp" alt="Wholesale">
       <h2>Wholesale</h2>
       <a href="{% url 'contact' %}" class="stretched-link"></a>
     </figure>
