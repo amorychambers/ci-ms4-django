@@ -431,7 +431,7 @@ reviews/forms.py - No errors listed
 reviews/models.py - No errors listed
 reviews/views.py - No errors listed
 
-settings.py - One error listed. Password validator settings contain variables longer than can fit in 79 characters.
+settings.py - Four error slisted. Password validator settings contain variables longer than can fit in 79 characters.
 
 ### Accessibility
 
@@ -529,6 +529,26 @@ Performance testing by Google Lighthouse in Google Chrome Developer Tools
 </details>
 
 ### Compatibility
+
+The website was tested and proved fully functional on the following devices:
+
+Macbook Pro
+
+Windows 10 PC
+
+iPhone 13
+
+The website was tested and proved fully functional on the following browsers:
+
+Google Chrome
+
+Safari
+
+Firefox
+
+Microsoft Edge
+
+Additionally, it has been tested on all device options using Google Chrome Developer Tools and proved responsive on all device sizes.
 
 ### Testing User Stories
 
@@ -739,6 +759,13 @@ As I chose to fork and write a customised version of the django-star-ratings pac
 
 I am satisfied that all database interactions available to signed-in users are not possible for guest users, offering significant value and distinct features to registering for an account on the site, and that the data store cannot be accessed by regular or guest users directly.
 
+## Bugs
+
+I ran into two major issues during the developent of this website, that were not quickly fixed by minor code corrections. The first issue was related to the django-star-ratings package. This package is designed with a focus on aggregate ratings, and displaying averages to the user. For my purposes, I was considerably more focused on displaying individual user ratings, as part of the CRUD functionality of ratings and reviews on the site. Rather than display an average rating in each instance of the star rating object, I wanted to be able to display different users' invididual star rating in their reviews, and allow the user to see the rating they gave when attempting to update the review. Additionally, the JavaScript that the package uses to dynamically update the visual of the star rating object is designed to demonstrate the impact of the user's rating on the average, and always displays the aggregate rating.
+
+To address this, I had to fork and customise the package. Firstly, I had to amend the UserRating model and all associated code to link it more directly to the User model; this was important to create that relationship in my relational database and make it easy to access an individual user's rating from their profile. Secondly, I decided that I would not enable anonymous ratings on the site; I wanted to encourage user registration by making contribution, discussion, and review all features of registrering for a user account. As I was not allowing anonymous ratings, I removed every reference to the user's IP address across the entire package, and of course removed all functionality that read and stored the IP address. I had some concerns about the potential data security and handling of user IP addresses, and decided that to avoid any innappropriate use of data as defined by GDPR, I would remove those features entirely. Finally, I had to work extensively on the JavaScript that the rating object uses to dynamically reflect which rating the user is hovering over, and which rating they have submitted. In the original version of the package, once the user enters a rating, the JavaScript dynamically updates the star object to reflect the new aggreate average rating. This JavaScript feature was not useful to me, as the average rating is displayed on the product page, and I felt it was more informative to the user to be able to see their rating as it stood in the database. I rewrote the JavaScript to reflect this and used some additional HTML data attributes to pass data between the frontend and the backend, to allow for a dynamic visual representation of the user's individual rating. The new models are more user-focused, and for the purpose of user interaction, more reflective of the CRUD functionality I wanted to implement for the star rating feature of the site.
+
+The second major issue I ran into was related to deployment, whereby the static files for the site were not being uploaded to the S3 bucket as they should. After extensive testing and experimentation, and after consulting with Code Institute's tutor support, it appeared that there was a conflict between this particular feature in Django v5.1.2 and AWS's S3. For this reason, and having exhausted all possible fixes, I decided to downgrade to Django v4.2 where the static files are automatically collected during deployment and uploaded to the S3 bucket where they can be hosted and served to the site. I had to retest all of the features on the site to be sure there were no additional conflicts between any of the code I had written, any of the other packages installed for the site, and the earlier version of Django. As only minor changes were required - particularly with the django-multiselectfield package - I am content to run the app with Django v4.2.
 
 ## Credits
 
