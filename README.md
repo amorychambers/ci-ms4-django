@@ -760,12 +760,13 @@ To test and ensure that all functionality on the site is working as expected and
 - CRUD functionality for Products
 - CRUD functionality for Posts
 - CRUD functionality for Reviews
+- CRUD functionality for UserRatings in the custom django-star-ratings package
 
 I have confirmed that the Order model is properly created upon checkout and can be accessed after purchase. This is supported by backend code in the checkout app, and additionally by Stripe webhooks, which add an additional layer of security and reliability by creating the Order model even in the event of errors/issues during checkout. This is important for the Orders model as this relates directly to payment and the fulfilment of purchases.
 
 I have tested and confirmed that site owners/admin users are capable of creating, updating, and deleting products when logged in, and that this is not possible for guest users, or users registered with normal customer accounts. This is performed on the frontend, in admin-exclusive product pages for CRUD functionality. 
 
-As I chose to fork and write a customised version of the django-star-ratings package, I have manually tested this as well. My version is more focused on individual user ratings than it is on overall average ratings, and so I have confirmed that a signed-in user is capable of creating and updating their star rating model for a product. In the forked version this is linked more specifically to the user model. These ratings are anonymous and aggregate, so there is not an option to clear and delete the rating from the frontend, though the individual user rating is deleted from the aggregate upon deletion of the user profile. 
+As I chose to fork and write a customised version of the django-star-ratings package, I have manually tested this as well. My version is more focused on individual user ratings than it is on overall average ratings, and so I have confirmed that a signed-in user is capable of creating and updating their star rating model for a product. In the forked version this is linked more specifically to the user model.
 
 I am satisfied that all database interactions available to signed-in users are not possible for guest users, offering significant value and distinct features to registering for an account on the site, and that the data store cannot be accessed by regular or guest users directly.
 

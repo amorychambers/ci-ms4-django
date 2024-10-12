@@ -64,8 +64,7 @@ class StripeWH_Handler:
             intent.latest_charge
         )
 
-        # billing_details = stripe_charge.billing_details
-        billing_details = intent.charges.data[0].billing_details
+        billing_details = stripe_charge.billing_details
         shipping_details = intent.shipping
 
         # Clean data in the shipping details
