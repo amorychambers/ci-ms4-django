@@ -1,6 +1,6 @@
 # South Roast: an e-commerce website for a local coffee roaster
 
-![Website homepage on different devices](docs/am-i-responsive.png)
+![Homepage](docs/homepage.png)
 
 Developed by Benedict Amory Chambers
 ## Table of Contents
@@ -791,6 +791,7 @@ Flushed Footer JS script from [Cory on StackOverflow](https://stackoverflow.com/
 Queryset filtering for ModelChoiceField from [furins on StackOverflow](https://stackoverflow.com/questions/15608784/django-filter-the-queryset-of-modelchoicefield)
 
 ## Deployment
+### Deploy on Heroku
 
 1. Create a PostgreSQL database whereever you would like to host your site's data
 
@@ -803,10 +804,10 @@ Queryset filtering for ModelChoiceField from [furins on StackOverflow](https://s
 4. Navigate to the settings tab in Heroku for your new app and click 'Reveal Config Vars'
 ![Reveal config vars](docs/deployment/deploy-4.png)
 
-5. Add a DATABASE_URL config var and enter the URL for your postgres database
+5. Add a DATABASE_URL variable and enter the URL for your postgres database
 ![Add database link](docs/deployment/deploy-5.png)
 
-6. Fork and clone into the repository in Github 
+6. Fork and clone into the [repository](https://github.com/amorychambers/ci-ms4-django) on Github 
 ![Fork repository](docs/deployment/deploy-6.png)
 
 7. Comment out the database variable from settings.py and enter the following code, subsituting your own database URL:
@@ -863,7 +864,7 @@ heroku config:set DISABLE_COLLECTSTATIC=1 -a your-app-name
 18. Ensure that the main branch is selected, and then either select Deploy Branch for manual deployment or Enable Automatic Deploys to re-deploy site with any push to the main branch
 ![Select deploy](docs/deployment/deploy-18.png)
 
-19. Generate and save a SECRET_KEY variable in the Config Vars of your Heroku app. Add your STRIPE_PUBLIC_KEY, STRIPE_SECRET_KEY, and STRIPE_WH_SECRET variables from your Stripe account as well.
+19. Generate and save a SECRET_KEY variable in the config vars of your Heroku app. Add your STRIPE_PUBLIC_KEY, STRIPE_SECRET_KEY, and STRIPE_WH_SECRET variables from your Stripe account as well.
 
 20. Create an AWS account in order to use S3 for hosting static files
 
@@ -873,10 +874,60 @@ heroku config:set DISABLE_COLLECTSTATIC=1 -a your-app-name
 
 23. In settings.py, under the conditional for 'USE_AWS' in the environment, customise the settings to match the name of your S3 bucket
 
-24. In the Config Vars of your Heroku app, add the AWS_ACCESS_KEY_ID and the AWS_SECRET_ACCESS_KEY from your IAM user, and set USE_AWS to True
+24. In the config vars of your Heroku app, add the AWS_ACCESS_KEY_ID and the AWS_SECRET_ACCESS_KEY from your IAM user, and set USE_AWS to True
 
-25. Remove the DISABLE_COLLECTSTATIC variable from Config Vars as now upon deployment the app should collect static files from the S3 bucket
+25. Remove the DISABLE_COLLECTSTATIC variable from the config vars as now upon deployment the app should collect static files from the S3 bucket
 
 26. Create a new folder in your S3 bucket called 'media'. In this folder, upload all of the files from the media folder; remember to click permissions and add public read access before uploading
 
+27. Configure the email settings EMAIL_HOST_USER, EMAIL_HOST_PASS and DEFAULT_FROM_EMAIL in the config vars to use an email account you can access. EMAIL_HOST_PASS should be an app password
+![Config vars](docs/deployment/deploy-27.png)
+
+The site is now deployed and functional.
+
+### Deploy Locally
+
+1. Fork and clone into the [repository](https://github.com/amorychambers/ci-ms4-django) on Github
+![Fork repository](docs/deployment/local-1.png)
+
+2. Enter the following command in the terminal to install all the software requirements for the app. You may wish to first set up a virtual environment for this
+
+```
+pip3 install -r requirements.txt
+```
+
+3. Create a PostgreSQL database locally or online where you would like to host the site's data. You will need to enter the name of your database, and will need to configure the DATABASES setting in settings.py if you are not using PostgreSQL
+![Local database](docs/deployment/local-3)
+
+4. Create a file called '.env' in the project folder, where the settings file is located. This file should contain the following variables, with the user entering their own database username and password, their own secret key, and their own Stripe account variables
+![Local vars](docs/deployment/local-4)
+
+5. In the terminal, run the following command. You will be asked to select one of three options to address a non-nullable field in the customised django-star-ratings app. It is appropriate to select option 2, as there is no data yet in the database
+```
+python3 manage.py makemigrations
+```
+
+6. In the terminal, run the following two commands in sequence to migrate data to your postgres database
+
+```
+python3 manage.py migrate
+python3 manage.py loaddata products
+```
+
+7. Create a superuser for admin access to the database by entering into the terminal: 
+```
+python3 manage.py createsuperuser
+```
+
+8. The site is now deployed and can be accessed in a locally hosted server by entering
+```
+python3 manage.py runserver
+```
+
 ## Acknowledgements
+
+For their support and advice, I would like to thank a few people who contributed to the completion of this project.
+
+- My classmates from Coleg Y Cymoedd and Cardiff and Vale College, for their input and optimism
+- My mentor, Mo Shami, whose support and reassurance were of great value in the completion of this larger solo-development project
+- My class facilitator at Code Institute, Lewis Dillon, a good sort who knows all a good sort ought to know
