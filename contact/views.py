@@ -38,7 +38,7 @@ def contact(request):
             subject,
             body,
             settings.DEFAULT_FROM_EMAIL,
-            ['contact@southroast.co.uk']
+            ['southroast709@gmail.com']
         )
         messages.success(request, "Thanks for getting in touch!\
                          We'll get back to you as soon as possible.")
