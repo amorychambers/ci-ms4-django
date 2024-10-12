@@ -31,7 +31,10 @@ environ.Env.read_env()
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEVELOPMENT')
+if os.environ.get('DEVELOPMENT') is True:
+    DEBUG = True
+else:
+    DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', 'southroast-3d39d941b5c5.herokuapp.com']
 
@@ -211,7 +214,7 @@ if 'USE_AWS' in os.environ:
 else:
     STATIC_URL = '/static/'
     MEDIA_URL = '/media/'
-    
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -232,7 +235,7 @@ STRIPE_WH_SECRET = env('STRIPE_WH_SECRET')
 DELIVERY_COST = 599
 
 
-if os.environ.get('DEVELOPMENT'):
+if os.environ.get('DEVELOPMENT') is True:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'orders@southroast.co.uk'
 else:
