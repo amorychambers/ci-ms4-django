@@ -31,7 +31,7 @@ environ.Env.read_env()
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEVELOPMENT')
+DEBUG = os.environ.get('DEVELOPMENT')
 
 ALLOWED_HOSTS = ['localhost', 'southroast-3d39d941b5c5.herokuapp.com']
 
@@ -232,7 +232,7 @@ STRIPE_WH_SECRET = env('STRIPE_WH_SECRET')
 DELIVERY_COST = 599
 
 
-if env('DEVELOPMENT') is True:
+if os.environ.get('DEVELOPMENT'):
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'orders@southroast.co.uk'
 else:
