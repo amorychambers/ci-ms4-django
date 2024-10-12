@@ -76,6 +76,8 @@ def update_post(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
 
     form = PostForm(instance=post)
+    form.fields['product'].queryset = Product.objects.filter(
+    tags__contains="coffee")
 
     if request.method == "POST":
         if post.user == user:
