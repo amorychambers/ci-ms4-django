@@ -31,7 +31,7 @@ environ.Env.read_env()
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.environ.get('DEVELOPMENT') is True:
+if 'DEVELOPMENT' in os.environ:
     DEBUG = True
 else:
     DEBUG = False
@@ -235,7 +235,7 @@ STRIPE_WH_SECRET = env('STRIPE_WH_SECRET')
 DELIVERY_COST = 599
 
 
-if os.environ.get('DEVELOPMENT') is True:
+if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'orders@southroast.co.uk'
 else:
