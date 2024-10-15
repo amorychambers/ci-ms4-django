@@ -31,10 +31,12 @@ environ.Env.read_env()
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if 'DEVELOPMENT' in os.environ:
-    DEBUG = True
-else:
-    DEBUG = False
+# if 'DEVELOPMENT' in os.environ:
+#     DEBUG = True
+# else:
+#     DEBUG = False
+
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', 'southroast-3d39d941b5c5.herokuapp.com']
 
