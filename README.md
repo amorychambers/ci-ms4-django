@@ -1,4 +1,4 @@
-# South Roast: an e-commerce website for a local coffee roaster
+# SouthRoast: an e-commerce website for a local coffee roaster
 
 ![Homepage](docs/homepage.png)
 
@@ -89,18 +89,18 @@ The target audiences for the website are new customers who are interested in the
 
 15. Showcase all the products the business offers, sorted into categories
 16. Allow for community engagement and feedback from customers
-17. Easily add or remove products sitewide using the admin page
+17. Easily add, update, and remove products sitewide using the admin-only pages
 18. Ensure all orders are saved and completed properly
 
 ## Design 
 
 ### Design Choices
 
-I have opted for a simple and consistent design across the site. Using bootstrap and custom classes, I have aimed at creating a cohesive style for the site that matches the tone of the business, as a small local coffee roaster. 
+I have opted for a simple and consistent design across the site. Using bootstrap and custom CSS, I have aimed at creating a cohesive style for the site that matches the tone of the business, as a small local coffee roaster. 
 
 ### Colours
 
-In keeping with the coffee theme, I have chosen a dark brown background colour for headings and distinct sections that stands out and complements the lighter brown coffee themed background. I chose to make this darker colour slightly transparent, so that it integrates a little better with the background image and with the soft aesthetic.
+In keeping with the coffee theme, I have chosen a dark brown background colour for headings and distinct sections which stands out and complements the lighter brown coffee themed background. I chose to make this darker colour slightly transparent, so that it integrates a little better with the background image and with the soft aesthetic.
 
 ### Fonts
 
@@ -110,7 +110,7 @@ To maintain the professional consistency and cohesive aesthetic, I have used two
 
 The site uses a persistent navigation bar to navigate between the main pages, with several more focused and detailed pages accessed from within the main pages.
 
-1. Homepage - A landing page that demonstrates what the business is offering and establishes the site and user goals
+1. Homepage - A landing page that demonstrates what the business is offering and establishes both the site and user goals
 
 2. Products - A complete list view of all products available. This can be filtered by a variety of categories to make finding the desired product easier. Additionally, in the navigation bar there is a search box by which the user can directly filter all products on the site with a search term.
 
@@ -126,7 +126,7 @@ The site uses a persistent navigation bar to navigate between the main pages, wi
 
 8. About/Contact - Simple breakdown of what the site offers both to regular and wholesale customers. Contains the contact form by which users can contact the business via email.
 
-9. Sign In/Register - Pages for a new user to register an account or for an existing user to log back in to their account, built with django-allauth
+9. Sign In/Register - Pages for a new user to register an account or for an existing user to log back in to their account, built with django-allauth.
 
 10. 404 - Custom 404 page to redirect users to the homepage if they run into any errors on the site
 
@@ -311,7 +311,7 @@ User Stories: 1, 3, 4, 9, 15, 16
 ### Reviews & Star Ratings
 
 - Up-to-date average star ratings from user ratings on all products, with specific user ratings associated with user reviews and profiles
-- User created reviews on all product pages with dates and ratings
+- User created reviews on product pages with dates and ratings
 
 ### Cart & Checkout
 
@@ -570,7 +570,7 @@ As a first-time user, I want to:
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 | ---- | ---- | ---- | ---- |
-| About | Navigate to About Page | Presented with information about the site | Works as expected |
+| About | Navigate to Meet Us/Contact page | Presented with information about the site | Works as expected |
 
 <details><summary>Screen Capture</summary>
 <img src="docs/user-stories/user-story-one.gif">
@@ -746,11 +746,22 @@ As a first-time user, I want to:
 <img src="docs/user-stories/user-story-sixteen.gif">
 </details>
 
+17. Easily add, update, and remove products sitewide using the admin-only pages
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Products | Access the admin only product pages and either select delete or add/update product details to the form | Creates, updates or deletes product in database | Works as expected |
+
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/user-story-seventeen.gif">
+</details>
+
 ### Backend Testing
 
 In order to test the backend code functionality for this project, I chose to implement full manual testing. This was for two reasons. Firstly, as the database interactions performed on the site are largely user centric - both for the registered customers accessing their account's additional features, and for the owner who manages the site and the related data - I wanted to be able to test the database interactions from a frontend user perspective especially. This includes testing the security of the features that require a user to be logged in, and particularly testing the feedback displayed on the frontend from data operations. The second reason I opted for manual testing is to make use of the django admin panel, which I consider one of the framework's most powerful and efficient tools. The django admin panel allows a registered superuser to view and manipulate the site's database; this allows an admin user to view any changes made to the database, to check the effect of database interactions, and to change data easily and quickly using frontend forms. I think this is a powerful tool for testing as well as for site management, as it makes it immediately and efficiently apparent what features are working, how they are working, if there are any errors with database interactions, and if the relationship between frontend and backend interactions is functioning as expected.
 
-For the manual testing, I arranged my desktop as below, with the admin panel on one side of the screen and the site running on the other. This was an effective and efficient way to check that all database interactions were working as expected; by this I mean that all create functionality correctly created model instances with the proper data in the database, that no data was entered when unauthorised and no invalid data was created, that all updates to data were processed fully and did not allow for submission of invalid data, and that delete requests deleted only the requested data from the data base.
+For the manual testing, I arranged my desktop as below, with the admin panel on one side of the screen and the site running on the other. This was an effective and efficient way to check that all database interactions were working as expected; by this I mean that all create functionality correctly created model instances with the proper data in the database, that no data was entered when unauthorised and no invalid data was created, that all updates to data were processed fully and did not allow for submission of invalid data, and that delete requests deleted only the requested data from the database.
 
 ![Manual Testing](docs/manual-testing.jpg)
 
@@ -762,11 +773,11 @@ To test and ensure that all functionality on the site is working as expected and
 - CRUD functionality for Reviews
 - CRUD functionality for UserRatings in the custom django-star-ratings package
 
-I have confirmed that the Order model is properly created upon checkout and can be accessed after purchase. This is supported by backend code in the checkout app, and additionally by Stripe webhooks, which add an additional layer of security and reliability by creating the Order model even in the event of errors/issues during checkout. This is important for the Orders model as this relates directly to payment and the fulfilment of purchases.
+I have confirmed that the Order model is properly created upon checkout and can be accessed after purchase. This is supported by backend code in the checkout app, and additionally by Stripe webhooks, which add an additional layer of security and reliability by creating the Order model even in the event of errors/issues during checkout. This is important for the Order model as this relates directly to payment and the fulfilment of purchases.
 
 I have tested and confirmed that site owners/admin users are capable of creating, updating, and deleting products when logged in, and that this is not possible for guest users, or users registered with normal customer accounts. This is performed on the frontend, in admin-exclusive product pages for CRUD functionality. 
 
-As I chose to fork and write a customised version of the django-star-ratings package, I have manually tested this as well. My version is more focused on individual user ratings than it is on overall average ratings, and so I have confirmed that a signed-in user is capable of creating and updating their star rating model for a product. In the forked version this is linked more specifically to the user model.
+As I chose to fork and write a customised version of the django-star-ratings package, I have manually tested this as well. My version is more focused on individual user ratings than it is on overall average ratings, and so I have confirmed that a signed-in user is capable of creating, updating and deleting their star rating model for a product. In the forked version this is linked more specifically to the user model.
 
 I am satisfied that all database interactions available to signed-in users are not possible for guest users, offering significant value and distinct features to registering for an account on the site, and that the data store cannot be accessed by regular or guest users directly.
 
@@ -774,7 +785,7 @@ I am satisfied that all database interactions available to signed-in users are n
 
 I ran into two major issues during the developent of this website, that were not quickly fixed by minor code corrections. The first issue was related to the django-star-ratings package. This package is designed with a focus on aggregate ratings, and displaying averages to the user. For my purposes, I was considerably more focused on displaying individual user ratings, as part of the CRUD functionality of ratings and reviews on the site. Rather than display an average rating in each instance of the star rating object, I wanted to be able to display different users' invididual star rating in their reviews, and allow the user to see the rating they gave when attempting to update the review. Additionally, the JavaScript that the package uses to dynamically update the visual of the star rating object is designed to demonstrate the impact of the user's rating on the average, and always displays the aggregate rating.
 
-To address this, I had to fork and customise the package. Firstly, I had to amend the UserRating model and all associated code to link it more directly to the User model; this was important to create that relationship in my relational database and make it easy to access an individual user's rating from their profile. Secondly, I decided that I would not enable anonymous ratings on the site; I wanted to encourage user registration by making contribution, discussion, and review all features of registrering for a user account. As I was not allowing anonymous ratings, I removed every reference to the user's IP address across the entire package, and of course removed all functionality that read and stored the IP address. I had some concerns about the potential data security and handling of user IP addresses, and decided that to avoid any innappropriate use of data as defined by GDPR, I would remove those features entirely. Finally, I had to work extensively on the JavaScript that the rating object uses to dynamically reflect which rating the user is hovering over, and which rating they have submitted. In the original version of the package, once the user enters a rating, the JavaScript dynamically updates the star object to reflect the new aggreate average rating. This JavaScript feature was not useful to me, as the average rating is displayed on the product page, and I felt it was more informative to the user to be able to see their rating as it stood in the database. I rewrote the JavaScript to reflect this and used some additional HTML data attributes to pass data between the frontend and the backend, to allow for a dynamic visual representation of the user's individual rating. The new models are more user-focused, and for the purpose of user interaction, more reflective of the CRUD functionality I wanted to implement for the star rating feature of the site.
+To address this, I had to fork and customise the package. Firstly, I had to amend the UserRating model and all associated code to link it more directly to the User model; this was important to create that relationship in my relational database and make it easy to access an individual user's rating from their profile. Secondly, I decided that I would not enable anonymous ratings on the site; I wanted to encourage user registration by making contribution, discussion, and review features available only after registrering for a user account. As I was not allowing anonymous ratings, I removed every reference to the user's IP address across the entire package, and of course removed all functionality that read and stored the IP address. I had some concerns about the potential data security and handling of user IP addresses, and decided that to avoid any innappropriate use of data as defined by GDPR, I would remove those features entirely. Finally, I had to work extensively on the JavaScript that the rating object uses to dynamically reflect which rating the user is hovering over, and which rating they have submitted. In the original version of the package, once the user enters a rating, the JavaScript dynamically updates the star object to reflect the new aggreate average rating. This JavaScript feature was not useful to me, as the average rating is displayed on the product page, and I felt it was more informative to the user to be able to see their rating as it stood in the database. I rewrote the JavaScript to reflect this and used some additional HTML data attributes to pass data between the frontend and the backend, to allow for a dynamic visual representation of the user's individual rating. The new models are more user-focused, and for the purpose of user interaction, more reflective of the CRUD functionality I wanted to implement for the star rating feature of the site.
 
 The second major issue I ran into was related to deployment, whereby the static files for the site were not being uploaded to the S3 bucket as they should. After extensive testing and experimentation, and after consulting with Code Institute's tutor support, it appeared that there was a conflict between this particular feature in Django v5.1.2 and AWS's S3. For this reason, and having exhausted all possible fixes, I decided to downgrade to Django v4.2 where the static files are automatically collected during deployment and uploaded to the S3 bucket where they can be hosted and served to the site. I had to retest all of the features on the site to be sure there were no additional conflicts between any of the code I had written, any of the other packages installed for the site, and the earlier version of Django. As only minor changes were required - particularly with the django-multiselectfield package - I am content to run the app with Django v4.2.
 
@@ -854,7 +865,7 @@ Queryset filtering for ModelChoiceField from [furins on StackOverflow](https://s
 6. Fork and clone into the [repository](https://github.com/amorychambers/ci-ms4-django) on Github 
 ![Fork repository](docs/deployment/deploy-6.png)
 
-7. Comment out the database variable from settings.py and enter the following code, subsituting your own database URL:
+7. Comment out the conditional database variables from settings.py and paste in the following code, subsituting your own database URL:
 
 ```
 DATABASES = {
@@ -888,7 +899,7 @@ python3 manage.py loaddata products
 python3 manage.py createsuperuser
 ```
 
-12. Delete the database URL from settings.py before committing any changes and exposing a security risk, and uncomment the original DATABASES conditional
+12. Delete the temporary DATABASES variable from settings.py before committing any changes and exposing a security risk. Uncomment the original DATABASES conditional
 
 13. Login to the Heroku CLI in the terminal
 
@@ -899,6 +910,7 @@ heroku config:set DISABLE_COLLECTSTATIC=1 -a your-app-name
 ```
 
 15. In the Domains section of the Settings tab in your Heroku app, take the domain name and copy it into the ALLOWED_HOSTS variable in settings.py
+![Domains](docs/deployment/deploy-15.png)
 
 16. Navigate to the Deploy tab of your Heroku app and select the Connect to Github option
 ![Connect to Github](docs/deployment/deploy-16.png)
@@ -908,9 +920,11 @@ heroku config:set DISABLE_COLLECTSTATIC=1 -a your-app-name
 18. Ensure that the main branch is selected, and then either select Deploy Branch for manual deployment or Enable Automatic Deploys to re-deploy site with any push to the main branch
 ![Select deploy](docs/deployment/deploy-18.png)
 
-19. Generate and save a SECRET_KEY variable in the config vars of your Heroku app. Add your STRIPE_PUBLIC_KEY, STRIPE_SECRET_KEY, and STRIPE_WH_SECRET variables from your Stripe account as well.
+19. Generate and save a SECRET_KEY variable in the config vars of your Heroku app. Add your STRIPE_PUBLIC_KEY, STRIPE_SECRET_KEY, and STRIPE_WH_SECRET variables from your Stripe account as well
 
 20. Create an AWS account in order to use S3 for hosting static files
+
+You can check out Michael Herman's [guide on using S3 with Django](https://testdriven.io/blog/storing-django-static-and-media-files-on-amazon-s3/) for further details
 
 21. Create and setup a new AWS S3 bucket for the app
 
@@ -924,7 +938,7 @@ heroku config:set DISABLE_COLLECTSTATIC=1 -a your-app-name
 
 26. Create a new folder in your S3 bucket called 'media'. In this folder, upload all of the files from the media folder; remember to click permissions and add public read access before uploading
 
-27. Configure the email settings EMAIL_HOST_USER, EMAIL_HOST_PASS and DEFAULT_FROM_EMAIL in the config vars to use an email account you can access. EMAIL_HOST_PASS should be an app password
+27. Configure the email settings EMAIL_HOST_USER, EMAIL_HOST_PASSWORD and DEFAULT_FROM_EMAIL in the config vars to use an email account you can access. EMAIL_HOST_PASSWORD should be an app password
 ![Config vars](docs/deployment/deploy-27.png)
 
 The site is now deployed and functional.
@@ -941,10 +955,10 @@ pip3 install -r requirements.txt
 ```
 
 3. Create a PostgreSQL database locally or online where you would like to host the site's data. You will need to enter the name of your database, and will need to configure the DATABASES setting in settings.py if you are not using PostgreSQL
-![Local database](docs/deployment/local-3)
+![Local database](docs/deployment/local-3.png)
 
 4. Create a file called '.env' in the project folder, where the settings file is located. This file should contain the following variables, with the user entering their own database username and password, their own secret key, and their own Stripe account variables
-![Local vars](docs/deployment/local-4)
+![Local vars](docs/deployment/local-4.png)
 
 5. In the terminal, run the following command. You will be asked to select one of three options to address a non-nullable field in the customised django-star-ratings app. It is appropriate to select option 2, as there is no data yet in the database
 ```
