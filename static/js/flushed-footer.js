@@ -1,4 +1,7 @@
-// Code snippet taken from StackOverflow user Cory, linked in README
+/**
+ * Code snippet taken from StackOverflow user Cory, linked in README
+ * This script ensures the footer remains at the bottom of the page on all screensizes, without having it be sticky and overlaying the content
+ */
 
 function setFooterStyle() {
     var docHeight = $(window).height();

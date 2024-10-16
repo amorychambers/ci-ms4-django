@@ -30,6 +30,8 @@ def products(request):
                 sort = "Single Origin"
             if sort == "bundle":
                 sort = "Bundles"
+            if sort == "blend":
+                sort = "Blends"
 
         if "search" in request.GET:
             search = request.GET["search"]
@@ -43,7 +45,7 @@ def products(request):
         "search": search,
     }
 
-    return render(request, "products/products.html", context)
+    return render(request, 'products/products.html', context)
 
 
 def product_details(request, product_id):
@@ -66,7 +68,7 @@ def product_details(request, product_id):
         "reviews": reviews,
     }
 
-    return render(request, "products/product_details.html", context)
+    return render(request, 'products/product_details.html', context)
 
 
 # Code snippet customised from Code Institute Boutique Ado project
@@ -93,7 +95,7 @@ def add_product(request):
         form = ProductForm()
 
     context = {
-        'form': form,
+        "form": form,
     }
 
     return render(request, 'products/add_product.html', context)

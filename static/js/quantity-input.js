@@ -1,5 +1,7 @@
-// Code snippet from Code Institute Boutique Ado django project
-// Script to handle the buttons to increment and decrement the quantity of an item being added to the shopping cart
+/** 
+ * Code snippet from Code Institute Boutique Ado django project
+ * Script to handle the buttons to increment and decrement the quantity of an item being added to the shopping cart
+ */ 
 
 // Disable +/- buttons outside 1-99 range
 function handleEnableDisable(itemId) {

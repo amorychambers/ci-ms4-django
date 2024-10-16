@@ -15,7 +15,7 @@
 <h2 class="heading my-2"><a href="{% url 'products' %}" class="heading">All Products</a></h2>
 <div class="row my-md-5 mx-lg-4">
   <div class="col-12 col-md-6 my-2">
-    <img src="{{ MEDIA_URL }}{{ product.image }}" class="w-100 rounded" alt="Product Image">
+    <img src="{{ MEDIA_URL }}{{ product.image }}" class="w-100 rounded" alt="{{ product.name }}">
     {% if request.user.is_superuser %}
     <a href="{% url 'update_product' product.id %}" class="btn btn-success w-100 my-2">Update Product</a>
     {% endif %}

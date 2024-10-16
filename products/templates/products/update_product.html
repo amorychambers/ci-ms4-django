@@ -15,14 +15,14 @@
     </form>
   </div>
   <div class="col-12 col-md-6 my-4 my-md-0 order-lg-first">
-    <img src="{{ MEDIA_URL }}{{ product.image }}" class="mb-4 w-100 rounded" alt="Product Image">
+    <img src="{{ MEDIA_URL }}{{ product.image }}" class="mb-4 w-100 rounded" alt="{{ product.name }}">
     <div class="bg-white rounded p-2">
       <h2 class="my-2">{{ product.name }}</h2>
       <p>{{ product.description }}</p>
       <p>Price: £{{ product.price }}</p>
       <p>Stock: {{ product.stock }}g</p>
       <p>Tags: {{ product.tags }}</p>
-      <p>Sale Amount: {{ product.sale }}</p>
+      <p>Sale Amount: {{ product.sale }}%</p>
     </div>
   </div>
 </div>

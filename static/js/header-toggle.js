@@ -1,3 +1,6 @@
+/**
+ * Script to expand and hide the search bar and navlinks when clicking the respective icons
+ */
 let searchButton = document.getElementById("search-icon");
 let navButton = document.getElementById("navbar-icon");
 let links = document.getElementById("links");

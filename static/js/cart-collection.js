@@ -1,3 +1,6 @@
+/**
+ * Script to add a popover explaining the collection option on the checkout page and to ensure switching between either delivery or collection, not allowing for both nor neither to be selected before checkout
+ */
 collectionPopover = `<i class="fa-regular fa-circle-question ms-2" data-bs-toggle="popover" data-bs-content="If you're in our area, you're welcome to come pick up your order from our address and skip the delivery!"></i>`;
 $(collectionPopover).insertAfter($('#collection-select'));
 

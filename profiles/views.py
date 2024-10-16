@@ -27,22 +27,25 @@ def profile(request):
     orders = user_profile.orders.all()
 
     context = {
-        'user_profile': user_profile,
-        'form': form,
-        'orders': orders,
+        "user_profile": user_profile,
+        "form": form,
+        "orders": orders,
     }
     return render(request, 'profiles/profile.html', context)
 
 
 @login_required
 def order_history(request, order_number):
+    """
+    View to display individual previous order details
+    """
     order = get_object_or_404(Order, order_number=order_number)
 
-    context = {
-        'order': order,
-        'from_profile': True
-    }
     if request.user == order.user_profile.user:
+        context = {
+            "order": order,
+            "from_profile": True
+        }
         messages.info(request, f"Order placed on {order.date}")
         return render(request, 'checkout/checkout_success.html', context)
     else:

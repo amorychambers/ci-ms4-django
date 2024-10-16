@@ -53,7 +53,7 @@
     {% if product.stock > 0 %}
     <div class="col-12 col-md-6 col-lg-3 my-2">
       <div class="card">
-        <img src="{{ MEDIA_URL }}{{ product.image }}" class="card-img-top" alt="Product Image">
+        <img src="{{ MEDIA_URL }}{{ product.image }}" class="card-img-top" alt="{{ product.name }}">
         <div class="card-body">
           <h5 class="card-title">{{ product.name }}</h5>
           {% if product.sale %}
@@ -79,12 +79,11 @@
       {% if product.stock == 0 %}
       <div class="col-12 col-md-6 col-lg-3 my-2">
         <div class="card">
-          <img src="{{ MEDIA_URL }}{{ product.image }}" class="card-img-top" alt="Product Image">
+          <img src="{{ MEDIA_URL }}{{ product.image }}" class="card-img-top" alt="{{ product.name }}">
           <div class="card-body">
             <h5 class="card-title">{{ product.name }}</h5>
             {% if product.sale %}
-            <p class="card-subtitle"><span class="strike">£{{ product.price }}</span><span class="text-danger ps-2">£{{
-                product.get_sale_price }} - Sale!</span></p>
+            <p class="card-subtitle"><span class="strike">£{{ product.price }}</span><span class="text-danger ps-2">£{{ product.get_sale_price }} - Sale!</span></p>
             {% else %}
             <p class="card-subtitle">£{{ product.price }}</p>
             {% endif %}

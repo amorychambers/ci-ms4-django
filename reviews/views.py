@@ -45,9 +45,9 @@ def review(request, product_id):
                 'review', kwargs={'product_id': product_id}))
 
     context = {
-        'user': user,
-        'product': product,
-        'form': form,
+        "user": user,
+        "product": product,
+        "form": form,
     }
     return render(request, 'reviews/review.html', context)
 
