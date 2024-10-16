@@ -78,7 +78,7 @@ def update_post(request, post_id):
     if user == post.user:
         form = PostForm(instance=post)
         form.fields['product'].queryset = Product.objects.filter(
-        tags__contains="coffee")
+            tags__contains="coffee")
 
         if request.method == "POST":
             if user == post.user:
@@ -90,8 +90,8 @@ def update_post(request, post_id):
                                     the community tab!')
                     return redirect(reverse('posts'))
                 else:
-                    messages.error(request, 'Something went wrong! Please check \
-                                that you included a title and content.')
+                    messages.error(request, 'Something went wrong! Please \
+                                check that you included a title and content.')
                     return redirect(reverse('create_post'))
             else:
                 messages.error(request, 'Sorry, only the original poster\
@@ -110,7 +110,6 @@ def update_post(request, post_id):
         return redirect(reverse('posts'))
 
 
-
 @login_required
 def delete_post(request, post_id):
     """
@@ -123,5 +122,5 @@ def delete_post(request, post_id):
         post.delete()
         messages.success(request, 'Post deleted!')
     else:
-        messages.error(request, 'Sorry, only the post owner can do that.')
+        messages.error(request, 'Sorry, only the post author can do that.')
     return redirect(reverse('posts'))

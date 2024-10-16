@@ -35,6 +35,9 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
+    """
+    View to handle checkout process with Stripe
+    """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -79,8 +82,7 @@ def checkout(request):
                     messages.error(request, (
                         "One of the products in your bag \
                             wasn't found in our database. \
-                                Please call us for assistance!")
-                    )
+                                Please contact us for assistance!"))
                     order.delete()
                     return redirect(reverse('view_bag'))
 
@@ -187,7 +189,7 @@ def checkout_success(request, order_number):
 
         messages.success(request, f'Order successful!\
                         Your order number is {order_number}.\
-                            A confirmation email will be sent to {order.email}')
+                        A confirmation email will be sent to {order.email}')
 
         if 'cart' in request.session:
             del request.session['cart']

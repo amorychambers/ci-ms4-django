@@ -28,7 +28,7 @@ def add_to_cart(request, product_id):
         cart[product_id] += quantity
         messages.success(request,
                          f"Added {quantity} x '{product.name}' \
-                            to your shopping cart", extra_tags="view-cart")
+                            to your shopping cart", extra_tags="view_cart")
     else:
         cart[product_id] = quantity
         messages.success(request,
@@ -51,13 +51,11 @@ def update_cart(request, product_id):
     if quantity > 0:
         cart[product_id] = quantity
         messages.success(request,
-                         f"Updated {product.name} quantity to {quantity}",
-                         extra_tags="view_cart")
+                         f"Updated {product.name} quantity to {quantity}")
     else:
         cart.pop(product_id)
         messages.success(request,
-                         f"{product.name} removed from cart",
-                         extra_tags="view_cart")
+                         f"{product.name} removed from cart")
 
     request.session["cart"] = cart
 
@@ -76,8 +74,7 @@ def remove_from_cart(request, product_id):
         cart.pop(product_id)
 
         request.session["cart"] = cart
-        messages.success(request, f"{product.name} removed from cart",
-                         extra_tags="view_cart")
+        messages.success(request, f"{product.name} removed from cart")
         return HttpResponse(status=200)
     except Exception as e:
         messages.error(request, f"Error removing item: {e}")

@@ -9,6 +9,9 @@ from products.models import Product
 
 
 def cart_contents(request):
+    """
+    Context processor for loading cart products sitewide
+    """
 
     cart_products = []
     total = 0
