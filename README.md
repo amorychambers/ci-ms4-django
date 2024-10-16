@@ -958,6 +958,7 @@ pip3 install -r requirements.txt
 ![Local database](docs/deployment/local-3.png)
 
 4. Create a file called '.env' in the project folder, where the settings file is located. This file should contain the following variables, with the user entering their own database username and password, their own secret key, and their own Stripe account variables
+
 ![Local vars](docs/deployment/local-4.png)
 
 5. In the terminal, run the following command. You will be asked to select one of three options to address a non-nullable field in the customised django-star-ratings app. It is appropriate to select option 2, as there is no data yet in the database
