@@ -11,14 +11,14 @@
   {% for post in page_obj %}
   <div class="row my-4 align-items-center">
     {% if post.image %}
-    <div class="col-12 col-lg-5 offset-lg-1 g-0 text-lg-end post-image">
+    <div class="col-12 col-lg-5 offset-lg-1 g-0 text-lg-end  mx-lg-2 post-image">
       <img src="{{ MEDIA_URL }}{{ post.image }}" class="img-fluid rounded-top" alt="Post Image">
     </div>
-    <div class="col-12 col-lg-4 g-0 position-relative bg-white single-post rounded">
+    <div class="col-12 col-lg-4 g-0 position-relative bg-white single-post mx-lg-2 rounded">
       <h4 class="post-title py-2">{{ post.title }}</h4>
       <p class="text-muted m-0">{{ post.user }} on {{ post.date }}</p>
       {% if post.product %}
-      <a href="{% url 'product_details' post.product %}">{{ post.product.name }}</a>
+      <a href="{% url 'product_details' post.product.id %}">{{ post.product.name }}</a>
       {% endif %}
       <p class="my-2">{{ post.content }}</p>
       {% if request.user == post.user %}
@@ -47,7 +47,7 @@
 </div>
 
 <!-- Pagination template taken from django documentation -->
-<div class="row center background text-white mt-4">
+<div class="row center background text-white my-4">
   <div class="pagination">
     <span class="step-links m-auto p-2">
       {% if page_obj.has_previous %}

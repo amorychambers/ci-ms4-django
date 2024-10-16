@@ -822,6 +822,8 @@ Background Image by [Cindynihart](https://pixabay.com/illustrations/coffee-beans
 
 Coffee Icon from [uxwing](https://uxwing.com/coffee-bean-icon/)
 
+Post Photo by [igra](https://www.pexels.com/photo/coffee-and-book-15184700/)
+
 ### External Code
 
 [Django Postgres Tutorial](https://stackpython.medium.com/how-to-start-django-project-with-a-database-postgresql-aaa1d74659d8)
