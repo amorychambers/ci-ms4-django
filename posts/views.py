@@ -75,34 +75,40 @@ def update_post(request, post_id):
     user = get_object_or_404(User, username=request.user)
     post = get_object_or_404(Post, pk=post_id)
 
-    form = PostForm(instance=post)
-    form.fields['product'].queryset = Product.objects.filter(
-    tags__contains="coffee")
+    if user == post.user:
+        form = PostForm(instance=post)
+        form.fields['product'].queryset = Product.objects.filter(
+        tags__contains="coffee")
 
-    if request.method == "POST":
-        if post.user == user:
-            form = PostForm(request.POST, request.FILES,
-                            instance=post)
-            if form.is_valid():
-                form.save()
-                messages.success(request, 'Check out your post in \
-                                the community tab!')
-                return redirect(reverse('posts'))
+        if request.method == "POST":
+            if user == post.user:
+                form = PostForm(request.POST, request.FILES,
+                                instance=post)
+                if form.is_valid():
+                    form.save()
+                    messages.success(request, 'Check out your post in \
+                                    the community tab!')
+                    return redirect(reverse('posts'))
+                else:
+                    messages.error(request, 'Something went wrong! Please check \
+                                that you included a title and content.')
+                    return redirect(reverse('create_post'))
             else:
-                messages.error(request, 'Something went wrong! Please check \
-                            that you included a title and content.')
-                return redirect(reverse('create_post'))
-        else:
-            messages.error(request, 'Sorry, only the original poster\
-                        can make changes to the post.')
-            return redirect(reverse('posts'))
+                messages.error(request, 'Sorry, only the original poster\
+                            can make changes to the post.')
+                return redirect(reverse('posts'))
 
-    context = {
-        "post": post,
-        "form": form,
-    }
+        context = {
+            "post": post,
+            "form": form,
+        }
 
-    return render(request, 'posts/update_post.html', context)
+        return render(request, 'posts/update_post.html', context)
+    else:
+        messages.error(request, 'Sorry, only the original poster\
+                            can make changes to the post.')
+        return redirect(reverse('posts'))
+
 
 
 @login_required
