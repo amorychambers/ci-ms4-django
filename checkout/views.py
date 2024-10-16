@@ -152,7 +152,7 @@ def checkout(request):
 
 def checkout_success(request, order_number):
     """
-    View to communication successful purchase to customer
+    View to communicate successful purchase to customer
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)

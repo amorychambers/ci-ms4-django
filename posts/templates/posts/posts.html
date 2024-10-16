@@ -32,7 +32,7 @@
       <h4 class="post-title py-2 rounded-top">{{ post.title }}</h4>
       <p class="text-muted m-0">{{ post.user }} on {{ post.date }}</p>
       {% if post.product %}
-      <a href="{% url 'product_details' post.product %}">{{ post.product.name }}</a>
+      <a href="{% url 'product_details' post.product.id %}">{{ post.product.name }}</a>
       {% endif %}
       <p class="my-2">{{ post.content }}</p>
       {% if request.user == post.user %}

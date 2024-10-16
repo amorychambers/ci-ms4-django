@@ -822,7 +822,9 @@ Background Image by [Cindynihart](https://pixabay.com/illustrations/coffee-beans
 
 Coffee Icon from [uxwing](https://uxwing.com/coffee-bean-icon/)
 
-Post Photo by [igra](https://www.pexels.com/photo/coffee-and-book-15184700/)
+Post 1 Photo by [igra](https://www.pexels.com/photo/coffee-and-book-15184700/)
+
+Post 2 Photo by [Pixabay](https://www.pexels.com/photo/selective-focus-photography-of-pure-orange-juice-158053/)
 
 ### External Code
 
