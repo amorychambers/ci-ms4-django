@@ -789,6 +789,8 @@ To address this, I had to fork and customise the package. Firstly, I had to amen
 
 The second major issue I ran into was related to deployment, whereby the static files for the site were not being uploaded to the S3 bucket as they should. After extensive testing and experimentation, and after consulting with Code Institute's tutor support, it appeared that there was a conflict between this particular feature in Django v5.1.2 and AWS's S3. For this reason, and having exhausted all possible fixes, I decided to downgrade to Django v4.2 where the static files are automatically collected during deployment and uploaded to the S3 bucket where they can be hosted and served to the site. I had to retest all of the features on the site to be sure there were no additional conflicts between any of the code I had written, any of the other packages installed for the site, and the earlier version of Django. As only minor changes were required - particularly with the django-multiselectfield package - I am content to run the app with Django v4.2.
 
+There is one console reference error when accessing the cart.html page when there are no products in the cart, as the cart-collection.js script cannot find the #checkout-btn element. As this does not create any further problems and only occurs when the cart is empty, I have left it unaddressed.
+
 ## Credits
 
 ### Media
