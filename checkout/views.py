@@ -85,7 +85,7 @@ def checkout(request):
                                 Please contact us for assistance!"))
                     order.delete()
                     return redirect(reverse('view_bag'))
-            
+
             for item in order.lineitems.all():
                 product = get_object_or_404(Product, pk=item.product.id)
                 if 'coffee' in product.tags:
