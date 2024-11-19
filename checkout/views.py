@@ -85,6 +85,14 @@ def checkout(request):
                                 Please contact us for assistance!"))
                     order.delete()
                     return redirect(reverse('view_bag'))
+            
+            for item in order.lineitems.all():
+                product = get_object_or_404(Product, pk=item.product.id)
+                if 'coffee' in product.tags:
+                    product.stock -= (item.quantity * 250)
+                else:
+                    product.stock -= item.quantity
+                product.save()
 
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success',
@@ -159,49 +167,41 @@ def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
-    if request.user == order.user_profile.user:
-        for item in order.lineitems.all():
-            product = get_object_or_404(Product, pk=item.product.id)
-            if 'coffee' in product.tags:
-                product.stock -= (item.quantity * 250)
-            else:
-                product.stock -= item.quantity
-            product.save()
+    if request.user.is_authenticated:
+        user_profile = get_object_or_404(UserProfile, user=request.user)
+        order.user_profile = user_profile
+        order.save()
 
-        if request.user.is_authenticated:
-            user_profile = get_object_or_404(UserProfile, user=request.user)
-            order.user_profile = user_profile
-            order.save()
+        if save_info:
+            delivery_info = {
+                'default_phone_number': order.phone_number,
+                'default_street_address1': order.street_address1,
+                'default_street_address2': order.street_address2,
+                'default_town_or_city': order.town_or_city,
+                'default_county': order.county,
+                'default_postcode': order.postcode,
+            }
+            user_profile_form = UserProfileForm(
+                delivery_info, instance=user_profile)
+            if user_profile_form.is_valid():
+                user_profile_form.save()
 
-            if save_info:
-                delivery_info = {
-                    'default_phone_number': order.phone_number,
-                    'default_street_address1': order.street_address1,
-                    'default_street_address2': order.street_address2,
-                    'default_town_or_city': order.town_or_city,
-                    'default_county': order.county,
-                    'default_postcode': order.postcode,
-                }
-                user_profile_form = UserProfileForm(
-                    delivery_info, instance=user_profile)
-                if user_profile_form.is_valid():
-                    user_profile_form.save()
+    messages.success(request, f'Order successful!\
+                    Your order number is {order_number}.\
+                    A confirmation email will be sent to {order.email}')
 
-        messages.success(request, f'Order successful!\
-                        Your order number is {order_number}.\
-                        A confirmation email will be sent to {order.email}')
+    if 'cart' in request.session:
+        del request.session['cart']
 
-        if 'cart' in request.session:
-            del request.session['cart']
+    context = {
+        'order': order,
+    }
 
-        context = {
-            'order': order,
-        }
+    return render(request, "checkout/checkout_success.html", context)
 
-        return render(request, "checkout/checkout_success.html", context)
-    else:
-        messages.error(request, 'Sorry, only the user who made the \
-                       order can view it. If you believe this \
-                       order should be associated with your profile, \
-                       please contact us.')
-        return redirect(reverse('home'))
+    # else:
+    #     messages.error(request, 'Sorry, only the user who made the \
+    #                    order can view it. If you believe this \
+    #                    order should be associated with your profile, \
+    #                    please contact us.')
+    #     return redirect(reverse('home'))
