@@ -198,10 +198,3 @@ def checkout_success(request, order_number):
     }
 
     return render(request, "checkout/checkout_success.html", context)
-
-    # else:
-    #     messages.error(request, 'Sorry, only the user who made the \
-    #                    order can view it. If you believe this \
-    #                    order should be associated with your profile, \
-    #                    please contact us.')
-    #     return redirect(reverse('home'))
